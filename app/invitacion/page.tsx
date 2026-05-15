@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react"
 export default function Invitacion() {
 
   const heroRef = useRef<HTMLDivElement>(null)
+  const historyRef = useRef<HTMLDivElement>(null)
   const detailsRef = useRef<HTMLDivElement>(null)
   const rsvpRef = useRef<HTMLDivElement>(null)
 
@@ -35,7 +36,7 @@ export default function Invitacion() {
     })
   }
 
-  // COUNTDOWN REAL
+  // COUNTDOWN
   const weddingDate = new Date("2026-12-20T17:00:00").getTime()
 
   const calculateTimeLeft = () => {
@@ -63,7 +64,7 @@ export default function Invitacion() {
   return (
     <main className="bg-[#f6f1ea] text-[#1a1a1a] overflow-hidden">
 
-      {/* VIDEO HERO */}
+      {/* HERO VIDEO */}
       <section className="relative h-screen">
 
         <video
@@ -92,7 +93,7 @@ justify-center text-center text-white px-6">
           <button
             onClick={() => scrollTo(heroRef)}
             className="mt-12 px-10 py-4 rounded-full bg-white/10 border 
-border-white/30 backdrop-blur hover:scale-105 transition"
+border-white/30 backdrop-blur hover:scale-105 transition duration-500"
           >
             Abrir Invitación
           </button>
@@ -120,7 +121,6 @@ text-white"
 
         <div className="relative z-10 w-full pb-16 px-6 text-center">
 
-          {/* TEXTO RESTAURADO */}
           <h2 className="text-5xl md:text-7xl font-light mb-6">
             Nuestra Boda
           </h2>
@@ -130,7 +130,15 @@ text-white"
           </p>
 
           {/* BOTONES */}
-          <div className="flex justify-center gap-4 flex-wrap mb-6">
+          <div className="flex justify-center gap-4 flex-wrap mb-8">
+
+            <button
+              onClick={() => scrollTo(historyRef)}
+              className="px-8 py-4 rounded-full bg-white/10 border 
+border-white/30 backdrop-blur hover:scale-105 transition"
+            >
+              Nuestra Historia
+            </button>
 
             <button
               onClick={() => scrollTo(detailsRef)}
@@ -150,32 +158,44 @@ border-white/30 backdrop-blur hover:scale-105 transition"
 
           </div>
 
-          {/* COUNTDOWN */}
+          {/* COUNTDOWN PREMIUM */}
           <div className="inline-flex gap-6 px-8 py-4 rounded-2xl 
 bg-black/25 border border-white/20 backdrop-blur text-white">
 
-            <div>
-              <div className="text-2xl font-light">{timeLeft.days}</div>
-              <div className="text-xs uppercase 
-tracking-widest">Días</div>
+            <div className="text-center">
+              <div className="text-3xl font-light">{timeLeft.days}</div>
+              <div className="text-xs uppercase tracking-[0.3em] mt-1">
+                Días
+              </div>
             </div>
 
-            <div>
-              <div className="text-2xl font-light">{timeLeft.hours}</div>
-              <div className="text-xs uppercase 
-tracking-widest">Horas</div>
+            <div className="opacity-40 text-2xl">|</div>
+
+            <div className="text-center">
+              <div className="text-3xl font-light">{timeLeft.hours}</div>
+              <div className="text-xs uppercase tracking-[0.3em] mt-1">
+                Horas
+              </div>
             </div>
 
-            <div>
-              <div className="text-2xl 
+            <div className="opacity-40 text-2xl">|</div>
+
+            <div className="text-center">
+              <div className="text-3xl 
 font-light">{timeLeft.minutes}</div>
-              <div className="text-xs uppercase tracking-widest">Min</div>
+              <div className="text-xs uppercase tracking-[0.3em] mt-1">
+                Min
+              </div>
             </div>
 
-            <div>
-              <div className="text-2xl 
+            <div className="opacity-40 text-2xl">|</div>
+
+            <div className="text-center">
+              <div className="text-3xl 
 font-light">{timeLeft.seconds}</div>
-              <div className="text-xs uppercase tracking-widest">Seg</div>
+              <div className="text-xs uppercase tracking-[0.3em] mt-1">
+                Seg
+              </div>
             </div>
 
           </div>
@@ -183,89 +203,36 @@ font-light">{timeLeft.seconds}</div>
         </div>
       </section>
 
-      {/* DETALLES */}
+      {/* NUESTRA HISTORIA */}
       <section
-        ref={detailsRef}
-        className="py-24 px-6 bg-[#efe6db]"
+        ref={historyRef}
+        className="py-28 bg-[#f3ece2] relative"
       >
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b 
+from-black/10 to-transparent" />
 
-          <a
-            href="https://maps.app.goo.gl/pU5zycxGosdKi9MJA"
-            target="_blank"
-            className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
-hover:scale-[1.02] transition"
-          >
+        <div className="max-w-5xl mx-auto px-6 text-center mb-14">
 
-            <div className="text-4xl mb-4">⛪</div>
+          <h2 className="text-5xl font-light mb-4">
+            Nuestra Historia
+          </h2>
 
-            <h3 className="text-2xl mb-2">
-              Ceremonia
-            </h3>
-
-            <p className="text-lg">
-              Santuario de Tepalcingo
-            </p>
-
-            {/* FECHA */}
-            <p className="text-sm text-gray-600 mt-4">
-              20 Diciembre 2026
-            </p>
-
-            {/* HORA */}
-            <p className="text-sm text-gray-600">
-              5:00 PM
-            </p>
-
-          </a>
-
-          <a
-            href="https://maps.app.goo.gl/bti7LF96Bd9bhAzZ9"
-            target="_blank"
-            className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
-hover:scale-[1.02] transition"
-          >
-
-            <div className="text-4xl mb-4">🍾</div>
-
-            <h3 className="text-2xl mb-2">
-              Recepción
-            </h3>
-
-            <p className="text-lg">
-              Jardín Anrubio
-            </p>
-
-            {/* FECHA */}
-            <p className="text-sm text-gray-600 mt-4">
-              20 Diciembre 2026
-            </p>
-
-            {/* HORA */}
-            <p className="text-sm text-gray-600">
-              6:00 PM
-            </p>
-
-          </a>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Cada historia de amor merece ser recordada para siempre.
+          </p>
 
         </div>
-      </section>
 
-      {/* HISTORIA */}
-      <section className="py-24 bg-[#f3ece2]">
-
-        {/* VIDEO VIMEO */}
-        <div className="max-w-5xl mx-auto px-6 mb-10">
+        {/* VIMEO */}
+        <div className="max-w-5xl mx-auto px-6 mb-12">
 
           <div className="rounded-3xl overflow-hidden shadow-2xl">
-
             <iframe
               src="https://player.vimeo.com/video/1192713156"
               className="w-full aspect-video"
               allow="autoplay; fullscreen; picture-in-picture"
             />
-
           </div>
 
         </div>
@@ -289,6 +256,97 @@ duration-1000"
                 }}
               />
             ))}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* DETALLES DEL EVENTO */}
+      <section
+        ref={detailsRef}
+        className="relative py-28 px-6 bg-[#efe6db] overflow-hidden"
+      >
+
+        {/* TEXTURA VELO */}
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage:
+              
+"url('https://www.transparenttextures.com/patterns/white-diamond.png')"
+          }}
+        />
+
+        <div className="relative z-10">
+
+          <div className="text-center mb-16">
+
+            <h2 className="text-5xl font-light mb-4">
+              Detalles del Evento
+            </h2>
+
+            <p className="text-gray-600">
+              Ceremonia y recepción
+            </p>
+
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+
+            <a
+              href="https://maps.app.goo.gl/pU5zycxGosdKi9MJA"
+              target="_blank"
+              className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
+hover:scale-[1.02] transition"
+            >
+
+              <div className="text-4xl mb-4">⛪</div>
+
+              <h3 className="text-2xl mb-2">
+                Ceremonia
+              </h3>
+
+              <p className="text-lg">
+                Santuario de Tepalcingo
+              </p>
+
+              <p className="text-sm text-gray-600 mt-4">
+                20 Diciembre 2026
+              </p>
+
+              <p className="text-sm text-gray-600">
+                5:00 PM
+              </p>
+
+            </a>
+
+            <a
+              href="https://maps.app.goo.gl/bti7LF96Bd9bhAzZ9"
+              target="_blank"
+              className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
+hover:scale-[1.02] transition"
+            >
+
+              <div className="text-4xl mb-4">🍾</div>
+
+              <h3 className="text-2xl mb-2">
+                Recepción
+              </h3>
+
+              <p className="text-lg">
+                Jardín Anrubio
+              </p>
+
+              <p className="text-sm text-gray-600 mt-4">
+                20 Diciembre 2026
+              </p>
+
+              <p className="text-sm text-gray-600">
+                6:00 PM
+              </p>
+
+            </a>
 
           </div>
 

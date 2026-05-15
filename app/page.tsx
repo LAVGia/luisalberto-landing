@@ -1,19 +1,27 @@
 export default function Home() {
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="bg-[#1a1721] text-white min-h-screen scroll-smooth">
 
       {/* HERO */}
 
       <section className="h-screen flex items-center px-8 md:px-20 
 border-b border-white/10">
+
         <div className="max-w-5xl">
 
-          <p className="uppercase tracking-[0.3em] text-zinc-500 mb-6">
+          <p className="uppercase tracking-[0.3em] text-zinc-400 mb-6">
             Productor Audiovisual
           </p>
 
-          <h1 className="text-6xl md:text-8xl font-black leading-none">
-            Luis Alberto <span className="text-zinc-500">VG</span>
+          <h1 className="text-6xl md:text-8xl font-black leading-none 
+relative overflow-hidden w-fit">
+
+            <span className="relative z-10">
+              Luis Alberto <span className="text-[#8f7bb8]">VG</span>
+            </span>
+
+            <span className="absolute inset-0 shimmer"></span>
+
           </h1>
 
           <p className="text-zinc-400 text-xl max-w-2xl mt-10 
@@ -24,48 +32,37 @@ leading-relaxed">
 
           <div className="flex flex-wrap gap-5 mt-12">
 
-            <button className="bg-white text-black px-8 py-4 rounded-full 
-font-bold hover:scale-105 transition">
-              Ver Portafolio
-            </button>
+            <a
+              href="#portfolio"
+              className="bg-white text-black px-8 py-4 rounded-full 
+font-bold hover:scale-105 transition"
+            >
+              Portafolio
+            </a>
 
-            <button className="border border-white/20 px-8 py-4 
-rounded-full hover:bg-white hover:text-black transition">
-              Coberturas en Vivo
-            </button>
+            <a
+              href="#foto"
+              className="border border-white/20 px-8 py-4 rounded-full 
+hover:bg-white hover:text-black transition"
+            >
+              Tu Foto
+            </a>
 
-          </div>
+            <a
+              href="#services"
+              className="border border-white/20 px-8 py-4 rounded-full 
+hover:bg-white hover:text-black transition"
+            >
+              Servicios
+            </a>
 
-        </div>
-      </section>
-
-      {/* SOBRE MI */}
-
-      <section className="px-8 md:px-20 py-32 border-b border-white/10">
-
-        <div className="grid md:grid-cols-2 gap-20 items-center">
-
-          <div className="bg-zinc-900 rounded-3xl h-[500px]"></div>
-
-          <div>
-
-            <h2 className="text-5xl font-black mb-10">
-              Historias que se viven en tiempo real.
-            </h2>
-
-            <p className="text-zinc-400 text-lg leading-relaxed mb-8">
-              Mi trabajo combina fotografía documental, producción 
-audiovisual
-              y transmisión en vivo para crear experiencias visuales con
-              identidad cinematográfica.
-            </p>
-
-            <p className="text-zinc-400 text-lg leading-relaxed">
-              Desde bodas y conciertos hasta eventos masivos y campañas
-              institucionales, cada proyecto busca capturar emociones 
-reales
-              con una estética moderna y narrativa visual cuidada.
-            </p>
+            <a
+              href="#contact"
+              className="border border-white/20 px-8 py-4 rounded-full 
+hover:bg-white hover:text-black transition"
+            >
+              Contacto
+            </a>
 
           </div>
 
@@ -75,7 +72,10 @@ reales
 
       {/* SERVICIOS */}
 
-      <section className="px-8 md:px-20 py-32 border-b border-white/10">
+      <section
+        id="services"
+        className="px-8 md:px-20 py-32 border-b border-white/10"
+      >
 
         <h2 className="text-5xl font-black mb-20">
           Servicios
@@ -83,7 +83,7 @@ reales
 
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
 
-          <div className="bg-zinc-900 rounded-3xl p-10">
+          <div className="bg-[#241f2f] rounded-3xl p-10">
             <h3 className="text-2xl font-bold mb-8">
               Producción Audiovisual
             </h3>
@@ -96,7 +96,7 @@ reales
             </ul>
           </div>
 
-          <div className="bg-zinc-900 rounded-3xl p-10">
+          <div className="bg-[#241f2f] rounded-3xl p-10">
             <h3 className="text-2xl font-bold mb-8">
               Fotografía
             </h3>
@@ -109,7 +109,7 @@ reales
             </ul>
           </div>
 
-          <div className="bg-zinc-900 rounded-3xl p-10">
+          <div className="bg-[#241f2f] rounded-3xl p-10">
             <h3 className="text-2xl font-bold mb-8">
               Live Streaming
             </h3>
@@ -122,7 +122,7 @@ reales
             </ul>
           </div>
 
-          <div className="bg-zinc-900 rounded-3xl p-10">
+          <div className="bg-[#241f2f] rounded-3xl p-10">
             <h3 className="text-2xl font-bold mb-8">
               Diseño Digital
             </h3>
@@ -139,10 +139,13 @@ reales
 
       </section>
 
-      {/* ENCUENTRA TU FOTO */}
+      {/* TU FOTO */}
 
-      <section className="px-8 md:px-20 py-32 text-center border-b 
-border-white/10">
+      <section
+        id="foto"
+        className="px-8 md:px-20 py-32 text-center border-b 
+border-white/10"
+      >
 
         <h2 className="text-5xl md:text-6xl font-black">
           ¿Estuviste en un evento?
@@ -163,7 +166,10 @@ font-bold mt-14 hover:scale-105 transition">
 
       {/* PORTAFOLIO */}
 
-      <section className="px-8 md:px-20 py-32 border-b border-white/10">
+      <section
+        id="portfolio"
+        className="px-8 md:px-20 py-32 border-b border-white/10"
+      >
 
         <h2 className="text-5xl font-black mb-20">
           Portafolio
@@ -171,23 +177,23 @@ font-bold mt-14 hover:scale-105 transition">
 
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
 
-          <div className="bg-zinc-900 rounded-3xl h-[400px] flex items-end 
-p-8">
+          <div className="bg-[#241f2f] rounded-3xl h-[400px] flex 
+items-end p-8">
             <h3 className="text-3xl font-bold">Bodas</h3>
           </div>
 
-          <div className="bg-zinc-900 rounded-3xl h-[400px] flex items-end 
-p-8">
+          <div className="bg-[#241f2f] rounded-3xl h-[400px] flex 
+items-end p-8">
             <h3 className="text-3xl font-bold">Conciertos</h3>
           </div>
 
-          <div className="bg-zinc-900 rounded-3xl h-[400px] flex items-end 
-p-8">
+          <div className="bg-[#241f2f] rounded-3xl h-[400px] flex 
+items-end p-8">
             <h3 className="text-3xl font-bold">Documental</h3>
           </div>
 
-          <div className="bg-zinc-900 rounded-3xl h-[400px] flex items-end 
-p-8">
+          <div className="bg-[#241f2f] rounded-3xl h-[400px] flex 
+items-end p-8">
             <h3 className="text-3xl font-bold">Live Streaming</h3>
           </div>
 
@@ -195,98 +201,12 @@ p-8">
 
       </section>
 
-      {/* REDES */}
+      {/* CONTACTO */}
 
-      <section className="px-8 md:px-20 py-32 border-b border-white/10">
-
-        <h2 className="text-5xl font-black mb-20">
-          Sigue las Coberturas
-        </h2>
-
-        <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-6">
-
-          <div className="bg-zinc-900 rounded-3xl p-8">
-            <h3 className="text-2xl font-bold mb-5">
-              Facebook Tepalcingo
-            </h3>
-
-            <p className="text-zinc-400 mb-8">
-              Cobertura institucional y transmisiones oficiales.
-            </p>
-
-            <button className="border border-white/20 px-6 py-3 
-rounded-full">
-              Ver Página
-            </button>
-          </div>
-
-          <div className="bg-zinc-900 rounded-3xl p-8">
-            <h3 className="text-2xl font-bold mb-5">
-              Facebook Luis Alberto VG
-            </h3>
-
-            <p className="text-zinc-400 mb-8">
-              Cobertura regional y contenido social.
-            </p>
-
-            <button className="border border-white/20 px-6 py-3 
-rounded-full">
-              Seguir
-            </button>
-          </div>
-
-          <div className="bg-zinc-900 rounded-3xl p-8">
-            <h3 className="text-2xl font-bold mb-5">
-              YouTube
-            </h3>
-
-            <p className="text-zinc-400 mb-8">
-              Lives masivos y producciones especiales.
-            </p>
-
-            <button className="border border-white/20 px-6 py-3 
-rounded-full">
-              Ver Canal
-            </button>
-          </div>
-
-          <div className="bg-zinc-900 rounded-3xl p-8">
-            <h3 className="text-2xl font-bold mb-5">
-              Instagram
-            </h3>
-
-            <p className="text-zinc-400 mb-8">
-              Reels, retratos y contenido visual.
-            </p>
-
-            <button className="border border-white/20 px-6 py-3 
-rounded-full">
-              Ver Instagram
-            </button>
-          </div>
-
-          <div className="bg-zinc-900 rounded-3xl p-8">
-            <h3 className="text-2xl font-bold mb-5">
-              TikTok
-            </h3>
-
-            <p className="text-zinc-400 mb-8">
-              Storytelling y detrás de cámaras.
-            </p>
-
-            <button className="border border-white/20 px-6 py-3 
-rounded-full">
-              Ver TikTok
-            </button>
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* CTA */}
-
-      <section className="px-8 md:px-20 py-40 text-center">
+      <section
+        id="contact"
+        className="px-8 md:px-20 py-40 text-center"
+      >
 
         <h2 className="text-6xl font-black">
           ¿Tienes una historia que contar?
@@ -306,6 +226,37 @@ font-bold mt-14 hover:scale-105 transition">
 
       </section>
 
+      <style jsx>{`
+        html {
+          scroll-behavior: smooth;
+        }
+
+        .shimmer {
+          background: linear-gradient(
+            120deg,
+            transparent 0%,
+            rgba(255,255,255,0.06) 45%,
+            rgba(255,255,255,0.18) 50%,
+            rgba(255,255,255,0.06) 55%,
+            transparent 100%
+          );
+
+          transform: translateX(-100%);
+          animation: shimmerMove 7s infinite;
+        }
+
+        @keyframes shimmerMove {
+          0% {
+            transform: translateX(-100%);
+          }
+
+          100% {
+            transform: translateX(200%);
+          }
+        }
+      `}</style>
+
     </main>
   )
 }
+

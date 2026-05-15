@@ -6,27 +6,21 @@ export default function Invitacion() {
 
   const heroRef = useRef<HTMLDivElement>(null)
   const detailsRef = useRef<HTMLDivElement>(null)
-  const historyRef = useRef<HTMLDivElement>(null)
   const rsvpRef = useRef<HTMLDivElement>(null)
 
   const [activeIndex, setActiveIndex] = useState(0)
 
   const gallery = [
-    
-"https://images.unsplash.com/photo-1523438097201-512ae7d59c7a?q=80&w=1600&auto=format&fit=crop",
-    
-"https://images.unsplash.com/photo-1521337706264-a414f153a5db?q=80&w=1600&auto=format&fit=crop",
-    
-"https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?q=80&w=1600&auto=format&fit=crop",
-    
-"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop"
+    "https://images.unsplash.com/photo-1523438097201-512ae7d59c7a",
+    "https://images.unsplash.com/photo-1521337706264-a414f153a5db",
+    "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac",
+    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc"
   ]
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((p) => (p + 1) % gallery.length)
     }, 4000)
-
     return () => clearInterval(interval)
   }, [])
 
@@ -34,10 +28,37 @@ export default function Invitacion() {
     ref.current?.scrollIntoView({ behavior: "smooth" })
   }
 
-  return (
-    <main className="bg-[#f7f2ea] text-[#1a1a1a] overflow-hidden">
+  // 🧠 FECHA REAL: 20 noviembre 2016 17:00
+  const targetDate = new Date("2016-11-20T17:00:00")
 
-      {/* HERO VIDEO */}
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  })
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime()
+      const distance = targetDate.getTime() - now
+
+      setTimeLeft({
+        days: Math.max(Math.floor(distance / (1000 * 60 * 60 * 24)), 0),
+        hours: Math.max(Math.floor((distance / (1000 * 60 * 60)) % 24), 
+0),
+        minutes: Math.max(Math.floor((distance / (1000 * 60)) % 60), 0),
+        seconds: Math.max(Math.floor((distance / 1000) % 60), 0)
+      })
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <main className="bg-[#f6f1ea] text-[#1a1a1a]">
+
+      {/* 1. VIDEO HERO */}
       <section className="relative h-screen">
 
         <video
@@ -52,113 +73,114 @@ export default function Invitacion() {
 
         <div className="absolute inset-0 bg-black/50" />
 
-        <div className="relative z-10 h-full flex flex-col justify-center 
-items-center text-center px-6">
+        <div className="relative z-10 h-full flex flex-col items-center 
+justify-center text-center text-white px-6">
 
-          <p className="uppercase tracking-[0.4em] text-white/70 mb-6">
+          <p className="tracking-[0.4em] uppercase text-white/70 mb-6">
             Enlace Matrimonial
           </p>
 
-          <h1 className="text-white text-5xl md:text-8xl font-light">
+          <h1 className="text-5xl md:text-7xl font-light">
             Isabella <span className="text-[#d4af37]">&</span> Daniel
           </h1>
+
+          {/* BOTÓN RESTAURADO */}
+          <button
+            onClick={() => scrollTo(heroRef)}
+            className="mt-10 px-10 py-4 rounded-full bg-white/10 border 
+border-white/30 backdrop-blur hover:scale-105 transition"
+          >
+            Abrir Invitación
+          </button>
 
         </div>
       </section>
 
-      {/* BOTONES + COUNTDOWN */}
-      <section className="py-16 bg-[#f3ece2]">
+      {/* 2. SECCIÓN PRINCIPAL (FOTO NOVIOS + BOTONES ABAJO) */}
+      <section
+        ref={heroRef}
+        className="relative min-h-screen flex flex-col justify-end 
+text-white"
+      >
 
-        <div className="text-center">
+        {/* fondo novios */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              
+"url('https://images.unsplash.com/photo-1523438097201-512ae7d59c7a?q=80&w=1600&auto=format&fit=crop')"
+          }}
+        />
 
-          <div className="flex justify-center gap-4 flex-wrap mb-6">
+        <div className="absolute inset-0 bg-black/40" />
+
+        {/* contenido inferior */}
+        <div className="relative z-10 w-full pb-16 px-6 text-center">
+
+          {/* BOTONES */}
+          <div className="flex justify-center gap-4 mb-6 flex-wrap">
 
             <button
               onClick={() => scrollTo(detailsRef)}
-              className="px-8 py-4 rounded-full bg-white/70 border 
-border-black/10 backdrop-blur hover:scale-105 transition"
+              className="px-8 py-3 bg-white/10 border border-white/30 
+backdrop-blur rounded-full"
             >
               Detalles
             </button>
 
             <button
               onClick={() => scrollTo(rsvpRef)}
-              className="px-8 py-4 rounded-full bg-white/70 border 
-border-black/10 backdrop-blur hover:scale-105 transition"
+              className="px-8 py-3 bg-white/10 border border-white/30 
+backdrop-blur rounded-full"
             >
               RSVP
             </button>
 
           </div>
 
-          {/* COUNTDOWN (ESTILO DIFERENTE) */}
-          <div className="inline-flex gap-6 bg-black/10 px-8 py-4 
-rounded-2xl backdrop-blur border border-black/10">
+          {/* COUNTDOWN (debajo botones) */}
+          <div className="inline-flex gap-6 px-6 py-3 bg-black/30 
+backdrop-blur rounded-2xl border border-white/10 text-sm">
 
-            <div>120 <span className="text-xs">Días</span></div>
-            <div>08 <span className="text-xs">Hrs</span></div>
-            <div>24 <span className="text-xs">Min</span></div>
-            <div>12 <span className="text-xs">Seg</span></div>
+            <div>{timeLeft.days} D</div>
+            <div>{timeLeft.hours} H</div>
+            <div>{timeLeft.minutes} M</div>
+            <div>{timeLeft.seconds} S</div>
 
           </div>
 
         </div>
       </section>
 
-      {/* DETAILS */}
-      <section ref={detailsRef} className="py-24 px-6 bg-[#efe7db]">
+      {/* 3. DETALLES */}
+      <section ref={detailsRef} className="py-24 px-6 bg-[#efe6db]">
 
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
 
-          {/* CEREMONIA */}
-          <a
-            href="https://maps.app.goo.gl/pU5zycxGosdKi9MJA"
-            target="_blank"
-            className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
-hover:scale-[1.02] transition"
-          >
-            <div className="text-3xl mb-3">⛪</div>
-            <h3 className="text-2xl mb-2">Ceremonia</h3>
-            <p>Santuario de Tepalcingo</p>
-            <p className="text-sm text-gray-600 mt-2">5:00 PM</p>
-          </a>
+          <div className="p-10 rounded-3xl bg-white/70 border 
+backdrop-blur">
+            ⛪ Ceremonia<br />
+            Santuario de Tepalcingo<br />
+            5:00 PM
+          </div>
 
-          {/* RECEPCION */}
-          <a
-            href="https://maps.app.goo.gl/bti7LF96Bd9bhAzZ9"
-            target="_blank"
-            className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
-hover:scale-[1.02] transition"
-          >
-            <div className="text-3xl mb-3">🍾</div>
-            <h3 className="text-2xl mb-2">Recepción</h3>
-            <p>Jardín Anrubio</p>
-            <p className="text-sm text-gray-600 mt-2">6:00 PM</p>
-          </a>
+          <div className="p-10 rounded-3xl bg-white/70 border 
+backdrop-blur">
+            🍾 Recepción<br />
+            Jardín Anrubio<br />
+            6:00 PM
+          </div>
 
         </div>
       </section>
 
-      {/* HISTORIA + VIMEO + CARRUSEL */}
-      <section ref={historyRef} className="py-24 bg-[#f7f2ea]">
+      {/* 4. HISTORIA */}
+      <section className="py-24 bg-[#f3ece2]">
 
-        {/* VIMEO */}
-        <div className="max-w-5xl mx-auto px-6 mb-12">
-
-          <div className="rounded-3xl overflow-hidden shadow-lg">
-            <iframe
-              src="https://player.vimeo.com/video/1192713156"
-              className="w-full aspect-video"
-              allow="autoplay; fullscreen; picture-in-picture"
-            />
-          </div>
-
-        </div>
-
-        {/* CARRUSEL */}
         <div className="max-w-5xl mx-auto px-6">
 
-          <div className="relative h-[450px] rounded-3xl overflow-hidden">
+          <div className="relative h-[400px] rounded-3xl overflow-hidden">
 
             {gallery.map((img, i) => (
               <div
@@ -168,7 +190,6 @@ duration-1000"
                 style={{
                   backgroundImage: `url(${img})`,
                   backgroundSize: "cover",
-                  backgroundPosition: "center",
                   opacity: i === activeIndex ? 1 : 0
                 }}
               />
@@ -177,9 +198,10 @@ duration-1000"
           </div>
 
         </div>
+
       </section>
 
-      {/* RSVP */}
+      {/* 5. RSVP */}
       <section ref={rsvpRef} className="relative py-40 text-center 
 text-white">
 
@@ -188,7 +210,7 @@ text-white">
           style={{
             backgroundImage:
               
-"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop"
+"url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop')"
           }}
         />
 
@@ -202,7 +224,7 @@ text-white">
             
 href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
             className="px-10 py-4 rounded-full bg-white/10 border 
-border-white/30 backdrop-blur hover:scale-105 transition inline-block"
+border-white/30 backdrop-blur inline-block"
           >
             Confirmar
           </a>
@@ -210,8 +232,8 @@ border-white/30 backdrop-blur hover:scale-105 transition inline-block"
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="py-10 text-center bg-[#e8dfd1]">
+      {/* 6. FOOTER */}
+      <footer className="py-10 text-center bg-[#e7dccd]">
         Diseñada por LuisAlbertoVG
       </footer>
 

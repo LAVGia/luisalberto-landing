@@ -27,19 +27,19 @@ export default function Invitacion() {
     }, 4000)
 
     return () => clearInterval(interval)
-  }, [gallery.length])
+  }, [])
 
-  // Corrección: Se elimina "any" para evitar que Next.js bloquee la 
-página
-  const scrollTo = (ref: React.RefObject<HTMLDivElement | null>) => {
-    ref.current?.scrollIntoView({ behavior: "smooth" })
+  const scrollTo = (ref: any) => {
+    ref.current?.scrollIntoView({
+      behavior: "smooth"
+    })
   }
 
   return (
-    <main className="bg-[#f6f1ea] text-[#1a1a1a]">
+    <main className="bg-[#f6f1ea] text-[#1a1a1a] overflow-hidden">
 
-      {/* VIDEO INICIAL - Intacto */}
-      <section className="relative h-[100dvh]">
+      {/* VIDEO HERO */}
+      <section className="relative h-screen">
 
         <video
           autoPlay
@@ -54,20 +54,20 @@ página
         <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative z-10 h-full flex flex-col items-center 
-justify-center text-white text-center px-6">
+justify-center text-center text-white px-6">
 
           <p className="tracking-[0.4em] uppercase text-white/70 mb-6">
             Enlace Matrimonial
           </p>
 
-          <h1 className="text-5xl md:text-7xl font-light">
+          <h1 className="text-5xl md:text-8xl font-light">
             Isabella <span className="text-[#d4af37]">&</span> Daniel
           </h1>
 
           <button
             onClick={() => scrollTo(heroRef)}
-            className="mt-10 px-10 py-4 rounded-full bg-white/10 border 
-border-white/30 backdrop-blur"
+            className="mt-12 px-10 py-4 rounded-full bg-white/10 border 
+border-white/30 backdrop-blur hover:scale-105 transition"
           >
             Abrir Invitación
           </button>
@@ -75,41 +75,41 @@ border-white/30 backdrop-blur"
         </div>
       </section>
 
-      {/* SECCIÓN BOTONES */}
+      {/* HERO FOTO NOVIOS */}
       <section
         ref={heroRef}
-        className="relative min-h-[100dvh] flex flex-col justify-end 
+        className="relative min-h-screen flex flex-col justify-end 
 text-white"
       >
 
-        {/* Corrección: Aseguramos que la imagen se monte correctamente en 
-el fondo */}
+        {/* FOTO CORRECTA NOVIOS */}
         <div
-          className="absolute inset-0 bg-cover bg-center -z-10"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 
-"url('https://images.unsplash.com/photo-1523438097201-512ae7d59c7a?q=80&w=1600&auto=format&fit=crop')"
+            backgroundImage:
+              
+"url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop')"
           }}
         />
 
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/45" />
 
         <div className="relative z-10 w-full pb-16 px-6 text-center">
 
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center gap-4 flex-wrap">
 
             <button
               onClick={() => scrollTo(detailsRef)}
-              className="px-8 py-3 bg-white/10 border border-white/30 
-backdrop-blur rounded-full"
+              className="px-8 py-4 rounded-full bg-white/10 border 
+border-white/30 backdrop-blur hover:scale-105 transition"
             >
               Detalles
             </button>
 
             <button
               onClick={() => scrollTo(rsvpRef)}
-              className="px-8 py-3 bg-white/10 border border-white/30 
-backdrop-blur rounded-full"
+              className="px-8 py-4 rounded-full bg-white/10 border 
+border-white/30 backdrop-blur hover:scale-105 transition"
             >
               RSVP
             </button>
@@ -120,32 +120,57 @@ backdrop-blur rounded-full"
       </section>
 
       {/* DETALLES */}
-      <section ref={detailsRef} className="py-24 px-6 bg-[#efe6db]">
+      <section
+        ref={detailsRef}
+        className="py-24 px-6 bg-[#efe6db]"
+      >
 
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
 
-          {/* Corrección: rel="noopener noreferrer" añadido para evitar 
-bloqueos de React */}
           <a
             href="https://maps.app.goo.gl/pU5zycxGosdKi9MJA"
             target="_blank"
-            rel="noopener noreferrer"
-            className="p-10 rounded-3xl bg-white/70 backdrop-blur border"
+            className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
+hover:scale-[1.02] transition"
           >
-            ⛪ Ceremonia<br />
-            Santuario de Tepalcingo<br />
-            5:00 PM
+
+            <div className="text-4xl mb-4">⛪</div>
+
+            <h3 className="text-2xl mb-2">
+              Ceremonia
+            </h3>
+
+            <p className="text-lg">
+              Santuario de Tepalcingo
+            </p>
+
+            <p className="text-sm text-gray-600 mt-3">
+              5:00 PM
+            </p>
+
           </a>
 
           <a
             href="https://maps.app.goo.gl/bti7LF96Bd9bhAzZ9"
             target="_blank"
-            rel="noopener noreferrer"
-            className="p-10 rounded-3xl bg-white/70 backdrop-blur border"
+            className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
+hover:scale-[1.02] transition"
           >
-            🍾 Recepción<br />
-            Jardín Anrubio<br />
-            6:00 PM
+
+            <div className="text-4xl mb-4">🍾</div>
+
+            <h3 className="text-2xl mb-2">
+              Recepción
+            </h3>
+
+            <p className="text-lg">
+              Jardín Anrubio
+            </p>
+
+            <p className="text-sm text-gray-600 mt-3">
+              6:00 PM
+            </p>
+
           </a>
 
         </div>
@@ -154,15 +179,17 @@ bloqueos de React */}
       {/* HISTORIA */}
       <section className="py-24 bg-[#f3ece2]">
 
-        {/* VIMEO RESTAURADO */}
+        {/* VIDEO VIMEO */}
         <div className="max-w-5xl mx-auto px-6 mb-10">
 
-          <div className="rounded-3xl overflow-hidden">
+          <div className="rounded-3xl overflow-hidden shadow-2xl">
+
             <iframe
               src="https://player.vimeo.com/video/1192713156"
               className="w-full aspect-video"
-              allow="autoplay; fullscreen"
+              allow="autoplay; fullscreen; picture-in-picture"
             />
+
           </div>
 
         </div>
@@ -170,7 +197,8 @@ bloqueos de React */}
         {/* CARRUSEL */}
         <div className="max-w-5xl mx-auto px-6">
 
-          <div className="relative h-[400px] rounded-3xl overflow-hidden">
+          <div className="relative h-[450px] rounded-3xl overflow-hidden 
+shadow-2xl">
 
             {gallery.map((img, i) => (
               <div
@@ -192,32 +220,34 @@ duration-1000"
       </section>
 
       {/* RSVP */}
-      <section ref={rsvpRef} className="relative py-40 text-center 
-text-white">
+      <section
+        ref={rsvpRef}
+        className="relative py-40 text-center text-white"
+      >
 
-        {/* Corrección: Z-index negativo para evitar que la imagen cubra 
-los elementos */}
+        {/* FOTO JARDÍN BANQUETE */}
         <div
-          className="absolute inset-0 bg-cover bg-center -z-10"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 
-"url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop')"
+            backgroundImage:
+              
+"url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1600&auto=format&fit=crop')"
           }}
         />
 
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/55" />
 
         <div className="relative z-10">
 
-          <h2 className="text-5xl mb-8">Confirma tu asistencia</h2>
+          <h2 className="text-5xl mb-8">
+            Confirma tu asistencia
+          </h2>
 
           <a
             
 href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
-            target="_blank"
-            rel="noopener noreferrer"
             className="px-10 py-4 rounded-full bg-white/10 border 
-border-white/30 backdrop-blur"
+border-white/30 backdrop-blur hover:scale-105 transition inline-block"
           >
             Confirmar
           </a>
@@ -227,10 +257,17 @@ border-white/30 backdrop-blur"
 
       {/* FOOTER */}
       <footer className="py-10 text-center bg-[#e7dccd]">
-        Diseñada por LuisAlbertoVG
+
+        <a
+          href="https://luisalberto.vg"
+          target="_blank"
+          className="hover:opacity-70 transition"
+        >
+          Diseñada por LuisAlbertoVG
+        </a>
+
       </footer>
 
     </main>
   )
 }
-

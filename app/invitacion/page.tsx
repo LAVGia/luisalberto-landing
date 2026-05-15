@@ -41,8 +41,7 @@ export default function Invitacion() {
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source
-            
-src="https://assets.mixkit.co/videos/preview/mixkit-bride-and-groom-kissing-after-their-wedding-24602-large.mp4"
+            src="/videos/intro.mp4"
             type="video/mp4"
           />
         </video>
@@ -161,10 +160,10 @@ hover:text-black transition"
 
       {/* SMALL COUNTDOWN */}
 
-      <div className="relative z-20 -mt-24 px-6">
+      <div className="relative z-20 -mt-40 px-6">
 
-        <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-xl 
-border border-white/20 rounded-[40px] px-8 py-6 shadow-2xl">
+        <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-xl 
+border border-white/20 rounded-full px-6 py-4 shadow-2xl">
 
           <div className="flex justify-center gap-8 flex-wrap">
 
@@ -179,8 +178,7 @@ border border-white/20 rounded-[40px] px-8 py-6 shadow-2xl">
                 className="text-center"
               >
 
-                <h3 className="text-2xl md:text-4xl font-light 
-text-white">
+                <h3 className="text-xl md:text-2xl font-light text-white">
                   {item[0]}
                 </h3>
 
@@ -273,17 +271,21 @@ to-[#f8f4ee]"
           Nuestra Historia
         </h2>
 
-        <div className="overflow-x-auto">
+        <div className="max-w-5xl mx-auto">
 
-          <div className="flex gap-8 w-max pb-4">
+          <div className="relative h-[520px] md:h-[500px] overflow-hidden 
+rounded-[40px]">
 
-            {[...galleryImages, ...galleryImages].map((image, index) => (
+            {galleryImages.map((image, index) => (
               <div
                 key={index}
-                className="w-[320px] h-[520px] md:w-[500px] md:h-[340px] 
-rounded-[40px] bg-cover bg-center flex-shrink-0 shadow-xl"
+                className="absolute inset-0 bg-cover bg-center 
+animate-pulse"
                 style={{
                   backgroundImage: `url(${image})`,
+                  animation: `fadeImages 16s infinite`,
+                  animationDelay: `${index * 4}s`,
+                  opacity: 0,
                 }}
               ></div>
             ))}
@@ -298,41 +300,57 @@ rounded-[40px] bg-cover bg-center flex-shrink-0 shadow-xl"
 
       <section
         ref={rsvpRef}
-        className="py-40 px-8 text-center bg-[#f5efe6]"
+        className="relative py-40 px-8 text-center overflow-hidden"
       >
 
-        <h2 className="text-5xl md:text-6xl font-light leading-tight">
-          Confirma tu asistencia
-        </h2>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              
+"url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1600&auto=format&fit=crop')",
+          }}
+        ></div>
 
-        <p className="text-[#666] text-xl max-w-2xl mx-auto mt-10 
+        <div className="absolute inset-0 bg-black/45"></div>
+
+        <div className="relative z-10">
+
+          <h2 className="text-5xl md:text-6xl font-light leading-tight 
+text-white">
+            Confirma tu asistencia
+          </h2>
+
+          <p className="text-white/80 text-xl max-w-2xl mx-auto mt-10 
 leading-relaxed">
-          Tu presencia hará este momento aún más especial.
-        </p>
+            Tu presencia hará este momento aún más especial.
+          </p>
 
-        <a
-          
+          <a
+            
 href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
-          target="_blank"
-          className="group relative overflow-hidden inline-flex 
-items-center gap-3 mt-16 border border-[#d4af37]/40 bg-white/70 
+            target="_blank"
+            className="group relative overflow-hidden inline-flex 
+items-center gap-3 mt-16 border border-[#d4af37]/40 bg-white/15 
 backdrop-blur-xl px-10 py-5 rounded-full text-lg hover:scale-105 
-transition shadow-lg"
-        >
+transition shadow-lg text-white"
+          >
 
-          <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/80 to-transparent -translate-x-full 
+            <span className="absolute inset-0 bg-gradient-to-r 
+from-transparent via-white/70 to-transparent -translate-x-full 
 group-hover:translate-x-full transition duration-1000"></span>
 
-          <span className="relative z-10 text-[#b38b2d]">
-            ✨
-          </span>
+            <span className="relative z-10 text-[#f4d27a]">
+              ✨
+            </span>
 
-          <span className="relative z-10">
-            Confirmar Asistencia
-          </span>
+            <span className="relative z-10">
+              Confirmar Asistencia
+            </span>
 
-        </a>
+          </a>
+
+        </div>
 
       </section>
 

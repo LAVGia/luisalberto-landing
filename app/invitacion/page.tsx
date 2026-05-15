@@ -1,4 +1,4 @@
-k"use client"
+"use client"
 
 import { useRef } from "react"
 
@@ -10,27 +10,24 @@ export default function Invitacion() {
   const rsvpRef = useRef<HTMLDivElement>(null)
 
   const scrollToSection = (ref: any) => {
-    ref.current?.scrollIntoView({
-      behavior: "smooth",
-    })
+    ref.current?.scrollIntoView({ behavior: "smooth" })
   }
 
   const galleryImages = [
     
+"https://images.unsplash.com/photo-1523438097201-512ae7d59c7a?q=80&w=1200&auto=format&fit=crop",
+    
+"https://images.unsplash.com/photo-1521337706264-a414f153a5db?q=80&w=1200&auto=format&fit=crop",
+    
+"https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?q=80&w=1200&auto=format&fit=crop",
+    
 "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
-    
-"https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200&auto=format&fit=crop",
-    
-"https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop",
-    
-"https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200&auto=format&fit=crop",
   ]
 
   return (
     <main className="bg-[#f8f4ee] text-[#1a1a1a] overflow-hidden">
 
       {/* VIDEO INTRO */}
-
       <section className="relative h-screen overflow-hidden">
 
         <video
@@ -40,10 +37,7 @@ export default function Invitacion() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source
-            src="/videos/intro.mp4"
-            type="video/mp4"
-          />
+          <source src="/videos/intro.mp4" type="video/mp4" />
         </video>
 
         <div className="absolute inset-0 bg-black/45"></div>
@@ -53,14 +47,12 @@ justify-center text-center px-6">
 
           <p className="uppercase tracking-[0.4em] text-white/70 mb-8 
 text-sm">
-            Invitación Especial
+            Enlace Matrimonial
           </p>
 
           <h1 className="text-5xl md:text-8xl font-light text-white 
 leading-tight break-words">
-            Isabella
-            <span className="mx-3 text-[#d4af37]">&</span>
-            Daniel
+            Isabella <span className="text-[#d4af37]">&</span> Daniel
           </h1>
 
           <button
@@ -69,27 +61,20 @@ leading-tight break-words">
 border-white/30 bg-white/10 backdrop-blur-sm px-10 py-5 rounded-full 
 text-white hover:scale-105 transition"
           >
-
             <span className="absolute inset-0 bg-gradient-to-r 
 from-transparent via-white/40 to-transparent -translate-x-full 
 group-hover:translate-x-full transition duration-1000"></span>
-
-            <span className="relative z-10">
-              Abrir Invitación
-            </span>
-
+            <span className="relative z-10">Abrir Invitación</span>
           </button>
 
         </div>
-
       </section>
 
       {/* HERO */}
-
       <section
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-center 
-px-8 py-32 bg-gradient-to-b from-[#f5efe6] to-[#f8f4ee]"
+px-8 py-32 bg-[#f8f4ee]"
       >
 
         <div
@@ -97,11 +82,11 @@ px-8 py-32 bg-gradient-to-b from-[#f5efe6] to-[#f8f4ee]"
           style={{
             backgroundImage:
               
-"url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop')",
+"url('https://images.unsplash.com/photo-1523438097201-512ae7d59c7a?q=80&w=1600&auto=format&fit=crop')",
           }}
-        ></div>
+        />
 
-        <div className="absolute inset-0 bg-black/45"></div>
+        <div className="absolute inset-0 bg-black/40" />
 
         <div className="relative z-10 text-center max-w-4xl">
 
@@ -111,61 +96,44 @@ text-sm">
           </p>
 
           <h2 className="text-5xl md:text-8xl font-light text-white 
-leading-tight break-words">
-            Isabella
-            <span className="mx-3 text-[#d4af37]">&</span>
-            Daniel
+leading-tight">
+            Isabella <span className="text-[#d4af37]">&</span> Daniel
           </h2>
 
-          <p className="text-white/80 text-lg md:text-xl mt-12 
-leading-relaxed max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg md:text-xl mt-10">
             Queremos compartir contigo el día más importante de nuestras 
 vidas.
           </p>
 
           <div className="flex flex-wrap justify-center gap-5 mt-14">
 
-            <button
-              onClick={() => scrollToSection(detailsRef)}
-              className="border border-white/30 bg-white/10 
-backdrop-blur-sm px-8 py-4 rounded-full text-white hover:bg-white 
-hover:text-black transition"
-            >
+            <button className="px-8 py-4 rounded-full bg-white/10 border 
+border-white/30 text-white backdrop-blur">
               Detalles
             </button>
 
-            <button
-              onClick={() => scrollToSection(rsvpRef)}
-              className="border border-white/30 bg-white/10 
-backdrop-blur-sm px-8 py-4 rounded-full text-white hover:bg-white 
-hover:text-black transition"
-            >
+            <button className="px-8 py-4 rounded-full bg-white/10 border 
+border-white/30 text-white backdrop-blur">
               RSVP
             </button>
 
-            <button
-              onClick={() => scrollToSection(historyRef)}
-              className="border border-white/30 bg-white/10 
-backdrop-blur-sm px-8 py-4 rounded-full text-white hover:bg-white 
-hover:text-black transition"
-            >
+            <button className="px-8 py-4 rounded-full bg-white/10 border 
+border-white/30 text-white backdrop-blur">
               Nuestra Historia
             </button>
 
           </div>
 
         </div>
-
       </section>
 
-      {/* SMALL COUNTDOWN */}
+      {/* COUNTDOWN */}
+      <div className="relative -mt-24 px-6 z-20">
 
-      <div className="relative z-20 -mt-40 px-6">
+        <div className="max-w-3xl mx-auto bg-black/20 backdrop-blur-xl 
+border border-white/10 rounded-full px-6 py-4">
 
-        <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-xl 
-border border-white/20 rounded-full px-6 py-4 shadow-2xl">
-
-          <div className="flex justify-center gap-8 flex-wrap">
+          <div className="flex justify-center gap-10">
 
             {[
               ["120", "Días"],
@@ -173,86 +141,43 @@ border border-white/20 rounded-full px-6 py-4 shadow-2xl">
               ["24", "Min"],
               ["12", "Seg"],
             ].map((item) => (
-              <div
-                key={item[1]}
-                className="text-center"
-              >
-
-                <h3 className="text-xl md:text-2xl font-light text-white">
+              <div key={item[1]} className="text-center">
+                <div className="text-xl md:text-2xl text-white 
+font-light">
                   {item[0]}
-                </h3>
-
-                <p className="text-xs uppercase tracking-[0.2em] 
-text-white/70 mt-2">
+                </div>
+                <div className="text-[10px] uppercase tracking-widest 
+text-white/60">
                   {item[1]}
-                </p>
-
+                </div>
               </div>
             ))}
 
           </div>
 
         </div>
-
       </div>
 
       {/* DETAILS */}
-
       <section
         ref={detailsRef}
-        className="py-24 px-8 md:px-20 bg-[#f1ebe1]"
+        className="relative py-24 px-8 md:px-20 overflow-hidden"
       >
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="absolute inset-0 bg-[#f1ebe1]" />
 
-          <a
-            href="https://maps.google.com"
-            target="_blank"
-            className="bg-white border border-[#d8c7a3] rounded-[40px] 
-p-12 hover:scale-[1.02] transition shadow-sm"
-          >
+        <div className="relative grid md:grid-cols-2 gap-10">
 
-            <p className="text-4xl mb-6">⛪</p>
-
-            <p className="uppercase tracking-[0.3em] text-[#9c8b6d] mb-6 
-text-sm">
-              Ceremonia
-            </p>
-
-            <h3 className="text-4xl font-light mb-8">
-              Hacienda Santa Lucía
-            </h3>
-
-            <p className="text-[#555] text-lg">
-              18 Octubre 2026
-              <br />
-              5:00 PM
-            </p>
-
+          <a className="bg-white/80 backdrop-blur border rounded-[30px] 
+p-10">
+            <h3 className="text-2xl mb-4">Ceremonia</h3>
+            <p>Hacienda Santa Lucía</p>
           </a>
 
-          <a
-            href="https://maps.google.com"
-            target="_blank"
-            className="bg-white border border-[#d8c7a3] rounded-[40px] 
-p-12 hover:scale-[1.02] transition shadow-sm"
-          >
-
-            <p className="text-4xl mb-6">🍾</p>
-
-            <p className="uppercase tracking-[0.3em] text-[#9c8b6d] mb-6 
-text-sm">
-              Recepción
-            </p>
-
-            <h3 className="text-4xl font-light mb-8">
-              Jardines Bellavista
-            </h3>
-
-            <p className="text-[#555] text-lg">
-              Cena · Música · Celebración
-            </p>
-
+          <a className="bg-white/80 backdrop-blur border rounded-[30px] 
+p-10">
+            <h3 className="text-2xl mb-4">Recepción</h3>
+            <p>Jardines Bellavista</p>
           </a>
 
         </div>
@@ -260,47 +185,32 @@ text-sm">
       </section>
 
       {/* HISTORIA */}
-
       <section
         ref={historyRef}
-        className="py-28 px-8 md:px-20 bg-gradient-to-b from-[#efe7db] 
-to-[#f8f4ee]"
+        className="py-28 px-8 md:px-20 bg-[#f6f1e9]"
       >
 
-        <h2 className="text-5xl font-light text-center mb-20">
-          Nuestra Historia
-        </h2>
+        <h2 className="text-4xl text-center mb-14">Nuestra Historia</h2>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="flex gap-6 overflow-x-auto">
 
-          <div className="relative h-[520px] md:h-[500px] overflow-hidden 
-rounded-[40px]">
-
-            {galleryImages.map((image, index) => (
-              <div
-                key={index}
-                className="absolute inset-0 bg-cover bg-center 
-animate-pulse"
-                style={{
-                  backgroundImage: `url(${image})`,
-                  animation: `fadeImages 16s infinite`,
-                  animationDelay: `${index * 4}s`,
-                  opacity: 0,
-                }}
-              ></div>
-            ))}
-
-          </div>
+          {galleryImages.map((img, i) => (
+            <div
+              key={i}
+              className="min-w-[300px] h-[400px] rounded-2xl bg-cover 
+bg-center"
+              style={{ backgroundImage: `url(${img})` }}
+            />
+          ))}
 
         </div>
 
       </section>
 
       {/* RSVP */}
-
       <section
         ref={rsvpRef}
-        className="relative py-40 px-8 text-center overflow-hidden"
+        className="relative py-40 text-center px-6"
       >
 
         <div
@@ -308,46 +218,22 @@ animate-pulse"
           style={{
             backgroundImage:
               
-"url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1600&auto=format&fit=crop')",
+"url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop')",
           }}
-        ></div>
+        />
 
-        <div className="absolute inset-0 bg-black/45"></div>
+        <div className="absolute inset-0 bg-black/50" />
 
-        <div className="relative z-10">
+        <div className="relative z-10 text-white">
 
-          <h2 className="text-5xl md:text-6xl font-light leading-tight 
-text-white">
-            Confirma tu asistencia
-          </h2>
-
-          <p className="text-white/80 text-xl max-w-2xl mx-auto mt-10 
-leading-relaxed">
-            Tu presencia hará este momento aún más especial.
-          </p>
+          <h2 className="text-5xl">Confirma tu asistencia</h2>
 
           <a
-            
-href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
-            target="_blank"
-            className="group relative overflow-hidden inline-flex 
-items-center gap-3 mt-16 border border-[#d4af37]/40 bg-white/15 
-backdrop-blur-xl px-10 py-5 rounded-full text-lg hover:scale-105 
-transition shadow-lg text-white"
+            href="#"
+            className="inline-block mt-10 px-10 py-4 border 
+border-white/40 rounded-full backdrop-blur bg-white/10"
           >
-
-            <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/70 to-transparent -translate-x-full 
-group-hover:translate-x-full transition duration-1000"></span>
-
-            <span className="relative z-10 text-[#f4d27a]">
-              ✨
-            </span>
-
-            <span className="relative z-10">
-              Confirmar Asistencia
-            </span>
-
+            Confirmar
           </a>
 
         </div>
@@ -355,19 +241,8 @@ group-hover:translate-x-full transition duration-1000"></span>
       </section>
 
       {/* FOOTER */}
-
-      <footer className="py-12 text-center bg-[#e9dfcf] border-t 
-border-[#d8c7a3]">
-
-        <a
-          href="https://luisalberto.vg"
-          target="_blank"
-          className="text-sm tracking-[0.2em] uppercase text-[#7b6a4f] 
-hover:text-black transition"
-        >
-          Diseñada por LuisAlbertoVG
-        </a>
-
+      <footer className="py-10 text-center bg-[#e8dfd1]">
+        Diseñada por LuisAlbertoVG
       </footer>
 
     </main>

@@ -15,10 +15,21 @@ export default function Invitacion() {
     })
   }
 
+  const galleryImages = [
+    
+"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
+    
+"https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200&auto=format&fit=crop",
+    
+"https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop",
+    
+"https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200&auto=format&fit=crop",
+  ]
+
   return (
     <main className="bg-[#f8f4ee] text-[#1a1a1a] overflow-hidden">
 
-      {/* INTRO VIDEO */}
+      {/* VIDEO INTRO */}
 
       <section className="relative h-screen overflow-hidden">
 
@@ -31,7 +42,7 @@ export default function Invitacion() {
         >
           <source
             
-src="https://cdn.coverr.co/videos/coverr-a-wedding-day-1561488529258?download=1080p"
+src="https://assets.mixkit.co/videos/preview/mixkit-bride-and-groom-kissing-after-their-wedding-24602-large.mp4"
             type="video/mp4"
           />
         </video>
@@ -79,7 +90,7 @@ group-hover:translate-x-full transition duration-1000"></span>
       <section
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-center 
-px-8 py-32 bg-[#f5efe6]"
+px-8 py-32 bg-gradient-to-b from-[#f5efe6] to-[#f8f4ee]"
       >
 
         <div
@@ -148,32 +159,44 @@ hover:text-black transition"
 
       </section>
 
-      {/* COUNTDOWN */}
+      {/* SMALL COUNTDOWN */}
 
-      <section className="py-28 px-8 text-center bg-[#f8f4ee]">
+      <div className="relative z-20 -mt-24 px-6">
 
-        <p className="uppercase tracking-[0.3em] text-[#9c8b6d] mb-8 
-text-sm">
-          Cuenta Regresiva
-        </p>
+        <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-xl 
+border border-white/20 rounded-[40px] px-8 py-6 shadow-2xl">
 
-        <div className="flex justify-center gap-6 flex-wrap">
+          <div className="flex justify-center gap-8 flex-wrap">
 
-          {["120 Días", "08 Horas", "24 Min", "12 Seg"].map((item) => (
-            <div
-              key={item}
-              className="bg-white border border-[#d8c7a3] rounded-[30px] 
-px-10 py-8 min-w-[140px]"
-            >
-              <h3 className="text-2xl md:text-3xl font-semibold">
-                {item}
-              </h3>
-            </div>
-          ))}
+            {[
+              ["120", "Días"],
+              ["08", "Horas"],
+              ["24", "Min"],
+              ["12", "Seg"],
+            ].map((item) => (
+              <div
+                key={item[1]}
+                className="text-center"
+              >
+
+                <h3 className="text-2xl md:text-4xl font-light 
+text-white">
+                  {item[0]}
+                </h3>
+
+                <p className="text-xs uppercase tracking-[0.2em] 
+text-white/70 mt-2">
+                  {item[1]}
+                </p>
+
+              </div>
+            ))}
+
+          </div>
 
         </div>
 
-      </section>
+      </div>
 
       {/* DETAILS */}
 
@@ -188,12 +211,10 @@ px-10 py-8 min-w-[140px]"
             href="https://maps.google.com"
             target="_blank"
             className="bg-white border border-[#d8c7a3] rounded-[40px] 
-p-12 hover:scale-[1.02] transition"
+p-12 hover:scale-[1.02] transition shadow-sm"
           >
 
-            <p className="text-4xl mb-6">
-              ⛪
-            </p>
+            <p className="text-4xl mb-6">⛪</p>
 
             <p className="uppercase tracking-[0.3em] text-[#9c8b6d] mb-6 
 text-sm">
@@ -216,12 +237,10 @@ text-sm">
             href="https://maps.google.com"
             target="_blank"
             className="bg-white border border-[#d8c7a3] rounded-[40px] 
-p-12 hover:scale-[1.02] transition"
+p-12 hover:scale-[1.02] transition shadow-sm"
           >
 
-            <p className="text-4xl mb-6">
-              🍾
-            </p>
+            <p className="text-4xl mb-6">🍾</p>
 
             <p className="uppercase tracking-[0.3em] text-[#9c8b6d] mb-6 
 text-sm">
@@ -242,59 +261,12 @@ text-sm">
 
       </section>
 
-      {/* ITINERARIO */}
-
-      <section className="py-28 px-8 md:px-20 bg-[#f7f2eb]">
-
-        <div className="max-w-4xl mx-auto">
-
-          <h2 className="text-5xl font-light text-center mb-20">
-            Itinerario
-          </h2>
-
-          <div className="space-y-8">
-
-            {[
-              ["4:30 PM", "Recepción de invitados", "🥂"],
-              ["5:00 PM", "Ceremonia", "⛪"],
-              ["7:00 PM", "Cena", "🍽️"],
-              ["8:30 PM", "Primer baile", "✨"],
-              ["9:00 PM", "Fiesta", "🎶"],
-            ].map((item) => (
-              <div
-                key={item[0]}
-                className="bg-white rounded-[30px] border border-[#d8c7a3] 
-p-8 flex items-center gap-6"
-              >
-
-                <div className="text-3xl">
-                  {item[2]}
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-medium">
-                    {item[1]}
-                  </h3>
-
-                  <p className="text-[#777] mt-2">
-                    {item[0]}
-                  </p>
-                </div>
-
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
       {/* HISTORIA */}
 
       <section
         ref={historyRef}
-        className="py-28 px-8 md:px-20 bg-[#efe7db]"
+        className="py-28 px-8 md:px-20 bg-gradient-to-b from-[#efe7db] 
+to-[#f8f4ee]"
       >
 
         <h2 className="text-5xl font-light text-center mb-20">
@@ -305,18 +277,9 @@ p-8 flex items-center gap-6"
 
           <div className="flex gap-8 w-max pb-4">
 
-            {[
-              
-"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
-              
-"https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200&auto=format&fit=crop",
-              
-"https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop",
-              
-"https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200&auto=format&fit=crop",
-            ].map((image) => (
+            {[...galleryImages, ...galleryImages].map((image, index) => (
               <div
-                key={image}
+                key={index}
                 className="w-[320px] h-[520px] md:w-[500px] md:h-[340px] 
 rounded-[40px] bg-cover bg-center flex-shrink-0 shadow-xl"
                 style={{
@@ -335,7 +298,7 @@ rounded-[40px] bg-cover bg-center flex-shrink-0 shadow-xl"
 
       <section
         ref={rsvpRef}
-        className="py-40 px-8 text-center bg-[#f8f4ee]"
+        className="py-40 px-8 text-center bg-[#f5efe6]"
       >
 
         <h2 className="text-5xl md:text-6xl font-light leading-tight">
@@ -352,13 +315,13 @@ leading-relaxed">
 href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
           target="_blank"
           className="group relative overflow-hidden inline-flex 
-items-center gap-3 mt-16 border border-[#d4af37]/50 bg-white/80 
-backdrop-blur-sm px-10 py-5 rounded-full text-lg hover:scale-105 
+items-center gap-3 mt-16 border border-[#d4af37]/40 bg-white/70 
+backdrop-blur-xl px-10 py-5 rounded-full text-lg hover:scale-105 
 transition shadow-lg"
         >
 
           <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/70 to-transparent -translate-x-full 
+from-transparent via-white/80 to-transparent -translate-x-full 
 group-hover:translate-x-full transition duration-1000"></span>
 
           <span className="relative z-10 text-[#b38b2d]">
@@ -372,6 +335,22 @@ group-hover:translate-x-full transition duration-1000"></span>
         </a>
 
       </section>
+
+      {/* FOOTER */}
+
+      <footer className="py-12 text-center bg-[#e9dfcf] border-t 
+border-[#d8c7a3]">
+
+        <a
+          href="https://luisalberto.vg"
+          target="_blank"
+          className="text-sm tracking-[0.2em] uppercase text-[#7b6a4f] 
+hover:text-black transition"
+        >
+          Diseñada por LuisAlbertoVG
+        </a>
+
+      </footer>
 
     </main>
   )

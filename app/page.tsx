@@ -3,11 +3,36 @@ export const metadata = {
 }
 
 const portfolioItems = [
-  "Bodas",
-  "XV Años",
-  "Retrato",
-  "Documental",
-  "Livestreaming",
+  {
+    title: "Bodas",
+    image:
+      
+"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    title: "XV Años",
+    image:
+      
+"https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    title: "Retrato",
+    image:
+      
+"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    title: "Documental",
+    image:
+      
+"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    title: "Livestreaming",
+    image:
+      
+"https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop",
+  },
 ]
 
 export default function Home() {
@@ -71,6 +96,14 @@ hover:bg-white hover:text-black transition"
             </a>
 
             <a
+              href="#social"
+              className="border border-white/20 px-8 py-4 rounded-full 
+hover:bg-white hover:text-black transition"
+            >
+              Redes Sociales
+            </a>
+
+            <a
               href="#contact"
               className="border border-white/20 px-8 py-4 rounded-full 
 hover:bg-white hover:text-black transition"
@@ -99,14 +132,14 @@ hover:bg-white hover:text-black transition"
 
           <div
             className="rounded-3xl p-10 bg-cover bg-center relative 
-overflow-hidden"
+overflow-hidden min-h-[420px]"
             style={{
               backgroundImage:
                 
-"url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop')",
+"url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop')",
             }}
           >
-            <div className="absolute inset-0 bg-black/70"></div>
+            <div className="absolute inset-0 bg-black/75"></div>
 
             <div className="relative z-10">
               <h3 className="text-2xl font-bold mb-8">
@@ -124,14 +157,14 @@ overflow-hidden"
 
           <div
             className="rounded-3xl p-10 bg-cover bg-center relative 
-overflow-hidden"
+overflow-hidden min-h-[420px]"
             style={{
               backgroundImage:
                 
 "url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop')",
             }}
           >
-            <div className="absolute inset-0 bg-black/70"></div>
+            <div className="absolute inset-0 bg-black/75"></div>
 
             <div className="relative z-10">
               <h3 className="text-2xl font-bold mb-8">
@@ -149,14 +182,14 @@ overflow-hidden"
 
           <div
             className="rounded-3xl p-10 bg-cover bg-center relative 
-overflow-hidden"
+overflow-hidden min-h-[420px]"
             style={{
               backgroundImage:
                 
-"url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop')",
+"url('https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1200&auto=format&fit=crop')",
             }}
           >
-            <div className="absolute inset-0 bg-black/70"></div>
+            <div className="absolute inset-0 bg-black/75"></div>
 
             <div className="relative z-10">
               <h3 className="text-2xl font-bold mb-8">
@@ -174,14 +207,14 @@ overflow-hidden"
 
           <div
             className="rounded-3xl p-10 bg-cover bg-center relative 
-overflow-hidden"
+overflow-hidden min-h-[420px]"
             style={{
               backgroundImage:
                 
 "url('https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1200&auto=format&fit=crop')",
             }}
           >
-            <div className="absolute inset-0 bg-black/70"></div>
+            <div className="absolute inset-0 bg-black/75"></div>
 
             <div className="relative z-10">
               <h3 className="text-2xl font-bold mb-8">
@@ -244,13 +277,20 @@ rounded-full font-bold mt-14 hover:scale-105 transition"
 
           {portfolioItems.map((item) => (
             <div
-              key={item}
-              className="bg-[#241f2f] rounded-3xl h-[350px] flex items-end 
-p-8 hover:scale-[1.02] transition"
+              key={item.title}
+              className="rounded-3xl h-[380px] bg-cover bg-center relative 
+overflow-hidden hover:scale-[1.02] transition"
+              style={{
+                backgroundImage: `url(${item.image})`,
+              }}
             >
-              <h3 className="text-3xl font-bold">
-                {item}
-              </h3>
+              <div className="absolute inset-0 bg-black/50"></div>
+
+              <div className="absolute bottom-0 left-0 p-8 z-10">
+                <h3 className="text-3xl font-bold">
+                  {item.title}
+                </h3>
+              </div>
             </div>
           ))}
 
@@ -260,7 +300,10 @@ p-8 hover:scale-[1.02] transition"
 
       {/* REDES */}
 
-      <section className="px-8 md:px-20 py-32 border-b border-white/10">
+      <section
+        id="social"
+        className="px-8 md:px-20 py-32 border-b border-white/10"
+      >
 
         <h2 className="text-5xl font-black mb-20">
           Redes Sociales
@@ -368,9 +411,14 @@ real
         <a
           href="https://wa.me/527351210954"
           target="_blank"
-          className="inline-block bg-white text-black px-10 py-5 
-rounded-full font-bold mt-14 hover:scale-105 transition"
+          className="inline-flex items-center gap-3 border 
+border-green-500/40 text-white px-10 py-5 rounded-full font-bold mt-14 
+hover:bg-green-500/10 hover:scale-105 transition"
         >
+          <span className="text-green-400 text-xl">
+            ◉
+          </span>
+
           Enviar mensaje
         </a>
 

@@ -2,9 +2,17 @@ export const metadata = {
   title: "LuisAlbertoVG",
 }
 
+const portfolioItems = [
+  "Bodas",
+  "XV Años",
+  "Retrato",
+  "Documental",
+  "Livestreaming",
+]
+
 export default function Home() {
   return (
-    <main className="bg-[#1a1721] text-white min-h-screen scroll-smooth">
+    <main className="bg-[#1a1721] text-white min-h-screen">
 
       {/* HERO */}
 
@@ -30,18 +38,26 @@ opacity-20"></span>
 
           </h1>
 
-          <p className="text-zinc-400 text-xl max-w-2xl mt-10 
+          <p className="text-zinc-400 text-xl max-w-3xl mt-10 
 leading-relaxed">
             Fotografía, video, livestream y narrativa visual para eventos,
-            marcas y coberturas en tiempo real.
+            marcas e instituciones.
           </p>
 
           <div className="flex flex-wrap gap-5 mt-12">
 
             <a
-              href="#portfolio"
+              href="#services"
               className="bg-white text-black px-8 py-4 rounded-full 
 font-bold hover:scale-105 transition"
+            >
+              Servicios
+            </a>
+
+            <a
+              href="#portfolio"
+              className="border border-white/20 px-8 py-4 rounded-full 
+hover:bg-white hover:text-black transition"
             >
               Portafolio
             </a>
@@ -52,14 +68,6 @@ font-bold hover:scale-105 transition"
 hover:bg-white hover:text-black transition"
             >
               Tu Foto
-            </a>
-
-            <a
-              href="#services"
-              className="border border-white/20 px-8 py-4 rounded-full 
-hover:bg-white hover:text-black transition"
-            >
-              Servicios
             </a>
 
             <a
@@ -89,56 +97,103 @@ hover:bg-white hover:text-black transition"
 
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
 
-          <div className="bg-[#241f2f] rounded-3xl p-10">
-            <h3 className="text-2xl font-bold mb-8">
-              Producción Audiovisual
-            </h3>
+          <div
+            className="rounded-3xl p-10 bg-cover bg-center relative 
+overflow-hidden"
+            style={{
+              backgroundImage:
+                
+"url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop')",
+            }}
+          >
+            <div className="absolute inset-0 bg-black/70"></div>
 
-            <ul className="space-y-4 text-zinc-400">
-              <li>Reels cinematográficos</li>
-              <li>Video comercial</li>
-              <li>Documentales cortos</li>
-              <li>Contenido institucional</li>
-            </ul>
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold mb-8">
+                Producción Audiovisual
+              </h3>
+
+              <ul className="space-y-4 text-zinc-300">
+                <li>Eventos sociales</li>
+                <li>Video publicitario</li>
+                <li>Documentales cortos</li>
+                <li>Reels cinematográficos para tu marca</li>
+              </ul>
+            </div>
           </div>
 
-          <div className="bg-[#241f2f] rounded-3xl p-10">
-            <h3 className="text-2xl font-bold mb-8">
-              Fotografía
-            </h3>
+          <div
+            className="rounded-3xl p-10 bg-cover bg-center relative 
+overflow-hidden"
+            style={{
+              backgroundImage:
+                
+"url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop')",
+            }}
+          >
+            <div className="absolute inset-0 bg-black/70"></div>
 
-            <ul className="space-y-4 text-zinc-400">
-              <li>Bodas</li>
-              <li>Retrato</li>
-              <li>Eventos sociales</li>
-              <li>Fotografía documental</li>
-            </ul>
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold mb-8">
+                Fotografía
+              </h3>
+
+              <ul className="space-y-4 text-zinc-300">
+                <li>Bodas y XV Años</li>
+                <li>Retrato</li>
+                <li>Luxury Session</li>
+                <li>Eventos sociales</li>
+              </ul>
+            </div>
           </div>
 
-          <div className="bg-[#241f2f] rounded-3xl p-10">
-            <h3 className="text-2xl font-bold mb-8">
-              Live Streaming
-            </h3>
+          <div
+            className="rounded-3xl p-10 bg-cover bg-center relative 
+overflow-hidden"
+            style={{
+              backgroundImage:
+                
+"url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop')",
+            }}
+          >
+            <div className="absolute inset-0 bg-black/70"></div>
 
-            <ul className="space-y-4 text-zinc-400">
-              <li>Multicámara</li>
-              <li>Conciertos</li>
-              <li>Eventos masivos</li>
-              <li>Cobertura en vivo</li>
-            </ul>
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold mb-8">
+                Live Streaming
+              </h3>
+
+              <ul className="space-y-4 text-zinc-300">
+                <li>Eventos masivos</li>
+                <li>Multicámara profesional</li>
+                <li>Micrófonos profesionales</li>
+                <li>Estabilizadores</li>
+              </ul>
+            </div>
           </div>
 
-          <div className="bg-[#241f2f] rounded-3xl p-10">
-            <h3 className="text-2xl font-bold mb-8">
-              Diseño Digital
-            </h3>
+          <div
+            className="rounded-3xl p-10 bg-cover bg-center relative 
+overflow-hidden"
+            style={{
+              backgroundImage:
+                
+"url('https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1200&auto=format&fit=crop')",
+            }}
+          >
+            <div className="absolute inset-0 bg-black/70"></div>
 
-            <ul className="space-y-4 text-zinc-400">
-              <li>Invitaciones web</li>
-              <li>Contenido para redes</li>
-              <li>Branding visual</li>
-              <li>Motion graphics</li>
-            </ul>
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold mb-8">
+                Diseño Digital
+              </h3>
+
+              <ul className="space-y-4 text-zinc-300">
+                <li>Invitaciones web</li>
+                <li>Contenido para redes sociales</li>
+                <li>Branding visual</li>
+              </ul>
+            </div>
           </div>
 
         </div>
@@ -159,14 +214,18 @@ border-white/10"
 
         <p className="text-zinc-400 max-w-3xl mx-auto mt-10 text-xl 
 leading-relaxed">
-          Accede a galerías actualizadas en tiempo real y encuentra tus
-          fotografías minutos después de haber sido capturadas.
+          Encuentra tus fotografías en galerías actualizadas en tiempo 
+real.
         </p>
 
-        <button className="bg-white text-black px-10 py-5 rounded-full 
-font-bold mt-14 hover:scale-105 transition">
-          Entrar a Galerías
-        </button>
+        <a
+          href="https://luisalbertovg9.pixieset.com/quinceandrea/"
+          target="_blank"
+          className="inline-block bg-white text-black px-10 py-5 
+rounded-full font-bold mt-14 hover:scale-105 transition"
+        >
+          Entrar a Galería
+        </a>
 
       </section>
 
@@ -181,27 +240,108 @@ font-bold mt-14 hover:scale-105 transition">
           Portafolio
         </h2>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-6">
 
-          <div className="bg-[#241f2f] rounded-3xl h-[400px] flex 
-items-end p-8">
-            <h3 className="text-3xl font-bold">Bodas</h3>
-          </div>
+          {portfolioItems.map((item) => (
+            <div
+              key={item}
+              className="bg-[#241f2f] rounded-3xl h-[350px] flex items-end 
+p-8 hover:scale-[1.02] transition"
+            >
+              <h3 className="text-3xl font-bold">
+                {item}
+              </h3>
+            </div>
+          ))}
 
-          <div className="bg-[#241f2f] rounded-3xl h-[400px] flex 
-items-end p-8">
-            <h3 className="text-3xl font-bold">Conciertos</h3>
-          </div>
+        </div>
 
-          <div className="bg-[#241f2f] rounded-3xl h-[400px] flex 
-items-end p-8">
-            <h3 className="text-3xl font-bold">Documental</h3>
-          </div>
+      </section>
 
-          <div className="bg-[#241f2f] rounded-3xl h-[400px] flex 
-items-end p-8">
-            <h3 className="text-3xl font-bold">Live Streaming</h3>
-          </div>
+      {/* REDES */}
+
+      <section className="px-8 md:px-20 py-32 border-b border-white/10">
+
+        <h2 className="text-5xl font-black mb-20">
+          Redes Sociales
+        </h2>
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-6">
+
+          <a
+            href="https://www.instagram.com/luisalbertovg"
+            target="_blank"
+            className="bg-[#241f2f] rounded-3xl p-8 hover:scale-105 
+transition"
+          >
+            <h3 className="text-2xl font-bold mb-5">
+              Instagram
+            </h3>
+
+            <p className="text-zinc-400">
+              Reels, retratos y contenido visual.
+            </p>
+          </a>
+
+          <a
+            href="https://www.facebook.com/LuisAlbertoVGOficial"
+            target="_blank"
+            className="bg-[#241f2f] rounded-3xl p-8 hover:scale-105 
+transition"
+          >
+            <h3 className="text-2xl font-bold mb-5">
+              Facebook
+            </h3>
+
+            <p className="text-zinc-400">
+              Cobertura regional y contenido social.
+            </p>
+          </a>
+
+          <a
+            href="https://www.facebook.com/Tepalcingo"
+            target="_blank"
+            className="bg-[#241f2f] rounded-3xl p-8 hover:scale-105 
+transition"
+          >
+            <h3 className="text-2xl font-bold mb-5">
+              Noticias Tepalcingo
+            </h3>
+
+            <p className="text-zinc-400">
+              Cobertura institucional y transmisiones.
+            </p>
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@luisalberto.vg"
+            target="_blank"
+            className="bg-[#241f2f] rounded-3xl p-8 hover:scale-105 
+transition"
+          >
+            <h3 className="text-2xl font-bold mb-5">
+              TikTok
+            </h3>
+
+            <p className="text-zinc-400">
+              Storytelling y detrás de cámaras.
+            </p>
+          </a>
+
+          <a
+            href="https://luisalbertovg9.pixieset.com/quinceandrea/"
+            target="_blank"
+            className="bg-[#241f2f] rounded-3xl p-8 hover:scale-105 
+transition"
+          >
+            <h3 className="text-2xl font-bold mb-5">
+              Pixieset
+            </h3>
+
+            <p className="text-zinc-400">
+              Galerías en vivo y entrega inmediata.
+            </p>
+          </a>
 
         </div>
 
@@ -225,10 +365,14 @@ real
           para proyectos que buscan destacar.
         </p>
 
-        <button className="bg-white text-black px-10 py-5 rounded-full 
-font-bold mt-14 hover:scale-105 transition">
-          Hablemos
-        </button>
+        <a
+          href="https://wa.me/527351210954"
+          target="_blank"
+          className="inline-block bg-white text-black px-10 py-5 
+rounded-full font-bold mt-14 hover:scale-105 transition"
+        >
+          Enviar mensaje
+        </a>
 
       </section>
 

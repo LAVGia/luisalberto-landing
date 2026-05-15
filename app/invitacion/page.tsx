@@ -35,6 +35,31 @@ export default function Invitacion() {
     })
   }
 
+  // COUNTDOWN REAL
+  const weddingDate = new Date("2026-12-20T17:00:00").getTime()
+
+  const calculateTimeLeft = () => {
+    const now = new Date().getTime()
+    const difference = weddingDate - now
+
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / 1000 / 60) % 60),
+      seconds: Math.floor((difference / 1000) % 60)
+    }
+  }
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft())
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <main className="bg-[#f6f1ea] text-[#1a1a1a] overflow-hidden">
 
@@ -75,14 +100,13 @@ border-white/30 backdrop-blur hover:scale-105 transition"
         </div>
       </section>
 
-      {/* HERO FOTO NOVIOS */}
+      {/* HERO NOVIOS */}
       <section
         ref={heroRef}
         className="relative min-h-screen flex flex-col justify-end 
 text-white"
       >
 
-        {/* FOTO CORRECTA NOVIOS */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -96,7 +120,17 @@ text-white"
 
         <div className="relative z-10 w-full pb-16 px-6 text-center">
 
-          <div className="flex justify-center gap-4 flex-wrap">
+          {/* TEXTO RESTAURADO */}
+          <h2 className="text-5xl md:text-7xl font-light mb-6">
+            Nuestra Boda
+          </h2>
+
+          <p className="max-w-2xl mx-auto text-white/80 mb-10 text-lg">
+            Acompáñanos a celebrar el inicio de nuestra nueva historia.
+          </p>
+
+          {/* BOTONES */}
+          <div className="flex justify-center gap-4 flex-wrap mb-6">
 
             <button
               onClick={() => scrollTo(detailsRef)}
@@ -113,6 +147,36 @@ border-white/30 backdrop-blur hover:scale-105 transition"
             >
               RSVP
             </button>
+
+          </div>
+
+          {/* COUNTDOWN */}
+          <div className="inline-flex gap-6 px-8 py-4 rounded-2xl 
+bg-black/25 border border-white/20 backdrop-blur text-white">
+
+            <div>
+              <div className="text-2xl font-light">{timeLeft.days}</div>
+              <div className="text-xs uppercase 
+tracking-widest">Días</div>
+            </div>
+
+            <div>
+              <div className="text-2xl font-light">{timeLeft.hours}</div>
+              <div className="text-xs uppercase 
+tracking-widest">Horas</div>
+            </div>
+
+            <div>
+              <div className="text-2xl 
+font-light">{timeLeft.minutes}</div>
+              <div className="text-xs uppercase tracking-widest">Min</div>
+            </div>
+
+            <div>
+              <div className="text-2xl 
+font-light">{timeLeft.seconds}</div>
+              <div className="text-xs uppercase tracking-widest">Seg</div>
+            </div>
 
           </div>
 
@@ -144,7 +208,13 @@ hover:scale-[1.02] transition"
               Santuario de Tepalcingo
             </p>
 
-            <p className="text-sm text-gray-600 mt-3">
+            {/* FECHA */}
+            <p className="text-sm text-gray-600 mt-4">
+              20 Diciembre 2026
+            </p>
+
+            {/* HORA */}
+            <p className="text-sm text-gray-600">
               5:00 PM
             </p>
 
@@ -167,7 +237,13 @@ hover:scale-[1.02] transition"
               Jardín Anrubio
             </p>
 
-            <p className="text-sm text-gray-600 mt-3">
+            {/* FECHA */}
+            <p className="text-sm text-gray-600 mt-4">
+              20 Diciembre 2026
+            </p>
+
+            {/* HORA */}
+            <p className="text-sm text-gray-600">
               6:00 PM
             </p>
 
@@ -225,7 +301,6 @@ duration-1000"
         className="relative py-40 text-center text-white"
       >
 
-        {/* FOTO JARDÍN BANQUETE */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{

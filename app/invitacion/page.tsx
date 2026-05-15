@@ -24,8 +24,8 @@ export default function Invitacion() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % gallery.length)
-    }, 3000)
+      setActiveIndex((p) => (p + 1) % gallery.length)
+    }, 4000)
 
     return () => clearInterval(interval)
   }, [])
@@ -37,7 +37,7 @@ export default function Invitacion() {
   return (
     <main className="bg-[#f7f2ea] text-[#1a1a1a] overflow-hidden">
 
-      {/* HERO VIDEO INTRO */}
+      {/* HERO VIDEO */}
       <section className="relative h-screen">
 
         <video
@@ -55,8 +55,7 @@ export default function Invitacion() {
         <div className="relative z-10 h-full flex flex-col justify-center 
 items-center text-center px-6">
 
-          <p className="tracking-[0.4em] text-white/70 uppercase text-sm 
-mb-6">
+          <p className="uppercase tracking-[0.4em] text-white/70 mb-6">
             Enlace Matrimonial
           </p>
 
@@ -64,86 +63,46 @@ mb-6">
             Isabella <span className="text-[#d4af37]">&</span> Daniel
           </h1>
 
-          <button
-            onClick={() => scrollTo(heroRef)}
-            className="mt-12 relative overflow-hidden px-10 py-5 
-rounded-full border border-white/30 bg-white/10 backdrop-blur text-white 
-group"
-          >
-            <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/40 to-transparent -translate-x-full 
-group-hover:translate-x-full transition duration-1000"></span>
-            <span className="relative">Abrir Invitación</span>
-          </button>
-
         </div>
       </section>
 
-      {/* HERO SECTION */}
-      <section ref={heroRef} className="relative min-h-screen flex 
-items-center justify-center">
+      {/* BOTONES + COUNTDOWN */}
+      <section className="py-16 bg-[#f3ece2]">
 
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${gallery[0]})` }}
-        />
+        <div className="text-center">
 
-        <div className="absolute inset-0 bg-black/40" />
+          <div className="flex justify-center gap-4 flex-wrap mb-6">
 
-        <div className="relative z-10 text-center text-white px-6">
-
-          <h2 className="text-5xl md:text-7xl font-light">
-            Nuestra Boda
-          </h2>
-
-          <div className="flex gap-4 justify-center mt-10 flex-wrap">
-
-            <button className="px-8 py-3 rounded-full bg-white/10 
-backdrop-blur border border-white/20">
+            <button
+              onClick={() => scrollTo(detailsRef)}
+              className="px-8 py-4 rounded-full bg-white/70 border 
+border-black/10 backdrop-blur hover:scale-105 transition"
+            >
               Detalles
             </button>
 
-            <button className="px-8 py-3 rounded-full bg-white/10 
-backdrop-blur border border-white/20">
+            <button
+              onClick={() => scrollTo(rsvpRef)}
+              className="px-8 py-4 rounded-full bg-white/70 border 
+border-black/10 backdrop-blur hover:scale-105 transition"
+            >
               RSVP
-            </button>
-
-            <button className="px-8 py-3 rounded-full bg-white/10 
-backdrop-blur border border-white/20">
-              Historia
             </button>
 
           </div>
 
-        </div>
-      </section>
+          {/* COUNTDOWN (ESTILO DIFERENTE) */}
+          <div className="inline-flex gap-6 bg-black/10 px-8 py-4 
+rounded-2xl backdrop-blur border border-black/10">
 
-      {/* COUNTDOWN SUTIL */}
-      <div className="flex justify-center -mt-16 mb-10">
-        <div className="bg-white/10 backdrop-blur border border-white/20 
-px-8 py-4 rounded-full flex gap-8 text-white text-sm">
-          <span>120 Días</span>
-          <span>08 Hrs</span>
-          <span>24 Min</span>
-          <span>12 Seg</span>
-        </div>
-      </div>
+            <div>120 <span className="text-xs">Días</span></div>
+            <div>08 <span className="text-xs">Hrs</span></div>
+            <div>24 <span className="text-xs">Min</span></div>
+            <div>12 <span className="text-xs">Seg</span></div>
 
-      {/* VIMEO SECTION */}
-      <section className="px-6 py-20 bg-[#f3ece2]">
-
-        <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden 
-shadow-xl">
-
-          <iframe
-            
-src="https://player.vimeo.com/video/1192713156?h=0&autoplay=0&muted=0"
-            className="w-full aspect-video"
-            allow="autoplay; fullscreen; picture-in-picture"
-          />
+          </div>
 
         </div>
-
       </section>
 
       {/* DETAILS */}
@@ -151,47 +110,73 @@ src="https://player.vimeo.com/video/1192713156?h=0&autoplay=0&muted=0"
 
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
 
-          <a className="p-10 rounded-3xl bg-white/60 backdrop-blur border 
-border-black/5">
-            <h3 className="text-2xl mb-3">Ceremonia</h3>
-            <p>Hacienda Santa Lucía</p>
+          {/* CEREMONIA */}
+          <a
+            href="https://maps.app.goo.gl/pU5zycxGosdKi9MJA"
+            target="_blank"
+            className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
+hover:scale-[1.02] transition"
+          >
+            <div className="text-3xl mb-3">⛪</div>
+            <h3 className="text-2xl mb-2">Ceremonia</h3>
+            <p>Santuario de Tepalcingo</p>
+            <p className="text-sm text-gray-600 mt-2">5:00 PM</p>
           </a>
 
-          <a className="p-10 rounded-3xl bg-white/60 backdrop-blur border 
-border-black/5">
-            <h3 className="text-2xl mb-3">Recepción</h3>
-            <p>Jardines Bellavista</p>
+          {/* RECEPCION */}
+          <a
+            href="https://maps.app.goo.gl/bti7LF96Bd9bhAzZ9"
+            target="_blank"
+            className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
+hover:scale-[1.02] transition"
+          >
+            <div className="text-3xl mb-3">🍾</div>
+            <h3 className="text-2xl mb-2">Recepción</h3>
+            <p>Jardín Anrubio</p>
+            <p className="text-sm text-gray-600 mt-2">6:00 PM</p>
           </a>
 
         </div>
-
       </section>
 
-      {/* HISTORIA CARRUSEL */}
-      <section ref={historyRef} className="py-28 bg-[#f7f2ea] 
-text-center">
+      {/* HISTORIA + VIMEO + CARRUSEL */}
+      <section ref={historyRef} className="py-24 bg-[#f7f2ea]">
 
-        <h2 className="text-4xl mb-10">Nuestra Historia</h2>
+        {/* VIMEO */}
+        <div className="max-w-5xl mx-auto px-6 mb-12">
 
-        <div className="relative max-w-4xl mx-auto h-[450px] rounded-3xl 
-overflow-hidden">
-
-          {gallery.map((img, i) => (
-            <div
-              key={i}
-              className="absolute inset-0 transition-opacity 
-duration-1000"
-              style={{
-                backgroundImage: `url(${img})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                opacity: i === activeIndex ? 1 : 0
-              }}
+          <div className="rounded-3xl overflow-hidden shadow-lg">
+            <iframe
+              src="https://player.vimeo.com/video/1192713156"
+              className="w-full aspect-video"
+              allow="autoplay; fullscreen; picture-in-picture"
             />
-          ))}
+          </div>
 
         </div>
 
+        {/* CARRUSEL */}
+        <div className="max-w-5xl mx-auto px-6">
+
+          <div className="relative h-[450px] rounded-3xl overflow-hidden">
+
+            {gallery.map((img, i) => (
+              <div
+                key={i}
+                className="absolute inset-0 transition-opacity 
+duration-1000"
+                style={{
+                  backgroundImage: `url(${img})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  opacity: i === activeIndex ? 1 : 0
+                }}
+              />
+            ))}
+
+          </div>
+
+        </div>
       </section>
 
       {/* RSVP */}
@@ -203,7 +188,7 @@ text-white">
           style={{
             backgroundImage:
               
-"url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop')"
+"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop"
           }}
         />
 
@@ -217,13 +202,12 @@ text-white">
             
 href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
             className="px-10 py-4 rounded-full bg-white/10 border 
-border-white/30 backdrop-blur inline-block hover:scale-105 transition"
+border-white/30 backdrop-blur hover:scale-105 transition inline-block"
           >
             Confirmar
           </a>
 
         </div>
-
       </section>
 
       {/* FOOTER */}

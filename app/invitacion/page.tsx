@@ -15,8 +15,6 @@ export default function Invitacion() {
   return (
     <main className="bg-[#f8f4ee] text-[#1a1a1a] overflow-hidden">
 
-      {/* OPENING */}
-
       <section className="relative h-screen w-full overflow-hidden">
 
         <video
@@ -75,8 +73,6 @@ group-hover:translate-x-full transition duration-1000"></span>
 
       </section>
 
-      {/* HERO */}
-
       <section
         ref={invitationRef}
         className="relative min-h-screen flex items-center justify-center 
@@ -92,7 +88,7 @@ px-8 py-32"
           }}
         ></div>
 
-        <div className="absolute inset-0 bg-[#000]/45"></div>
+        <div className="absolute inset-0 bg-black/45"></div>
 
         <div className="relative z-10 text-center max-w-4xl">
 
@@ -117,8 +113,6 @@ leading-relaxed max-w-2xl mx-auto">
         </div>
 
       </section>
-
-      {/* COUNTDOWN */}
 
       <section className="py-28 px-8 text-center">
 
@@ -145,8 +139,6 @@ text-[#1a1a1a]">
         </div>
 
       </section>
-
-      {/* EVENT DETAILS */}
 
       <section className="py-24 px-8 md:px-20">
 
@@ -210,8 +202,6 @@ text-sm">
 
       </section>
 
-      {/* ITINERARIO */}
-
       <section className="py-28 px-8 md:px-20 bg-[#f1ebe1]">
 
         <div className="max-w-4xl mx-auto">
@@ -267,8 +257,6 @@ p-8 flex items-center justify-between shadow-sm"
 
       </section>
 
-      {/* DRESS CODE */}
-
       <section className="py-28 px-8 text-center">
 
         <p className="uppercase tracking-[0.3em] text-[#9c8b6d] mb-8 
@@ -286,8 +274,6 @@ leading-relaxed">
         </p>
 
       </section>
-
-      {/* GALLERY */}
 
       <section className="py-28 px-8 md:px-20">
 
@@ -318,8 +304,6 @@ leading-relaxed">
 
       </section>
 
-      {/* RSVP */}
-
       <section className="py-40 px-8 text-center bg-[#f1ebe1]">
 
         <h2 className="text-5xl md:text-6xl font-light leading-tight">
@@ -332,7 +316,8 @@ leading-relaxed">
         </p>
 
         <a
-          href="https://docs.google.com/spreadsheets/"
+          
+href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
           target="_blank"
           className="group relative overflow-hidden inline-flex 
 items-center gap-3 mt-16 border border-[#d4af37]/50 bg-white px-10 py-5 

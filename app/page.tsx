@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "LuisAlbertoVG",
+}
+
 export default function Home() {
   return (
     <main className="bg-[#1a1721] text-white min-h-screen scroll-smooth">
@@ -235,14 +239,14 @@ font-bold mt-14 hover:scale-105 transition">
           background: linear-gradient(
             120deg,
             transparent 0%,
-            rgba(255,255,255,0.06) 45%,
-            rgba(255,255,255,0.18) 50%,
-            rgba(255,255,255,0.06) 55%,
+            rgba(255,255,255,0.04) 45%,
+            rgba(255,255,255,0.15) 50%,
+            rgba(255,255,255,0.04) 55%,
             transparent 100%
           );
 
           transform: translateX(-100%);
-          animation: shimmerMove 7s infinite;
+          animation: shimmerMove 8s infinite;
         }
 
         @keyframes shimmerMove {
@@ -259,4 +263,3 @@ font-bold mt-14 hover:scale-105 transition">
     </main>
   )
 }
-

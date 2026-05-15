@@ -1,42 +1,3 @@
-export const metadata = {
-  title: "LuisAlbertoVG",
-}
-
-const portfolioItems = [
-  {
-    title: "Bodas",
-    image:
-      
-"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    title: "XV Años",
-    image:
-      
-"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    title: "Retrato",
-    image:
-      
-"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    title: "Documental",
-    image:
-      
-"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    title: "Livestreaming",
-    image:
-      
-"https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop",
-  },
-]
-
-export default function Home() {
-  return (
     <main className="bg-[#1a1721] text-white min-h-screen">
 
       {/* HERO */}
@@ -254,20 +215,10 @@ real.
         <a
           href="https://luisalbertovg9.pixieset.com/quinceandrea/"
           target="_blank"
-          className="group relative inline-flex items-center 
-justify-center overflow-hidden rounded-full px-10 py-5 font-bold 
-text-white mt-14 border border-white/20 bg-white/5 backdrop-blur-sm 
-hover:scale-105 transition"
+          className="inline-block bg-white text-black px-10 py-5 
+rounded-full font-bold mt-14 hover:scale-105 transition"
         >
-
-          <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/30 to-transparent -translate-x-full 
-group-hover:translate-x-full transition duration-1000"></span>
-
-          <span className="relative z-10">
-            Entrar a Galería
-          </span>
-
+          Entrar a Galería
         </a>
 
       </section>
@@ -294,7 +245,6 @@ overflow-hidden hover:scale-[1.02] transition"
                 backgroundImage: `url(${item.image})`,
               }}
             >
-
               <div className="absolute inset-0 bg-black/50"></div>
 
               <div className="absolute bottom-0 left-0 p-8 z-10">
@@ -302,7 +252,6 @@ overflow-hidden hover:scale-[1.02] transition"
                   {item.title}
                 </h3>
               </div>
-
             </div>
           ))}
 
@@ -327,8 +276,7 @@ overflow-hidden hover:scale-[1.02] transition"
             href="https://www.instagram.com/luisalbertovg"
             target="_blank"
             className="bg-[#241f2f] rounded-3xl p-8 hover:scale-105 
-transition border border-pink-500/40 
-shadow-[0_0_20px_rgba(236,72,153,0.15)]"
+transition"
           >
             <h3 className="text-2xl font-bold mb-5">
               Instagram
@@ -343,8 +291,7 @@ shadow-[0_0_20px_rgba(236,72,153,0.15)]"
             href="https://www.facebook.com/LuisAlbertoVGOficial"
             target="_blank"
             className="bg-[#241f2f] rounded-3xl p-8 hover:scale-105 
-transition border border-blue-500/40 
-shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+transition"
           >
             <h3 className="text-2xl font-bold mb-5">
               Facebook
@@ -359,8 +306,7 @@ shadow-[0_0_20px_rgba(59,130,246,0.15)]"
             href="https://www.facebook.com/Tepalcingo"
             target="_blank"
             className="bg-[#241f2f] rounded-3xl p-8 hover:scale-105 
-transition border border-cyan-500/40 
-shadow-[0_0_20px_rgba(34,211,238,0.15)]"
+transition"
           >
             <h3 className="text-2xl font-bold mb-5">
               Noticias Tepalcingo
@@ -375,8 +321,7 @@ shadow-[0_0_20px_rgba(34,211,238,0.15)]"
             href="https://www.tiktok.com/@luisalberto.vg"
             target="_blank"
             className="bg-[#241f2f] rounded-3xl p-8 hover:scale-105 
-transition border border-white/30 
-shadow-[0_0_20px_rgba(255,255,255,0.08)]"
+transition"
           >
             <h3 className="text-2xl font-bold mb-5">
               TikTok
@@ -391,8 +336,7 @@ shadow-[0_0_20px_rgba(255,255,255,0.08)]"
             href="https://luisalbertovg9.pixieset.com/quinceandrea/"
             target="_blank"
             className="bg-[#241f2f] rounded-3xl p-8 hover:scale-105 
-transition border border-purple-400/40 
-shadow-[0_0_20px_rgba(192,132,252,0.15)]"
+transition"
           >
             <h3 className="text-2xl font-bold mb-5">
               Pixieset
@@ -432,13 +376,11 @@ real
 border-green-500/40 text-white px-10 py-5 rounded-full font-bold mt-14 
 hover:bg-green-500/10 hover:scale-105 transition"
         >
-
           <span className="text-green-400 text-xl">
             ◉
           </span>
 
           Enviar mensaje
-
         </a>
 
       </section>

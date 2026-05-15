@@ -24,7 +24,9 @@ relative overflow-hidden w-fit">
               Luis Alberto <span className="text-[#8f7bb8]">VG</span>
             </span>
 
-            <span className="absolute inset-0 shimmer"></span>
+            <span className="absolute inset-0 bg-gradient-to-r 
+from-transparent via-white/10 to-transparent animate-pulse 
+opacity-20"></span>
 
           </h1>
 
@@ -229,36 +231,6 @@ font-bold mt-14 hover:scale-105 transition">
         </button>
 
       </section>
-
-      <style jsx>{`
-        html {
-          scroll-behavior: smooth;
-        }
-
-        .shimmer {
-          background: linear-gradient(
-            120deg,
-            transparent 0%,
-            rgba(255,255,255,0.04) 45%,
-            rgba(255,255,255,0.15) 50%,
-            rgba(255,255,255,0.04) 55%,
-            transparent 100%
-          );
-
-          transform: translateX(-100%);
-          animation: shimmerMove 8s infinite;
-        }
-
-        @keyframes shimmerMove {
-          0% {
-            transform: translateX(-100%);
-          }
-
-          100% {
-            transform: translateX(200%);
-          }
-        }
-      `}</style>
 
     </main>
   )

@@ -11,16 +11,21 @@ export default function Invitacion() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const gallery = [
-    "https://images.unsplash.com/photo-1523438097201-512ae7d59c7a",
-    "https://images.unsplash.com/photo-1521337706264-a414f153a5db",
-    "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac",
-    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc"
+    
+"https://images.unsplash.com/photo-1523438097201-512ae7d59c7a?q=80&w=1600&auto=format&fit=crop",
+    
+"https://images.unsplash.com/photo-1521337706264-a414f153a5db?q=80&w=1600&auto=format&fit=crop",
+    
+"https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?q=80&w=1600&auto=format&fit=crop",
+    
+"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop"
   ]
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((p) => (p + 1) % gallery.length)
     }, 4000)
+
     return () => clearInterval(interval)
   }, [])
 
@@ -28,37 +33,10 @@ export default function Invitacion() {
     ref.current?.scrollIntoView({ behavior: "smooth" })
   }
 
-  // 🧠 FECHA REAL: 20 noviembre 2016 17:00
-  const targetDate = new Date("2016-11-20T17:00:00")
-
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  })
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date().getTime()
-      const distance = targetDate.getTime() - now
-
-      setTimeLeft({
-        days: Math.max(Math.floor(distance / (1000 * 60 * 60 * 24)), 0),
-        hours: Math.max(Math.floor((distance / (1000 * 60 * 60)) % 24), 
-0),
-        minutes: Math.max(Math.floor((distance / (1000 * 60)) % 60), 0),
-        seconds: Math.max(Math.floor((distance / 1000) % 60), 0)
-      })
-    }, 1000)
-
-    return () => clearInterval(interval)
-  }, [])
-
   return (
     <main className="bg-[#f6f1ea] text-[#1a1a1a]">
 
-      {/* 1. VIDEO HERO */}
+      {/* 1. HERO VIDEO */}
       <section className="relative h-screen">
 
         <video
@@ -74,7 +52,7 @@ export default function Invitacion() {
         <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative z-10 h-full flex flex-col items-center 
-justify-center text-center text-white px-6">
+justify-center text-white text-center px-6">
 
           <p className="tracking-[0.4em] uppercase text-white/70 mb-6">
             Enlace Matrimonial
@@ -84,7 +62,6 @@ justify-center text-center text-white px-6">
             Isabella <span className="text-[#d4af37]">&</span> Daniel
           </h1>
 
-          {/* BOTÓN RESTAURADO */}
           <button
             onClick={() => scrollTo(heroRef)}
             className="mt-10 px-10 py-4 rounded-full bg-white/10 border 
@@ -96,14 +73,14 @@ border-white/30 backdrop-blur hover:scale-105 transition"
         </div>
       </section>
 
-      {/* 2. SECCIÓN PRINCIPAL (FOTO NOVIOS + BOTONES ABAJO) */}
+      {/* 2. SECCIÓN PRINCIPAL (FOTO NOVIOS - DETALLES/RSVP) */}
       <section
         ref={heroRef}
         className="relative min-h-screen flex flex-col justify-end 
 text-white"
       >
 
-        {/* fondo novios */}
+        {/* FONDO NOVIOS (CORRECTO) */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -115,10 +92,8 @@ text-white"
 
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* contenido inferior */}
         <div className="relative z-10 w-full pb-16 px-6 text-center">
 
-          {/* BOTONES */}
           <div className="flex justify-center gap-4 mb-6 flex-wrap">
 
             <button
@@ -139,17 +114,6 @@ backdrop-blur rounded-full"
 
           </div>
 
-          {/* COUNTDOWN (debajo botones) */}
-          <div className="inline-flex gap-6 px-6 py-3 bg-black/30 
-backdrop-blur rounded-2xl border border-white/10 text-sm">
-
-            <div>{timeLeft.days} D</div>
-            <div>{timeLeft.hours} H</div>
-            <div>{timeLeft.minutes} M</div>
-            <div>{timeLeft.seconds} S</div>
-
-          </div>
-
         </div>
       </section>
 
@@ -158,19 +122,27 @@ backdrop-blur rounded-2xl border border-white/10 text-sm">
 
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
 
-          <div className="p-10 rounded-3xl bg-white/70 border 
-backdrop-blur">
+          <a
+            href="https://maps.app.goo.gl/pU5zycxGosdKi9MJA"
+            target="_blank"
+            className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
+hover:scale-[1.02] transition"
+          >
             ⛪ Ceremonia<br />
             Santuario de Tepalcingo<br />
             5:00 PM
-          </div>
+          </a>
 
-          <div className="p-10 rounded-3xl bg-white/70 border 
-backdrop-blur">
+          <a
+            href="https://maps.app.goo.gl/bti7LF96Bd9bhAzZ9"
+            target="_blank"
+            className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
+hover:scale-[1.02] transition"
+          >
             🍾 Recepción<br />
             Jardín Anrubio<br />
             6:00 PM
-          </div>
+          </a>
 
         </div>
       </section>
@@ -190,6 +162,7 @@ duration-1000"
                 style={{
                   backgroundImage: `url(${img})`,
                   backgroundSize: "cover",
+                  backgroundPosition: "center",
                   opacity: i === activeIndex ? 1 : 0
                 }}
               />
@@ -201,10 +174,11 @@ duration-1000"
 
       </section>
 
-      {/* 5. RSVP */}
+      {/* 5. CONFIRMA ASISTENCIA (FONDO CORREGIDO) */}
       <section ref={rsvpRef} className="relative py-40 text-center 
 text-white">
 
+        {/* FONDO JARDÍN BANQUETE (CORRECTO) */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -224,7 +198,7 @@ text-white">
             
 href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
             className="px-10 py-4 rounded-full bg-white/10 border 
-border-white/30 backdrop-blur inline-block"
+border-white/30 backdrop-blur inline-block hover:scale-105 transition"
           >
             Confirmar
           </a>
@@ -232,7 +206,7 @@ border-white/30 backdrop-blur inline-block"
         </div>
       </section>
 
-      {/* 6. FOOTER */}
+      {/* FOOTER */}
       <footer className="py-10 text-center bg-[#e7dccd]">
         Diseñada por LuisAlbertoVG
       </footer>

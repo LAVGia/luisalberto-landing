@@ -13,9 +13,9 @@ export default function Invitacion() {
   }
 
   return (
-    <main className="bg-[#16131d] text-white overflow-hidden">
+    <main className="bg-[#f8f4ee] text-[#1a1a1a] overflow-hidden">
 
-      {/* OPENING CINEMATIC */}
+      {/* OPENING */}
 
       <section className="relative h-screen w-full overflow-hidden">
 
@@ -33,34 +33,36 @@ src="https://cdn.coverr.co/videos/coverr-wedding-kiss-1560927352142?download=108
           />
         </video>
 
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
 
         <div className="relative z-10 h-full flex flex-col items-center 
 justify-center text-center px-6">
 
-          <p className="uppercase tracking-[0.4em] text-zinc-300 mb-8">
+          <p className="uppercase tracking-[0.4em] text-white/80 mb-8 
+text-sm">
             Invitación Especial
           </p>
 
-          <h1 className="text-6xl md:text-8xl font-light leading-tight">
+          <h1 className="text-5xl md:text-8xl font-light leading-tight 
+text-white break-words">
             Isabella
-            <span className="mx-4 text-[#c8b6ff]">&</span>
+            <span className="mx-3 text-[#d4af37]">&</span>
             Daniel
           </h1>
 
-          <p className="mt-10 text-zinc-300 text-xl">
+          <p className="mt-10 text-white/80 text-lg md:text-xl">
             18 Octubre 2026
           </p>
 
           <button
             onClick={openInvitation}
             className="group relative overflow-hidden mt-16 border 
-border-white/20 bg-white/10 backdrop-blur-sm px-10 py-5 rounded-full 
-text-lg hover:scale-105 transition"
+border-white/30 bg-white/10 backdrop-blur-sm px-10 py-5 rounded-full 
+text-white hover:scale-105 transition"
           >
 
             <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/30 to-transparent -translate-x-full 
+from-transparent via-white/40 to-transparent -translate-x-full 
 group-hover:translate-x-full transition duration-1000"></span>
 
             <span className="relative z-10">
@@ -90,21 +92,24 @@ px-8 py-32"
           }}
         ></div>
 
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-[#000]/45"></div>
 
         <div className="relative z-10 text-center max-w-4xl">
 
-          <p className="uppercase tracking-[0.4em] text-zinc-300 mb-8">
+          <p className="uppercase tracking-[0.4em] text-white/70 mb-8 
+text-sm">
             Nuestra Boda
           </p>
 
-          <h2 className="text-6xl md:text-8xl font-light leading-tight">
+          <h2 className="text-5xl md:text-8xl font-light leading-tight 
+text-white break-words">
             Isabella
-            <span className="mx-4 text-[#c8b6ff]">&</span>
+            <span className="mx-3 text-[#d4af37]">&</span>
             Daniel
           </h2>
 
-          <p className="text-zinc-300 text-xl mt-12 leading-relaxed">
+          <p className="text-white/80 text-lg md:text-xl mt-12 
+leading-relaxed max-w-2xl mx-auto">
             Hay momentos que cambian nuestra historia para siempre.
             Queremos compartir este día contigo.
           </p>
@@ -115,22 +120,23 @@ px-8 py-32"
 
       {/* COUNTDOWN */}
 
-      <section className="py-32 px-8 text-center border-t border-white/10 
-border-b border-white/10">
+      <section className="py-28 px-8 text-center">
 
-        <p className="uppercase tracking-[0.3em] text-zinc-400 mb-8">
+        <p className="uppercase tracking-[0.3em] text-[#9c8b6d] mb-8 
+text-sm">
           Cuenta Regresiva
         </p>
 
-        <div className="flex justify-center gap-10 flex-wrap">
+        <div className="flex justify-center gap-6 flex-wrap">
 
           {["120 Días", "08 Horas", "24 Min", "12 Seg"].map((item) => (
             <div
               key={item}
-              className="bg-white/5 border border-white/10 
-backdrop-blur-sm rounded-3xl px-10 py-8 min-w-[150px]"
+              className="bg-white border border-[#d8c7a3] rounded-[30px] 
+px-10 py-8 min-w-[140px] shadow-sm"
             >
-              <h3 className="text-3xl font-bold">
+              <h3 className="text-2xl md:text-3xl font-semibold 
+text-[#1a1a1a]">
                 {item}
               </h3>
             </div>
@@ -142,14 +148,23 @@ backdrop-blur-sm rounded-3xl px-10 py-8 min-w-[150px]"
 
       {/* EVENT DETAILS */}
 
-      <section className="py-32 px-8 md:px-20">
+      <section className="py-24 px-8 md:px-20">
 
         <div className="grid md:grid-cols-2 gap-10">
 
-          <div className="bg-white/5 border border-white/10 rounded-[40px] 
-p-12 backdrop-blur-sm">
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            className="bg-white border border-[#d8c7a3] rounded-[40px] 
+p-12 hover:scale-[1.02] transition shadow-sm"
+          >
 
-            <p className="uppercase tracking-[0.3em] text-zinc-400 mb-6">
+            <p className="text-4xl mb-6">
+              ⛪
+            </p>
+
+            <p className="uppercase tracking-[0.3em] text-[#9c8b6d] mb-6 
+text-sm">
               Ceremonia
             </p>
 
@@ -157,18 +172,27 @@ p-12 backdrop-blur-sm">
               Hacienda Santa Lucía
             </h3>
 
-            <p className="text-zinc-300 text-lg leading-relaxed">
+            <p className="text-[#555] text-lg leading-relaxed">
               18 Octubre 2026
               <br />
               5:00 PM
             </p>
 
-          </div>
+          </a>
 
-          <div className="bg-white/5 border border-white/10 rounded-[40px] 
-p-12 backdrop-blur-sm">
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            className="bg-white border border-[#d8c7a3] rounded-[40px] 
+p-12 hover:scale-[1.02] transition shadow-sm"
+          >
 
-            <p className="uppercase tracking-[0.3em] text-zinc-400 mb-6">
+            <p className="text-4xl mb-6">
+              🍾
+            </p>
+
+            <p className="uppercase tracking-[0.3em] text-[#9c8b6d] mb-6 
+text-sm">
               Recepción
             </p>
 
@@ -176,9 +200,66 @@ p-12 backdrop-blur-sm">
               Jardines Bellavista
             </h3>
 
-            <p className="text-zinc-300 text-lg leading-relaxed">
+            <p className="text-[#555] text-lg leading-relaxed">
               Cena · Música · Celebración
             </p>
+
+          </a>
+
+        </div>
+
+      </section>
+
+      {/* ITINERARIO */}
+
+      <section className="py-28 px-8 md:px-20 bg-[#f1ebe1]">
+
+        <div className="max-w-4xl mx-auto">
+
+          <p className="uppercase tracking-[0.3em] text-[#9c8b6d] mb-8 
+text-center text-sm">
+            Itinerario
+          </p>
+
+          <h2 className="text-5xl font-light text-center mb-20">
+            Programa del Evento
+          </h2>
+
+          <div className="space-y-8">
+
+            {[
+              ["4:30 PM", "Recepción de invitados", "🥂"],
+              ["5:00 PM", "Ceremonia", "⛪"],
+              ["7:00 PM", "Cena", "🍽️"],
+              ["8:30 PM", "Primer baile", "✨"],
+              ["9:00 PM", "Fiesta", "🎶"],
+            ].map((item) => (
+              <div
+                key={item[0]}
+                className="bg-white rounded-[30px] border border-[#d8c7a3] 
+p-8 flex items-center justify-between shadow-sm"
+              >
+
+                <div className="flex items-center gap-6">
+
+                  <div className="text-3xl">
+                    {item[2]}
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-medium">
+                      {item[1]}
+                    </h3>
+
+                    <p className="text-[#777] mt-2">
+                      {item[0]}
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+            ))}
 
           </div>
 
@@ -188,18 +269,19 @@ p-12 backdrop-blur-sm">
 
       {/* DRESS CODE */}
 
-      <section className="py-32 px-8 text-center border-t border-white/10 
-border-b border-white/10">
+      <section className="py-28 px-8 text-center">
 
-        <p className="uppercase tracking-[0.3em] text-zinc-400 mb-8">
+        <p className="uppercase tracking-[0.3em] text-[#9c8b6d] mb-8 
+text-sm">
           Dress Code
         </p>
 
-        <h2 className="text-5xl font-light">
+        <h2 className="text-5xl md:text-6xl font-light">
           Formal Elegante
         </h2>
 
-        <p className="text-zinc-400 text-xl mt-10">
+        <p className="text-[#666] text-xl mt-10 max-w-2xl mx-auto 
+leading-relaxed">
           Tonos neutros y colores suaves recomendados.
         </p>
 
@@ -207,7 +289,7 @@ border-b border-white/10">
 
       {/* GALLERY */}
 
-      <section className="py-32 px-8 md:px-20">
+      <section className="py-28 px-8 md:px-20">
 
         <h2 className="text-5xl font-light text-center mb-20">
           Nuestra Historia
@@ -238,35 +320,35 @@ border-b border-white/10">
 
       {/* RSVP */}
 
-      <section className="py-40 px-8 text-center">
+      <section className="py-40 px-8 text-center bg-[#f1ebe1]">
 
-        <h2 className="text-6xl font-light">
+        <h2 className="text-5xl md:text-6xl font-light leading-tight">
           Confirma tu asistencia
         </h2>
 
-        <p className="text-zinc-400 text-xl max-w-2xl mx-auto mt-10 
+        <p className="text-[#666] text-xl max-w-2xl mx-auto mt-10 
 leading-relaxed">
-          Será un honor compartir este momento contigo.
+          Tu presencia hará este momento aún más especial.
         </p>
 
         <a
-          href="https://wa.me/527351210954"
+          href="https://docs.google.com/spreadsheets/"
           target="_blank"
           className="group relative overflow-hidden inline-flex 
-items-center gap-3 mt-16 border border-green-500/30 bg-green-500/10 px-10 
-py-5 rounded-full text-lg hover:scale-105 transition"
+items-center gap-3 mt-16 border border-[#d4af37]/50 bg-white px-10 py-5 
+rounded-full text-lg hover:scale-105 transition shadow-sm"
         >
 
           <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/20 to-transparent -translate-x-full 
+from-transparent via-[#d4af37]/20 to-transparent -translate-x-full 
 group-hover:translate-x-full transition duration-1000"></span>
 
-          <span className="relative z-10 text-green-400">
-            ◉
+          <span className="relative z-10 text-[#b38b2d]">
+            ✨
           </span>
 
           <span className="relative z-10">
-            Confirmar por WhatsApp
+            Confirmar Asistencia
           </span>
 
         </a>

@@ -145,169 +145,55 @@ export default function Home() {
 
           {/* RIGHT */}
 
-          <div className="flex flex-col gap-3">
-
-            {/* BUTTON */}
+          <div className="flex flex-col gap-4">
 
             <a
               href="/invitacion"
-              className="group relative overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-2xl rounded-[1.7rem] px-6 py-5 hover:border-[#C6A77D]/40 hover:bg-white/[0.05] transition-all duration-700"
+              className="inline-flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-5 rounded-full text-base tracking-[0.08em] hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
             >
-
-              <div className="absolute inset-0 bg-gradient-to-r from-white/[0.03] to-transparent opacity-40" />
-
-              <div className="relative z-10">
-
-                <h3 className="text-lg md:text-xl font-black tracking-[-0.03em] group-hover:text-[#C6A77D] transition-colors duration-700">
-
-                  Invitaciones Luxury
-
-                </h3>
-
-                <p className="text-[#A8A29E] text-sm mt-2 leading-[1.7]">
-
-                  Experiencias digitales cinematográficas para momentos irrepetibles.
-
-                </p>
-
-              </div>
-
+              Invitaciones Luxury
+              <span>→</span>
             </a>
-
-            {/* BUTTON */}
 
             <a
               href="https://luisalbertovg9.pixieset.com/"
               target="_blank"
-              className="group relative overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-2xl rounded-[1.7rem] px-6 py-5 hover:border-[#C6A77D]/40 hover:bg-white/[0.05] transition-all duration-700"
+              className="inline-flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-5 rounded-full text-base tracking-[0.08em] hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
             >
-
-              <div className="absolute inset-0 bg-gradient-to-r from-white/[0.03] to-transparent opacity-40" />
-
-              <div className="relative z-10">
-
-                <h3 className="text-lg md:text-xl font-black tracking-[-0.03em] group-hover:text-[#C6A77D] transition-colors duration-700">
-
-                  Tu Foto
-
-                </h3>
-
-                <p className="text-[#A8A29E] text-sm mt-2 leading-[1.7]">
-
-                  Galerías actualizadas para bodas y eventos.
-
-                </p>
-
-              </div>
-
+              Tu Foto
+              <span>→</span>
             </a>
-
-            {/* BUTTON */}
 
             <a
               href="#"
-              className="group relative overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-2xl rounded-[1.7rem] px-6 py-5 hover:border-[#C6A77D]/40 hover:bg-white/[0.05] transition-all duration-700"
+              className="inline-flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-5 rounded-full text-base tracking-[0.08em] hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
             >
-
-              <div className="absolute inset-0 bg-gradient-to-r from-white/[0.03] to-transparent opacity-40" />
-
-              <div className="relative z-10">
-
-                <h3 className="text-lg md:text-xl font-black tracking-[-0.03em] group-hover:text-[#C6A77D] transition-colors duration-700">
-
-                  Eventos Sociales
-
-                </h3>
-
-                <p className="text-[#A8A29E] text-sm mt-2 leading-[1.7]">
-
-                  Cobertura visual documental para momentos y experiencias sociales.
-
-                </p>
-
-              </div>
-
+              Eventos Sociales
+              <span>→</span>
             </a>
-
-            {/* BUTTON */}
 
             <a
               href="#"
-              className="group relative overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-2xl rounded-[1.7rem] px-6 py-5 hover:border-[#C6A77D]/40 hover:bg-white/[0.05] transition-all duration-700"
+              className="inline-flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-5 rounded-full text-base tracking-[0.08em] hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
             >
-
-              <div className="absolute inset-0 bg-gradient-to-r from-white/[0.03] to-transparent opacity-40" />
-
-              <div className="relative z-10">
-
-                <h3 className="text-lg md:text-xl font-black tracking-[-0.03em] group-hover:text-[#C6A77D] transition-colors duration-700">
-
-                  Redes Sociales
-
-                </h3>
-
-                <p className="text-[#A8A29E] text-sm mt-2 leading-[1.7]">
-
-                  Coberturas, procesos visuales y narrativa diaria.
-
-                </p>
-
-              </div>
-
+              Redes Sociales
+              <span>→</span>
             </a>
-
-            {/* BUTTON */}
 
             <a
               href="#"
-              className="group relative overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-2xl rounded-[1.7rem] px-6 py-5 hover:border-[#C6A77D]/40 hover:bg-white/[0.05] transition-all duration-700"
+              className="inline-flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-5 rounded-full text-base tracking-[0.08em] hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
             >
-
-              <div className="absolute inset-0 bg-gradient-to-r from-white/[0.03] to-transparent opacity-40" />
-
-              <div className="relative z-10">
-
-                <h3 className="text-lg md:text-xl font-black tracking-[-0.03em] group-hover:text-[#C6A77D] transition-colors duration-700">
-
-                  Livestream
-
-                </h3>
-
-                <p className="text-[#A8A29E] text-sm mt-2 leading-[1.7]">
-
-                  Cobertura multicámara y producción en tiempo real.
-
-                </p>
-
-              </div>
-
+              Livestream
+              <span>→</span>
             </a>
-
-            {/* BUTTON */}
 
             <a
               href="#"
-              className="group relative overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-2xl rounded-[1.7rem] px-6 py-5 hover:border-[#C6A77D]/40 hover:bg-white/[0.05] transition-all duration-700"
+              className="inline-flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-5 rounded-full text-base tracking-[0.08em] hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
             >
-
-              <div className="absolute inset-0 bg-gradient-to-r from-white/[0.03] to-transparent opacity-40" />
-
-              <div className="relative z-10">
-
-                <h3 className="text-lg md:text-xl font-black tracking-[-0.03em] group-hover:text-[#C6A77D] transition-colors duration-700">
-
-                  Portafolio
-
-                </h3>
-
-                <p className="text-[#A8A29E] text-sm mt-2 leading-[1.7]">
-
-                  Narrativa visual, documental y retrato.
-
-                </p>
-
-              </div>
-
+              Portafolio
+              <span>→</span>
             </a>
 
           </div>

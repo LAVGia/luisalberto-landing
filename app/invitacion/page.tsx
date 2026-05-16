@@ -13,6 +13,8 @@ export default function Invitacion() {
 
   const [activeIndex, setActiveIndex] = useState(0)
 
+  const [mounted, setMounted] = useState(false)
+
   const gallery = [
     
 "https://images.unsplash.com/photo-1523438097201-512ae7d59c7a?q=80&w=1600&auto=format&fit=crop",
@@ -25,11 +27,13 @@ export default function Invitacion() {
   ]
 
   useEffect(() => {
+
     const interval = setInterval(() => {
       setActiveIndex((p) => (p + 1) % gallery.length)
     }, 4000)
 
     return () => clearInterval(interval)
+
   }, [])
 
   const scrollTo = (ref: any) => {
@@ -42,6 +46,7 @@ export default function Invitacion() {
   const weddingDate = new Date("2026-12-20T17:00:00").getTime()
 
   const calculateTimeLeft = () => {
+
     const now = new Date().getTime()
     const difference = weddingDate - now
 
@@ -53,14 +58,24 @@ export default function Invitacion() {
     }
   }
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  })
 
   useEffect(() => {
+
+    setMounted(true)
+    setTimeLeft(calculateTimeLeft())
+
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft())
     }, 1000)
 
     return () => clearInterval(timer)
+
   }, [])
 
   const playMusic = () => {
@@ -70,12 +85,11 @@ export default function Invitacion() {
   return (
     <main className="bg-[#f6f1ea] text-[#1a1a1a] overflow-hidden">
 
-      {/* AUDIO */}
+      {/* AUDIO LOCAL */}
       <audio
         ref={audioRef}
         loop
-        
-src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=wedding-background-piano-110624.mp3"
+        src="/audio/music.mp3"
       />
 
       {/* HERO VIDEO */}
@@ -114,7 +128,6 @@ border-white/30 backdrop-blur hover:scale-105 transition"
               Abrir Invitación
             </button>
 
-            {/* PLAY MÚSICA */}
             <button
               onClick={playMusic}
               className="px-8 py-4 rounded-full bg-black/20 border 
@@ -177,46 +190,52 @@ border-white/30 backdrop-blur hover:scale-105 transition"
 
           </div>
 
-          {/* COUNTDOWN REDUCIDO */}
-          <div className="inline-flex gap-3 px-5 py-3 rounded-2xl 
+          {/* COUNTDOWN */}
+          {mounted && (
+
+            <div className="inline-flex gap-3 px-5 py-3 rounded-2xl 
 bg-black/25 border border-white/20 backdrop-blur text-white text-sm 
 flex-wrap justify-center">
 
-            <div className="text-center">
-              <div className="text-lg font-light">{timeLeft.days}</div>
-              <div className="text-[10px] uppercase tracking-[0.2em]">
-                Días
+              <div className="text-center">
+                <div className="text-lg font-light">{timeLeft.days}</div>
+                <div className="text-[10px] uppercase tracking-[0.2em]">
+                  Días
+                </div>
               </div>
+
+              <div className="opacity-40">|</div>
+
+              <div className="text-center">
+                <div className="text-lg font-light">{timeLeft.hours}</div>
+                <div className="text-[10px] uppercase tracking-[0.2em]">
+                  Horas
+                </div>
+              </div>
+
+              <div className="opacity-40">|</div>
+
+              <div className="text-center">
+                <div className="text-lg 
+font-light">{timeLeft.minutes}</div>
+                <div className="text-[10px] uppercase tracking-[0.2em]">
+                  Min
+                </div>
+              </div>
+
+              <div className="opacity-40">|</div>
+
+              <div className="text-center">
+                <div className="text-lg 
+font-light">{timeLeft.seconds}</div>
+                <div className="text-[10px] uppercase tracking-[0.2em]">
+                  Seg
+                </div>
+              </div>
+
             </div>
 
-            <div className="opacity-40">|</div>
-
-            <div className="text-center">
-              <div className="text-lg font-light">{timeLeft.hours}</div>
-              <div className="text-[10px] uppercase tracking-[0.2em]">
-                Horas
-              </div>
-            </div>
-
-            <div className="opacity-40">|</div>
-
-            <div className="text-center">
-              <div className="text-lg font-light">{timeLeft.minutes}</div>
-              <div className="text-[10px] uppercase tracking-[0.2em]">
-                Min
-              </div>
-            </div>
-
-            <div className="opacity-40">|</div>
-
-            <div className="text-center">
-              <div className="text-lg font-light">{timeLeft.seconds}</div>
-              <div className="text-[10px] uppercase tracking-[0.2em]">
-                Seg
-              </div>
-            </div>
-
-          </div>
+          )}
 
         </div>
       </section>
@@ -282,7 +301,6 @@ duration-1000"
         className="relative py-28 px-6 bg-[#efe6db] overflow-hidden"
       >
 
-        {/* TEXTURA */}
         <div
           className="absolute inset-0 opacity-20"
           style={{

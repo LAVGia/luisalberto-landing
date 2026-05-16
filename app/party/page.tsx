@@ -31,7 +31,7 @@ rounded-full bg-white/10 blur-[100px]" />
 
           <p className="uppercase tracking-[0.5em] text-sm text-white/60 
 mb-5">
-            Jonacatepec • May 23
+            Jonacatepec • Mayo 23
           </p>
 
           <h1 className="text-7xl md:text-9xl font-black leading-[0.82] 
@@ -46,7 +46,7 @@ tracking-[-0.08em]">
 
           <p className="text-white/70 text-xl mt-8 max-w-md 
 leading-relaxed">
-            Flash lights. Mirror vibes. Glitter energy.
+            Luces, reflejos, glitter y energía nocturna.
           </p>
 
           <div className="flex flex-wrap gap-4 mt-10">
@@ -57,7 +57,7 @@ leading-relaxed">
               className="bg-white text-black px-7 py-4 rounded-full 
 font-bold"
             >
-              📍 Location
+              📍 Ubicación
             </a>
 
             <a
@@ -66,7 +66,7 @@ font-bold"
               className="border border-white/20 bg-white/10 
 backdrop-blur-md px-7 py-4 rounded-full font-bold"
             >
-              💬 RSVP
+              💬 Reserva
             </a>
 
           </div>
@@ -77,70 +77,64 @@ backdrop-blur-md px-7 py-4 rounded-full font-bold"
 
       {/* INFO */}
 
-      <section className="h-screen snap-start flex items-center px-6 
-relative overflow-hidden">
+      <section className="h-screen snap-start flex items-center 
+justify-center px-6 relative overflow-hidden">
+
+        <img
+          
+src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop"
+          className="absolute inset-0 w-full h-full object-cover 
+opacity-40"
+        />
+
+        <div className="absolute inset-0 bg-black/50" />
 
         <div className="absolute inset-0 
-bg-[radial-gradient(circle_at_center,#ffffff15,transparent_60%)]" />
+bg-[radial-gradient(circle_at_center,#ffffff22,transparent_60%)]" />
 
-        <div className="absolute bottom-[-10%] left-[-10%] w-[260px] 
-h-[260px] rounded-full bg-fuchsia-500/20 blur-[120px]" />
+        <div className="absolute top-[20%] left-[10%] w-[260px] h-[260px] 
+rounded-full bg-fuchsia-500/20 blur-[120px]" />
 
-        <div className="w-full grid grid-cols-2 gap-4 relative z-10">
+        <div className="absolute bottom-[10%] right-[10%] w-[260px] 
+h-[260px] rounded-full bg-cyan-400/20 blur-[120px]" />
 
-          <div className="bg-white/10 border border-white/10 
-rounded-[2rem] p-6 backdrop-blur-md">
+        <div className="relative z-10 text-center max-w-lg">
 
-            <p className="text-white/40 uppercase tracking-[0.3em] text-xs 
-mb-3">
-              Date
+          <div className="inline-block border border-white/20 bg-white/10 
+backdrop-blur-md px-8 py-4 rounded-full mb-8">
+
+            <p className="uppercase tracking-[0.4em] text-sm 
+text-white/70">
+              Mayo 23
             </p>
-
-            <h2 className="text-4xl font-black leading-none">
-              MAY 23
-            </h2>
 
           </div>
 
-          <div className="bg-white/10 border border-white/10 
-rounded-[2rem] p-6 backdrop-blur-md">
+          <h2 className="text-7xl md:text-9xl font-black leading-[0.82] 
+tracking-[-0.08em]">
 
-            <p className="text-white/40 uppercase tracking-[0.3em] text-xs 
-mb-3">
-              Time
-            </p>
+            JONA
+            <br />
 
-            <h2 className="text-4xl font-black leading-none">
-              9 PM
-            </h2>
+            NIGHT
 
-          </div>
+          </h2>
 
-          <div className="bg-white/10 border border-white/10 
-rounded-[2rem] p-6 backdrop-blur-md">
+          <p className="text-white/70 text-2xl mt-8">
+            Jonacatepec, Mor.
+          </p>
 
-            <p className="text-white/40 uppercase tracking-[0.3em] text-xs 
-mb-3">
-              Place
-            </p>
+          <div className="mt-10 inline-block border border-white/20 
+bg-white/10 backdrop-blur-md px-8 py-5 rounded-[2rem]">
 
-            <h2 className="text-4xl font-black leading-none">
-              JONA
-            </h2>
-
-          </div>
-
-          <div className="bg-white/10 border border-white/10 
-rounded-[2rem] p-6 backdrop-blur-md">
-
-            <p className="text-white/40 uppercase tracking-[0.3em] text-xs 
-mb-3">
+            <p className="uppercase tracking-[0.4em] text-xs text-white/50 
+mb-2">
               Cover
             </p>
 
-            <h2 className="text-4xl font-black leading-none">
+            <h3 className="text-5xl font-black">
               $150
-            </h2>
+            </h3>
 
           </div>
 
@@ -185,8 +179,8 @@ tracking-[-0.08em]">
           </h2>
 
           <p className="text-white/75 text-xl mt-8 leading-relaxed">
-            Mirrors, glitter, silver outfits, flash photography and 
-nightlife aesthetics.
+            Glitter, reflejos, ropa brillante, fotografía con flash y 
+estética nightlife.
           </p>
 
         </div>
@@ -211,10 +205,10 @@ mb-6">
           <h2 className="text-6xl md:text-7xl font-black leading-[0.85] 
 tracking-[-0.08em] mb-14">
 
-            THE VIBE
+            LA VIBRA
             <br />
 
-            STARTS HERE
+            EMPIEZA AQUÍ
 
           </h2>
 
@@ -267,7 +261,7 @@ tracking-[-0.08em]">
           </h2>
 
           <p className="text-white/60 text-xl mt-8">
-            RSVP requerido.
+            Acceso limitado.
           </p>
 
           <a
@@ -276,7 +270,7 @@ tracking-[-0.08em]">
             className="inline-block mt-12 bg-white text-black px-10 py-5 
 rounded-full font-black text-lg"
           >
-            CONFIRMAR
+            RESERVAR
           </a>
 
         </div>

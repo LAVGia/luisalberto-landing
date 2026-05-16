@@ -62,36 +62,34 @@ from-[#141210]/40 via-transparent to-[#141210]/70" />
 
         </div>
 
-        {/* CONTENT */}
+        {/* TOP TEXT */}
 
-        <div className="absolute inset-0 z-20 flex flex-col items-center 
-justify-center text-center px-8">
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 z-20 
+text-center">
 
-          <p className="uppercase tracking-[0.45em] text-[#D2CCC4] text-xs 
-md:text-sm mb-8">
+          <p className="uppercase tracking-[0.45em] text-[#D2CCC4] 
+text-[11px] md:text-sm">
 
             Productor Audiovisual
 
           </p>
 
-          <h1 className="text-5xl md:text-[7rem] xl:text-[9rem] font-black 
-leading-[0.82] tracking-[-0.08em]">
+        </div>
+
+        {/* BOTTOM TITLE */}
+
+        <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-20 
+text-center px-6 w-full">
+
+          <h1 className="text-[2.9rem] md:text-[6rem] xl:text-[8rem] 
+font-black leading-[0.9] tracking-[-0.08em] whitespace-nowrap">
 
             Luis Alberto
-            <br />
-
-            <span className="text-[#C6A77D]">
+            <span className="text-[#C6A77D] ml-3">
               VG
             </span>
 
           </h1>
-
-          <p className="text-[#D2CCC4] text-lg md:text-2xl max-w-3xl mt-10 
-leading-[1.8] font-light">
-
-            Narrativa visual para historias que merecen permanecer.
-
-          </p>
 
         </div>
 

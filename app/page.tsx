@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <main className="bg-black text-white overflow-hidden">
 
-      {/* AMBIENT BACKGROUND */}
+      {/* BACKGROUND */}
 
       <div className="fixed inset-0 -z-10">
 
@@ -53,59 +53,74 @@ bg-cyan-500/10 blur-[180px] rounded-full"></div>
 
       {/* HERO */}
 
-      <section className="min-h-screen flex items-center px-8 md:px-20 
-border-b border-white/10 relative">
+      <section className="h-screen flex items-center px-8 md:px-20 
+border-b border-white/10">
 
         <div className="max-w-6xl">
 
-          <p className="uppercase tracking-[0.4em] text-zinc-500 mb-8 
-text-sm">
+          <p className="uppercase tracking-[0.3em] text-zinc-500 mb-6">
             Productor Audiovisual
           </p>
 
           <h1 className="text-6xl md:text-8xl xl:text-[9rem] font-black 
-leading-[0.9] max-w-6xl">
+leading-none relative overflow-hidden w-fit">
 
-            Narrativa
-            <br />
-
-            <span className="text-[#8f7bb8]">
-              Cinematográfica
+            <span className="relative z-10">
+              Luis Alberto <span className="text-[#8f7bb8]">VG</span>
             </span>
+
+            <span className="absolute inset-0 bg-gradient-to-r 
+from-transparent via-white/10 to-transparent animate-pulse 
+opacity-20"></span>
 
           </h1>
 
-          <p className="text-zinc-400 text-xl md:text-2xl leading-relaxed 
-max-w-3xl mt-12">
-            Producción audiovisual, livestreaming, fotografía y 
-experiencias
-            visuales premium para eventos, marcas e historias reales.
+          <p className="text-zinc-400 text-xl max-w-3xl mt-10 
+leading-relaxed">
+            Producción audiovisual, livestreaming, fotografía y narrativa
+            visual para eventos, marcas e historias reales.
           </p>
 
-          <div className="flex flex-wrap gap-5 mt-14">
+          <div className="flex flex-wrap gap-5 mt-12">
 
             <a
-              href="#experience"
+              href="#luxury"
               className="bg-white text-black px-8 py-4 rounded-full 
-font-bold hover:scale-105 transition duration-300"
+font-bold hover:scale-105 transition"
             >
-              Ver Experience
+              Luxury Experience
             </a>
 
             <a
               href="#services"
               className="border border-white/20 px-8 py-4 rounded-full 
-hover:bg-white hover:text-black transition duration-300"
+hover:bg-white hover:text-black transition"
             >
-              Producciones
+              Servicios
             </a>
 
             <a
               href="#portfolio"
               className="border border-white/20 px-8 py-4 rounded-full 
-hover:bg-white hover:text-black transition duration-300"
+hover:bg-white hover:text-black transition"
             >
               Portafolio
+            </a>
+
+            <a
+              href="#social"
+              className="border border-white/20 px-8 py-4 rounded-full 
+hover:bg-white hover:text-black transition"
+            >
+              Redes Sociales
+            </a>
+
+            <a
+              href="#contact"
+              className="border border-white/20 px-8 py-4 rounded-full 
+hover:bg-white hover:text-black transition"
+            >
+              Contacto
             </a>
 
           </div>
@@ -114,11 +129,11 @@ hover:bg-white hover:text-black transition duration-300"
 
       </section>
 
-      {/* EXPERIENCE */}
+      {/* LUXURY EXPERIENCE */}
 
       <section
-        id="experience"
-        className="px-8 md:px-20 py-40 border-b border-white/10 relative"
+        id="luxury"
+        className="px-8 md:px-20 py-40 border-b border-white/10"
       >
 
         <div className="grid xl:grid-cols-2 gap-20 items-center">
@@ -127,35 +142,61 @@ hover:bg-white hover:text-black transition duration-300"
 
             <p className="uppercase tracking-[0.3em] text-zinc-500 mb-6 
 text-sm">
-              Cinematic Experience
+              Luxury Event Experience
             </p>
 
             <h2 className="text-5xl md:text-7xl font-black leading-tight">
 
-              Más que una
+              Diseñado como
               <br />
 
-              <span className="text-[#8f7bb8]">
-                invitación
-              </span>
+              una experiencia
+              <br />
+
+              visual premium
+              <br />
+
+              dentro de tu evento.
 
             </h2>
 
-            <p className="text-zinc-400 text-xl leading-relaxed mt-10 
-max-w-2xl">
-              Creamos experiencias cinematográficas premium donde cada 
-evento
-              comienza antes de suceder.
-            </p>
+            <div className="mt-12 space-y-5 text-zinc-300 text-lg">
 
-            <p className="text-zinc-500 text-lg leading-relaxed mt-8 
-max-w-2xl">
-              Video hero profesional, narrativa visual, sesiones 
-editoriales,
-              galerías premium y cobertura audiovisual conectada en una 
-sola
-              experiencia.
-            </p>
+              <p>• Producción visual previa a tu evento</p>
+
+              <p>• Video y sesión fotográfica para tu invitación</p>
+
+              <p>• Invitación web premium personalizada</p>
+
+              <p>• Historia visual con fotos y video cinematográfico</p>
+
+              <p>• Sesión fotográfica luxury para tus invitados</p>
+
+              <p>• Galería online en tiempo real</p>
+
+              <p>• Contenido digital shareable al momento</p>
+
+              <p>• Impresiones fotográficas premium</p>
+
+              <p>• Entrega inmediata al finalizar la experiencia</p>
+
+            </div>
+
+            <div className="mt-16">
+
+              <h3 className="text-3xl md:text-4xl font-black 
+leading-tight">
+
+                Tu evento termina.
+                <br />
+
+                <span className="text-[#8f7bb8]">
+                  Tus recuerdos ya están listos.
+                </span>
+
+              </h3>
+
+            </div>
 
             <div className="flex flex-wrap gap-5 mt-14">
 
@@ -163,7 +204,7 @@ sola
                 href="https://luisalberto.vg/invitacion"
                 target="_blank"
                 className="bg-[#8f7bb8] text-white px-8 py-4 rounded-full 
-font-bold hover:scale-105 transition duration-300"
+font-bold hover:scale-105 transition"
               >
                 Ver Experience
               </a>
@@ -171,9 +212,9 @@ font-bold hover:scale-105 transition duration-300"
               <a
                 href="#contact"
                 className="border border-white/20 px-8 py-4 rounded-full 
-hover:bg-white hover:text-black transition duration-300"
+hover:bg-white hover:text-black transition"
               >
-                Solicitar Proyecto
+                Solicitar Información
               </a>
 
             </div>
@@ -185,13 +226,13 @@ hover:bg-white hover:text-black transition duration-300"
             <div className="absolute inset-0 bg-[#8f7bb8]/20 blur-[120px] 
 rounded-full"></div>
 
-            <div className="relative rounded-[3rem] overflow-hidden border 
-border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
+            <div className="relative overflow-hidden rounded-[3rem] border 
+border-white/10 bg-white/5 backdrop-blur-xl">
 
               <img
                 
 src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop"
-                className="w-full h-[700px] object-cover opacity-80"
+                className="w-full h-[750px] object-cover opacity-80"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black 
@@ -205,7 +246,7 @@ text-sm mb-4">
                 </p>
 
                 <h3 className="text-4xl font-black">
-                  Cinematic Storytelling
+                  Visual Storytelling
                 </h3>
 
               </div>
@@ -226,7 +267,7 @@ text-sm mb-4">
       >
 
         <h2 className="text-5xl md:text-7xl font-black mb-24">
-          Producciones
+          Servicios
         </h2>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
@@ -245,12 +286,12 @@ text-sm mb-4">
 "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop",
             },
             {
-              title: "Fotografía Editorial",
+              title: "Fotografía",
               items: [
-                "Bodas",
-                "XV Años",
-                "Luxury Session",
                 "Retrato",
+                "Eventos sociales",
+                "Luxury Sessions",
+                "Contenido visual",
               ],
               image:
                 
@@ -260,21 +301,21 @@ text-sm mb-4">
               title: "Live Streaming",
               items: [
                 "Eventos masivos",
-                "Multicámara",
-                "Cobertura en tiempo real",
+                "Multicámara profesional",
                 "Audio profesional",
+                "Cobertura en tiempo real",
               ],
               image:
                 
 "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1200&auto=format&fit=crop",
             },
             {
-              title: "Experiencias Web",
+              title: "Cobertura Digital",
               items: [
-                "Cinematic Experience",
-                "Micrositios premium",
-                "Galerías visuales",
-                "Storytelling digital",
+                "Contenido social",
+                "Cobertura tipo reportero",
+                "Reels y clips",
+                "Narrativa visual",
               ],
               image:
                 
@@ -359,7 +400,7 @@ relative overflow-hidden hover:scale-[1.02] transition duration-500"
 
       </section>
 
-      {/* EVENTS */}
+      {/* GALLERY */}
 
       <section
         className="px-8 md:px-20 py-40 border-b border-white/10 
@@ -368,7 +409,7 @@ text-center"
 
         <p className="uppercase tracking-[0.3em] text-zinc-500 text-sm 
 mb-6">
-          Editorial Gallery
+          Online Gallery
         </p>
 
         <h2 className="text-5xl md:text-7xl font-black leading-tight">
@@ -379,9 +420,8 @@ mb-6">
 
         <p className="text-zinc-400 text-xl leading-relaxed max-w-3xl 
 mx-auto mt-10">
-          Revive la experiencia con galerías editoriales premium 
-actualizadas
-          en tiempo real.
+          Encuentra tus fotografías, contenido digital y recuerdos premium
+          actualizados en tiempo real.
         </p>
 
         <a
@@ -408,6 +448,7 @@ group-hover:translate-x-full transition duration-1000"></span>
       {/* SOCIAL */}
 
       <section
+        id="social"
         className="px-8 md:px-20 py-40 border-b border-white/10"
       >
 
@@ -421,7 +462,7 @@ group-hover:translate-x-full transition duration-1000"></span>
             {
               title: "Instagram",
               link: "https://www.instagram.com/luisalbertovg",
-              text: "Reels cinematográficos y retratos editoriales.",
+              text: "Retratos, reels y narrativa visual.",
             },
             {
               title: "Facebook",
@@ -431,7 +472,7 @@ group-hover:translate-x-full transition duration-1000"></span>
             {
               title: "Noticias Tepalcingo",
               link: "https://www.facebook.com/Tepalcingo",
-              text: "Cobertura institucional y transmisiones.",
+              text: "Cobertura tipo reportero y eventos masivos.",
             },
             {
               title: "TikTok",
@@ -441,7 +482,7 @@ group-hover:translate-x-full transition duration-1000"></span>
             {
               title: "Pixieset",
               link: "https://luisalbertovg9.pixieset.com/quinceandrea/",
-              text: "Galerías premium y entregas digitales.",
+              text: "Galerías premium y entregas inmediatas.",
             },
           ].map((social) => (
             <a
@@ -483,10 +524,8 @@ duration-300"
 
         <p className="text-zinc-400 text-xl max-w-3xl mx-auto mt-10 
 leading-relaxed">
-          Producción audiovisual, livestreaming, narrativa cinematográfica 
-y
-          experiencias visuales premium para proyectos que buscan 
-destacar.
+          Producción audiovisual, livestreaming, fotografía y experiencias
+          visuales premium para proyectos que buscan destacar.
         </p>
 
         <a

@@ -18,10 +18,10 @@ export default function Invitacion() {
   const iframeRef = useRef<HTMLIFrameElement>(null)
 
   const [musicPlaying, setMusicPlaying] = useState(false)
-  const [activeIndex, setActiveIndex] = useState(0)
   const [mounted, setMounted] = useState(false)
   const [showTop, setShowTop] = useState(false)
   const [lightbox, setLightbox] = useState<string | null>(null)
+  const [activeSlide, setActiveSlide] = useState(0)
 
   const gallery = [
     
@@ -34,16 +34,22 @@ export default function Invitacion() {
 "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop"
   ]
 
+  // AUTO SLIDER
   useEffect(() => {
 
     const interval = setInterval(() => {
-      setActiveIndex((p) => (p + 1) % gallery.length)
-    }, 4500)
+
+      setActiveSlide((prev) =>
+        prev === gallery.length - 1 ? 0 : prev + 1
+      )
+
+    }, 4000)
 
     return () => clearInterval(interval)
 
   }, [])
 
+  // SCROLL
   useEffect(() => {
 
     const handleScroll = () => {
@@ -148,9 +154,6 @@ END:VCALENDAR
       audioRef.current.play()
       setMusicPlaying(true)
 
-      if (navigator.vibrate) {
-        navigator.vibrate(15)
-      }
     }
   }
 
@@ -274,7 +277,8 @@ justify-center p-6"
           <button
             onClick={toggleMusic}
             className="w-14 h-14 rounded-full bg-black/70 text-white 
-backdrop-blur border border-white/20 hover:scale-110 transition"
+backdrop-blur border border-white/20 hover:scale-110 animate-pulse 
+transition"
           >
             {musicPlaying ? "♫" : "▶"}
           </button>
@@ -285,7 +289,7 @@ backdrop-blur border border-white/20 hover:scale-110 transition"
               behavior: "smooth"
             })}
             className="w-14 h-14 rounded-full bg-white/80 backdrop-blur 
-border hover:scale-110 transition"
+border hover:scale-110 animate-pulse transition"
           >
             ↑
           </button>
@@ -294,9 +298,10 @@ border hover:scale-110 transition"
 
       )}
 
-      {/* HERO VIDEO */}
+      {/* HERO */}
       <section className="relative h-screen overflow-hidden">
 
+        {/* GLOW PARTICLES */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
 
           <div className="absolute top-20 left-20 w-64 h-64 bg-white 
@@ -326,7 +331,8 @@ scale-105"
         <div className="relative z-10 h-full flex flex-col items-center 
 justify-center text-center text-white px-6">
 
-          <p className="tracking-[0.5em] uppercase text-white/70 mb-6">
+          <p className="tracking-[0.5em] uppercase text-white/70 mb-6 
+animate-pulse">
             Enlace Matrimonial
           </p>
 
@@ -344,7 +350,7 @@ via-white to-transparent mb-10" />
               onClick={() => scrollTo(heroRef)}
               className="group relative overflow-hidden px-10 py-4 
 rounded-full bg-white/10 border border-white/30 backdrop-blur 
-hover:scale-105 transition"
+hover:scale-105 animate-[pulse_4s_infinite] transition"
             >
 
               <span className="relative z-10">
@@ -361,22 +367,19 @@ from-transparent via-white/30 to-transparent" />
               onClick={toggleMusic}
               className="group relative overflow-hidden px-8 py-4 
 rounded-full bg-black/20 border border-white/20 backdrop-blur 
-hover:scale-105 transition"
+hover:scale-105 animate-[pulse_5s_infinite] transition"
             >
 
               <span className="relative z-10">
                 {musicPlaying ? "❚❚ Pausar Música" : "▶ Música"}
               </span>
 
-              <div className="absolute inset-0 -translate-x-full 
-group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
-from-transparent via-white/20 to-transparent" />
-
             </button>
 
           </div>
 
         </div>
+
       </section>
 
       {/* HERO NOVIOS */}
@@ -414,7 +417,7 @@ text-white"
               onClick={() => scrollTo(detailsRef)}
               className="group relative overflow-hidden px-8 py-4 
 rounded-full bg-white/10 border border-white/30 backdrop-blur 
-hover:scale-105 transition"
+hover:scale-105 animate-[pulse_6s_infinite] transition"
             >
               <span className="relative z-10">
                 Detalles
@@ -425,7 +428,7 @@ hover:scale-105 transition"
               onClick={() => scrollTo(rsvpRef)}
               className="group relative overflow-hidden px-8 py-4 
 rounded-full bg-white/10 border border-white/30 backdrop-blur 
-hover:scale-105 transition"
+hover:scale-105 animate-[pulse_7s_infinite] transition"
             >
               <span className="relative z-10">
                 RSVP
@@ -487,9 +490,10 @@ flex-wrap justify-center shadow-2xl">
           )}
 
         </div>
+
       </section>
 
-      {/* NUESTRA HISTORIA */}
+      {/* HISTORIA */}
       <section className="py-28 bg-gradient-to-b from-[#f3ece2] 
 to-[#efe5d8]">
 
@@ -522,32 +526,57 @@ hover:scale-[1.01] transition duration-700">
 
         </div>
 
-        {/* CARRUSEL */}
+        {/* PREMIUM SLIDER */}
         <div className="max-w-5xl mx-auto px-6">
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="relative h-[500px] rounded-3xl overflow-hidden 
+shadow-2xl">
 
             {gallery.map((img, i) => (
 
               <div
                 key={i}
                 onClick={() => setLightbox(img)}
-                className="relative h-[300px] rounded-3xl overflow-hidden 
-shadow-2xl cursor-pointer group"
+                className="absolute inset-0 transition-all duration-1000 
+cursor-pointer"
+                style={{
+                  opacity: i === activeSlide ? 1 : 0,
+                  transform:
+                    i === activeSlide
+                      ? "scale(1)"
+                      : "scale(1.05)"
+                }}
               >
 
                 <div
-                  className="absolute inset-0 bg-cover bg-center 
-transition duration-700 group-hover:scale-110"
+                  className="absolute inset-0 bg-cover bg-center"
                   style={{
                     backgroundImage: `url(${img})`
                   }}
                 />
 
-                <div className="absolute inset-0 bg-black/20 
-group-hover:bg-black/10 transition" />
+                <div className="absolute inset-0 bg-black/20" />
 
               </div>
+
+            ))}
+
+          </div>
+
+          {/* DOTS */}
+          <div className="flex justify-center gap-3 mt-6">
+
+            {gallery.map((_, i) => (
+
+              <button
+                key={i}
+                onClick={() => setActiveSlide(i)}
+                className={`w-3 h-3 rounded-full transition ${
+                  activeSlide === i
+                    ? "bg-[#d4af37] scale-125"
+                    : "bg-black/20"
+                }`}
+              />
 
             ))}
 
@@ -591,7 +620,8 @@ from-transparent via-[#d4af37] to-transparent" />
               href="https://maps.app.goo.gl/pU5zycxGosdKi9MJA"
               target="_blank"
               className="group p-10 rounded-3xl bg-white/70 backdrop-blur 
-border hover:scale-[1.02] transition duration-500 shadow-xl"
+border hover:scale-[1.02] animate-[pulse_8s_infinite] transition 
+duration-500 shadow-xl"
             >
 
               <div className="text-4xl mb-4">
@@ -620,7 +650,8 @@ border hover:scale-[1.02] transition duration-500 shadow-xl"
               href="https://maps.app.goo.gl/bti7LF96Bd9bhAzZ9"
               target="_blank"
               className="group p-10 rounded-3xl bg-white/70 backdrop-blur 
-border hover:scale-[1.02] transition duration-500 shadow-xl"
+border hover:scale-[1.02] animate-[pulse_9s_infinite] transition 
+duration-500 shadow-xl"
             >
 
               <div className="text-4xl mb-4">
@@ -648,6 +679,7 @@ border hover:scale-[1.02] transition duration-500 shadow-xl"
           </div>
 
         </div>
+
       </section>
 
       {/* RSVP */}
@@ -678,7 +710,7 @@ border hover:scale-[1.02] transition duration-500 shadow-xl"
 href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
             className="group relative overflow-hidden px-10 py-4 
 rounded-full bg-white/10 border border-white/30 backdrop-blur 
-hover:scale-105 transition inline-block"
+hover:scale-105 animate-[pulse_7s_infinite] transition inline-block"
           >
 
             <span className="relative z-10">
@@ -693,7 +725,7 @@ hover:scale-105 transition inline-block"
               onClick={addToCalendar}
               className="group relative overflow-hidden px-8 py-3 
 rounded-full bg-black/20 border border-white/20 backdrop-blur 
-hover:scale-105 transition inline-block"
+hover:scale-105 animate-[pulse_8s_infinite] transition inline-block"
             >
 
               <span className="relative z-10">

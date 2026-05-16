@@ -2,6 +2,12 @@
 
 import { useEffect, useRef, useState } from "react"
 
+declare global {
+  interface Window {
+    Vimeo: any
+  }
+}
+
 export default function Invitacion() {
 
   const heroRef = useRef<HTMLDivElement>(null)
@@ -10,6 +16,7 @@ export default function Invitacion() {
   const rsvpRef = useRef<HTMLDivElement>(null)
 
   const audioRef = useRef<HTMLAudioElement>(null)
+  const iframeRef = useRef<HTMLIFrameElement>(null)
 
   const [musicPlaying, setMusicPlaying] = useState(false)
 
@@ -28,6 +35,7 @@ export default function Invitacion() {
 "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop"
   ]
 
+  // CARRUSEL
   useEffect(() => {
 
     const interval = setInterval(() => {
@@ -98,14 +106,34 @@ export default function Invitacion() {
     }
   }
 
-  // PAUSAR MÚSICA SI USAN VIMEO
-  const pauseMusicForVideo = () => {
+  // VIMEO API
+  useEffect(() => {
 
-    if (!audioRef.current) return
+    const script = document.createElement("script")
+    script.src = "https://player.vimeo.com/api/player.js"
+    script.async = true
 
-    audioRef.current.pause()
-    setMusicPlaying(false)
-  }
+    document.body.appendChild(script)
+
+    script.onload = () => {
+
+      if (!iframeRef.current) return
+
+      const player = new window.Vimeo.Player(iframeRef.current)
+
+      // PAUSAR MÚSICA CUANDO INICIA VIDEO
+      player.on("play", () => {
+
+        if (audioRef.current) {
+          audioRef.current.pause()
+          setMusicPlaying(false)
+        }
+
+      })
+
+    }
+
+  }, [])
 
   return (
     <main className="bg-[#f6f1ea] text-[#1a1a1a] overflow-hidden">
@@ -153,7 +181,6 @@ border-white/30 backdrop-blur hover:scale-105 transition"
               Abrir Invitación
             </button>
 
-            {/* BOTÓN MÚSICA */}
             <button
               onClick={toggleMusic}
               className="px-8 py-4 rounded-full bg-black/20 border 
@@ -283,13 +310,11 @@ font-light">{timeLeft.seconds}</div>
         {/* VIMEO */}
         <div className="max-w-5xl mx-auto px-6 mb-12">
 
-          <div
-            className="rounded-3xl overflow-hidden shadow-2xl"
-            onClick={pauseMusicForVideo}
-          >
+          <div className="rounded-3xl overflow-hidden shadow-2xl">
 
             <iframe
-              src="https://player.vimeo.com/video/1192713156"
+              ref={iframeRef}
+              src="https://player.vimeo.com/video/1192743985"
               className="w-full aspect-video"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen

@@ -632,6 +632,30 @@ from-transparent via-white/30 to-transparent" />
 
           </a>
 
+          {/* CALENDAR BUTTON */}
+          <div className="mt-8">
+
+            <a
+              
+href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Isabella+y+Daniel&dates=20261220T230000Z/20261221T050000Z&details=Nos+encantaría+compartir+este+momento+contigo.&location=Santuario+de+Tepalcingo"
+              target="_blank"
+              className="group relative overflow-hidden px-8 py-3 
+rounded-full bg-black/20 border border-white/20 backdrop-blur 
+hover:scale-105 transition inline-block"
+            >
+
+              <span className="relative z-10">
+                📅 Agregar a mi agenda
+              </span>
+
+              <div className="absolute inset-0 -translate-x-full 
+group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
+from-transparent via-white/20 to-transparent" />
+
+            </a>
+
+          </div>
+
         </div>
       </section>
 

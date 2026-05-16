@@ -1,179 +1,376 @@
-kexport const metadata = {
-  title: "LuisAlbertoVG",
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+
+declare global {
+  interface Window {
+    Vimeo: any
+  }
 }
 
-const services = [
-  {
-    title: "Producción Audiovisual",
-    items: [
-      "Cortometrajes",
-      "Documentales",
-      "Video comercial",
-      "Narrativa cinematográfica",
-    ],
-    image:
-      
-"https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "Fotografía",
-    items: [
-      "Retrato",
-      "Eventos sociales",
-      "Luxury Sessions",
-      "Contenido visual",
-    ],
-    image:
-      
-"https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "Live Streaming",
-    items: [
-      "Eventos masivos",
-      "Multicámara profesional",
-      "Audio profesional",
-      "Cobertura en tiempo real",
-    ],
-    image:
-      
-"https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "Cobertura Digital",
-    items: [
-      "Contenido social",
-      "Cobertura tipo reportero",
-      "Reels y clips",
-      "Narrativa visual",
-    ],
-    image:
-      
-"https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1600&auto=format&fit=crop",
-  },
-]
+export default function Invitacion() {
 
-const socials = [
-  {
-    title: "Instagram",
-    link: "https://www.instagram.com/luisalbertovg",
-    text: "Retratos, reels y narrativa visual premium.",
-  },
-  {
-    title: "LuisAlbertoVG Oficial",
-    link: "https://www.facebook.com/LuisAlbertoVGOficial",
-    text: "Cobertura de eventos masivos, contenido regional y storytelling 
-visual positivo.",
-  },
-  {
-    title: "Noticias Tepalcingo",
-    link: "https://www.facebook.com/Tepalcingo",
-    text: "Noticias positivas, culturales y sociales de Tepalcingo.",
-  },
-  {
-    title: "TikTok",
-    link: "https://www.tiktok.com/@luisalberto.vg",
-    text: "Behind the scenes, narrativa visual y contenido 
-cinematográfico.",
-  },
-]
+  const heroRef = useRef<HTMLDivElement>(null)
+  const detailsRef = useRef<HTMLDivElement>(null)
+  const rsvpRef = useRef<HTMLDivElement>(null)
 
-export default function Home() {
+  const audioRef = useRef<HTMLAudioElement>(null)
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+
+  const [musicPlaying, setMusicPlaying] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const [showTop, setShowTop] = useState(false)
+  const [lightbox, setLightbox] = useState<string | null>(null)
+  const [activeSlide, setActiveSlide] = useState(0)
+
+  const gallery = [
+    
+"https://images.unsplash.com/photo-1523438097201-512ae7d59c7a?q=80&w=1600&auto=format&fit=crop",
+    
+"https://images.unsplash.com/photo-1521337706264-a414f153a5db?q=80&w=1600&auto=format&fit=crop",
+    
+"https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?q=80&w=1600&auto=format&fit=crop",
+    
+"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop"
+  ]
+
+  // AUTO SLIDER
+  useEffect(() => {
+
+    const interval = setInterval(() => {
+
+      setActiveSlide((prev) =>
+        prev === gallery.length - 1 ? 0 : prev + 1
+      )
+
+    }, 4000)
+
+    return () => clearInterval(interval)
+
+  }, [])
+
+  // SCROLL
+  useEffect(() => {
+
+    const handleScroll = () => {
+      setShowTop(window.scrollY > 600)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => window.removeEventListener("scroll", handleScroll)
+
+  }, [])
+
+  const scrollTo = (ref: any) => {
+    ref.current?.scrollIntoView({
+      behavior: "smooth"
+    })
+  }
+
+  // CALENDAR
+  const addToCalendar = () => {
+
+    const event = `
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+DTSTART:20261220T230000Z
+DTEND:20261221T050000Z
+SUMMARY:Boda Isabella y Daniel
+DESCRIPTION:Nos encantará compartir este momento contigo.
+LOCATION:Santuario de Tepalcingo
+END:VEVENT
+END:VCALENDAR
+`
+
+    const blob = new Blob(
+      [event],
+      { type: "text/calendar;charset=utf-8" }
+    )
+
+    const url = window.URL.createObjectURL(blob)
+
+    const link = document.createElement("a")
+
+    link.href = url
+    link.setAttribute("download", "boda-isabella-daniel.ics")
+
+    document.body.appendChild(link)
+
+    link.click()
+
+    document.body.removeChild(link)
+  }
+
+  // COUNTDOWN
+  const weddingDate = new Date("2026-12-20T17:00:00").getTime()
+
+  const calculateTimeLeft = () => {
+
+    const now = new Date().getTime()
+    const difference = weddingDate - now
+
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / 1000 / 60) % 60),
+      seconds: Math.floor((difference / 1000) % 60)
+    }
+  }
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  })
+
+  useEffect(() => {
+
+    setMounted(true)
+    setTimeLeft(calculateTimeLeft())
+
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft())
+    }, 1000)
+
+    return () => clearInterval(timer)
+
+  }, [])
+
+  // MUSIC
+  const toggleMusic = () => {
+
+    if (!audioRef.current) return
+
+    if (musicPlaying) {
+
+      audioRef.current.pause()
+      setMusicPlaying(false)
+
+    } else {
+
+      audioRef.current.play()
+      setMusicPlaying(true)
+
+    }
+  }
+
+  // AUDIO FADE
+  const fadeAudio = (target: number) => {
+
+    if (!audioRef.current) return
+
+    const audio = audioRef.current
+
+    const interval = setInterval(() => {
+
+      if (audio.volume > target) {
+
+        audio.volume = Math.max(audio.volume - 0.05, target)
+
+      } else {
+
+        clearInterval(interval)
+
+        if (target === 0) {
+          audio.pause()
+          setMusicPlaying(false)
+        }
+      }
+
+    }, 60)
+  }
+
+  const restoreAudio = () => {
+
+    if (!audioRef.current) return
+
+    const audio = audioRef.current
+
+    audio.volume = 0
+
+    audio.play()
+    setMusicPlaying(true)
+
+    const interval = setInterval(() => {
+
+      if (audio.volume < 1) {
+
+        audio.volume = Math.min(audio.volume + 0.05, 1)
+
+      } else {
+
+        clearInterval(interval)
+
+      }
+
+    }, 60)
+  }
+
+  // VIMEO API
+  useEffect(() => {
+
+    const script = document.createElement("script")
+
+    script.src = "https://player.vimeo.com/api/player.js"
+    script.async = true
+
+    document.body.appendChild(script)
+
+    script.onload = () => {
+
+      if (!iframeRef.current) return
+
+      const player = new window.Vimeo.Player(iframeRef.current)
+
+      player.on("play", () => {
+        fadeAudio(0)
+      })
+
+      player.on("pause", () => {
+        restoreAudio()
+      })
+
+      player.on("ended", () => {
+        restoreAudio()
+      })
+
+    }
+
+  }, [])
+
   return (
-    <main className="bg-[#f3eefc] text-[#1a1324] overflow-x-hidden 
-selection:bg-[#b497ff] selection:text-black">
+    <main className="bg-[#f6f1ea] text-[#1a1a1a] overflow-hidden">
 
-      {/* ATMOSPHERE */}
+      {/* LIGHTBOX */}
+      {lightbox && (
 
-      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div
+          className="fixed inset-0 z-[999] bg-black/95 flex items-center 
+justify-center p-6"
+          onClick={() => setLightbox(null)}
+        >
 
-        <div className="absolute top-[-10%] left-[0%] w-[1400px] 
-h-[1400px] bg-[#cdb8ff]/40 blur-[260px] rounded-full"></div>
+          <img
+            src={lightbox}
+            className="max-w-full max-h-full rounded-3xl shadow-2xl"
+          />
 
-        <div className="absolute bottom-[-20%] right-[-10%] w-[1200px] 
-h-[1200px] bg-[#e8dcff]/50 blur-[260px] rounded-full"></div>
+        </div>
 
-        <div className="absolute top-[40%] left-[55%] w-[700px] h-[700px] 
-bg-white/40 blur-[200px] rounded-full"></div>
+      )}
 
-      </div>
+      {/* AUDIO */}
+      <audio
+        ref={audioRef}
+        loop
+        src="/audio/music.mp3"
+      />
+
+      {/* FLOAT BUTTONS */}
+      {showTop && (
+
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+
+          <button
+            onClick={toggleMusic}
+            className="w-14 h-14 rounded-full bg-black/70 text-white 
+backdrop-blur border border-white/20 hover:scale-110 animate-pulse 
+transition"
+          >
+            {musicPlaying ? "♫" : "▶"}
+          </button>
+
+          <button
+            onClick={() => window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            })}
+            className="w-14 h-14 rounded-full bg-white/80 backdrop-blur 
+border hover:scale-110 animate-pulse transition"
+          >
+            ↑
+          </button>
+
+        </div>
+
+      )}
 
       {/* HERO */}
+      <section className="relative h-screen overflow-hidden">
 
-      <section className="relative min-h-screen flex items-center px-8 
-md:px-20 overflow-hidden">
+        {/* GLOW PARTICLES */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
 
-        <div className="max-w-7xl relative z-10">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-white 
+rounded-full blur-3xl animate-pulse" />
 
-          <p className="uppercase tracking-[0.6em] text-[#6f5f8e] mb-8 
-text-sm">
-            Productor Audiovisual
+          <div className="absolute bottom-20 right-20 w-72 h-72 
+bg-[#d4af37] rounded-full blur-3xl animate-pulse" />
+
+          <div className="absolute top-1/2 left-1/2 w-96 h-96 
+bg-[#d4af37]/20 rounded-full blur-3xl animate-pulse" />
+
+        </div>
+
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover 
+scale-105"
+        >
+          <source src="/videos/intro.mp4" type="video/mp4" />
+        </video>
+
+        <div className="absolute inset-0 bg-black/55" />
+
+        <div className="relative z-10 h-full flex flex-col items-center 
+justify-center text-center text-white px-6">
+
+          <p className="tracking-[0.5em] uppercase text-white/70 mb-6 
+animate-pulse">
+            Enlace Matrimonial
           </p>
 
-          <h1 className="text-7xl md:text-[9rem] xl:text-[12rem] 
-font-black leading-[0.82] tracking-[-0.08em]">
-
-            Luis Alberto
-            <br />
-
-            <span className="text-[#9f7dff] 
-drop-shadow-[0_0_40px_rgba(159,125,255,0.35)]">
-              VG
-            </span>
-
+          <h1 className="text-5xl md:text-8xl font-light mb-4 
+drop-shadow-2xl">
+            Isabella <span className="text-[#d4af37]">&</span> Daniel
           </h1>
 
-          <p className="text-[#5d4f77] text-2xl md:text-3xl max-w-4xl 
-mt-14 leading-[1.6] font-light">
-            Producción audiovisual, livestreaming, fotografía y narrativa
-            visual para eventos, marcas e historias reales.
-          </p>
+          <div className="w-40 h-[1px] bg-gradient-to-r from-transparent 
+via-white to-transparent mb-10" />
 
-          <div className="flex flex-wrap gap-5 mt-16">
+          <div className="flex gap-4 mt-6 flex-wrap justify-center">
 
-            <a
-              href="#luxury"
-              className="group relative overflow-hidden bg-[#9f7dff] 
-text-white px-10 py-5 rounded-[999px] font-semibold hover:scale-105 
-transition duration-500 shadow-[0_0_50px_rgba(159,125,255,0.35)]"
+            <button
+              onClick={() => scrollTo(heroRef)}
+              className="group relative overflow-hidden px-10 py-4 
+rounded-full bg-white/10 border border-white/30 backdrop-blur 
+hover:scale-105 animate-[pulse_4s_infinite] transition"
             >
-
-              <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/30 to-transparent -translate-x-full 
-group-hover:translate-x-full transition duration-1000"></span>
 
               <span className="relative z-10">
-                Luxury Experience
+                Abrir Invitación
               </span>
 
-            </a>
+            </button>
 
-            <a
-              href="#services"
-              className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
-duration-500"
+            <button
+              onClick={toggleMusic}
+              className="group relative overflow-hidden px-8 py-4 
+rounded-full bg-black/20 border border-white/20 backdrop-blur 
+hover:scale-105 animate-[pulse_5s_infinite] transition"
             >
-              Servicios
-            </a>
 
-            <a
-              href="#gallery"
-              className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
-duration-500"
-            >
-              Tu Foto
-            </a>
+              <span className="relative z-10">
+                {musicPlaying ? "❚❚ Pausar Música" : "▶ Música"}
+              </span>
 
-            <a
-              href="#social"
-              className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
-duration-500"
-            >
-              Redes Sociales
-            </a>
+            </button>
 
           </div>
 
@@ -181,297 +378,372 @@ duration-500"
 
       </section>
 
-      {/* LUXURY */}
-
+      {/* HERO NOVIOS */}
       <section
-        id="luxury"
-        className="relative px-8 md:px-20 py-56 overflow-hidden"
+        ref={heroRef}
+        className="relative min-h-screen flex flex-col justify-end 
+text-white"
       >
 
-        <div className="absolute inset-0 
-bg-[radial-gradient(circle_at_center,rgba(180,151,255,0.18),transparent_60%)]"></div>
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{
+            backgroundImage:
+              
+"url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop')"
+          }}
+        />
 
-        <div className="grid xl:grid-cols-2 gap-28 items-center relative 
-z-10">
+        <div className="absolute inset-0 bg-black/45 backdrop-blur-[2px]" 
+/>
 
-          <div>
+        <div className="relative z-10 w-full pb-16 px-6 text-center">
 
-            <p className="uppercase tracking-[0.5em] text-[#6f5f8e] mb-6 
-text-sm">
-              Luxury Event Experience
-            </p>
+          <h2 className="text-5xl md:text-7xl font-light mb-6">
+            Nuestra Boda
+          </h2>
 
-            <h2 className="text-5xl md:text-7xl xl:text-8xl font-black 
-leading-[0.92] tracking-[-0.08em]">
+          <p className="max-w-2xl mx-auto text-white/80 mb-10 text-lg">
+            Acompáñanos a celebrar el inicio de nuestra nueva historia.
+          </p>
 
-              Una experiencia
-              <br />
+          <div className="flex justify-center gap-4 flex-wrap mb-8">
 
-              visual premium
-              <br />
+            <button
+              onClick={() => scrollTo(detailsRef)}
+              className="group relative overflow-hidden px-8 py-4 
+rounded-full bg-white/10 border border-white/30 backdrop-blur 
+hover:scale-105 animate-[pulse_6s_infinite] transition"
+            >
+              <span className="relative z-10">
+                Detalles
+              </span>
+            </button>
 
-              dentro de tu evento.
+            <button
+              onClick={() => scrollTo(rsvpRef)}
+              className="group relative overflow-hidden px-8 py-4 
+rounded-full bg-white/10 border border-white/30 backdrop-blur 
+hover:scale-105 animate-[pulse_7s_infinite] transition"
+            >
+              <span className="relative z-10">
+                RSVP
+              </span>
+            </button>
 
+          </div>
+
+          {mounted && (
+
+            <div className="inline-flex gap-3 px-5 py-3 rounded-2xl 
+bg-black/25 border border-white/20 backdrop-blur text-white text-sm 
+flex-wrap justify-center shadow-2xl">
+
+              <div className="text-center">
+                <div className="text-lg font-light">
+                  {timeLeft.days}
+                </div>
+                <div className="text-[10px] uppercase tracking-[0.2em]">
+                  Días
+                </div>
+              </div>
+
+              <div className="opacity-40">|</div>
+
+              <div className="text-center">
+                <div className="text-lg font-light">
+                  {timeLeft.hours}
+                </div>
+                <div className="text-[10px] uppercase tracking-[0.2em]">
+                  Horas
+                </div>
+              </div>
+
+              <div className="opacity-40">|</div>
+
+              <div className="text-center">
+                <div className="text-lg font-light">
+                  {timeLeft.minutes}
+                </div>
+                <div className="text-[10px] uppercase tracking-[0.2em]">
+                  Min
+                </div>
+              </div>
+
+              <div className="opacity-40">|</div>
+
+              <div className="text-center">
+                <div className="text-lg font-light">
+                  {timeLeft.seconds}
+                </div>
+                <div className="text-[10px] uppercase tracking-[0.2em]">
+                  Seg
+                </div>
+              </div>
+
+            </div>
+
+          )}
+
+        </div>
+
+      </section>
+
+      {/* HISTORIA */}
+      <section className="py-28 bg-gradient-to-b from-[#f3ece2] 
+to-[#efe5d8]">
+
+        <div className="max-w-5xl mx-auto px-6 text-center mb-14">
+
+          <h2 className="text-5xl font-light mb-4">
+            Nuestra Historia
+          </h2>
+
+          <div className="w-32 h-[1px] mx-auto bg-gradient-to-r 
+from-transparent via-[#d4af37] to-transparent" />
+
+        </div>
+
+        {/* VIMEO */}
+        <div className="max-w-5xl mx-auto px-6 mb-12">
+
+          <div className="rounded-3xl overflow-hidden shadow-2xl 
+hover:scale-[1.01] transition duration-700">
+
+            <iframe
+              ref={iframeRef}
+              src="https://player.vimeo.com/video/1192743985"
+              className="w-full aspect-video"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            />
+
+          </div>
+
+        </div>
+
+        {/* PREMIUM SLIDER */}
+        <div className="max-w-5xl mx-auto px-6">
+
+          <div className="relative h-[500px] rounded-3xl overflow-hidden 
+shadow-2xl">
+
+            {gallery.map((img, i) => (
+
+              <div
+                key={i}
+                onClick={() => setLightbox(img)}
+                className="absolute inset-0 transition-all duration-1000 
+cursor-pointer"
+                style={{
+                  opacity: i === activeSlide ? 1 : 0,
+                  transform:
+                    i === activeSlide
+                      ? "scale(1)"
+                      : "scale(1.05)"
+                }}
+              >
+
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url(${img})`
+                  }}
+                />
+
+                <div className="absolute inset-0 bg-black/20" />
+
+              </div>
+
+            ))}
+
+          </div>
+
+          {/* DOTS */}
+          <div className="flex justify-center gap-3 mt-6">
+
+            {gallery.map((_, i) => (
+
+              <button
+                key={i}
+                onClick={() => setActiveSlide(i)}
+                className={`w-3 h-3 rounded-full transition ${
+                  activeSlide === i
+                    ? "bg-[#d4af37] scale-125"
+                    : "bg-black/20"
+                }`}
+              />
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* DETAILS */}
+      <section
+        ref={detailsRef}
+        className="relative py-32 px-6 overflow-hidden"
+      >
+
+        {/* FOTO DE FONDO */}
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{
+            backgroundImage:
+              
+"url('https://images.unsplash.com/photo-1525258946800-98cfd641d0de?q=80&w=1600&auto=format&fit=crop')"
+          }}
+        />
+
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-[#efe6db]/88 
+backdrop-blur-[2px]" />
+
+        {/* TEXTURA */}
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage:
+              
+"url('https://www.transparenttextures.com/patterns/white-diamond.png')"
+          }}
+        />
+
+        <div className="relative z-10">
+
+          <div className="text-center mb-16">
+
+            <h2 className="text-5xl font-light mb-4">
+              Detalles del Evento
             </h2>
 
-            <div className="mt-14 space-y-5 text-[#5d4f77] text-lg 
-md:text-xl leading-relaxed font-light">
+            <div className="w-32 h-[1px] mx-auto bg-gradient-to-r 
+from-transparent via-[#d4af37] to-transparent" />
 
-              <p>• Producción visual previa a tu evento</p>
+          </div>
 
-              <p>• Video y sesión fotográfica para tu invitación</p>
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
 
-              <p>• Invitación web premium personalizada</p>
+            <a
+              href="https://maps.app.goo.gl/pU5zycxGosdKi9MJA"
+              target="_blank"
+              className="group p-10 rounded-3xl bg-white/70 backdrop-blur 
+border border-white/40 hover:scale-[1.02] animate-[pulse_8s_infinite] 
+transition duration-500 shadow-2xl"
+            >
 
-              <p>• Historia visual con fotos y video cinematográfico</p>
+              <div className="text-4xl mb-4">
+                ⛪
+              </div>
 
-              <p>• Sesión fotográfica luxury para tus invitados</p>
-
-              <p>• Galería online en tiempo real</p>
-
-              <p>• Contenido digital shareable al momento</p>
-
-              <p>• Impresiones fotográficas premium</p>
-
-              <p>• Entrega inmediata al finalizar la experiencia</p>
-
-            </div>
-
-            <div className="mt-16 pl-8 border-l border-[#b497ff]/40">
-
-              <h3 className="text-3xl md:text-5xl font-black leading-tight 
-tracking-[-0.06em]">
-
-                Tu evento termina.
-                <br />
-
-                <span className="text-[#9f7dff]">
-                  Tus recuerdos ya están listos.
-                </span>
-
+              <h3 className="text-2xl mb-2">
+                Ceremonia
               </h3>
 
-            </div>
+              <p className="text-lg">
+                Santuario de Tepalcingo
+              </p>
 
-            <div className="flex flex-wrap gap-5 mt-16">
+              <p className="text-sm text-gray-700 mt-4">
+                20 Diciembre 2026
+              </p>
 
-              <a
-                href="https://luisalberto.vg/invitacion"
-                target="_blank"
-                className="group relative overflow-hidden bg-[#9f7dff] 
-text-white px-10 py-5 rounded-[999px] font-semibold hover:scale-105 
-transition duration-500 shadow-[0_0_60px_rgba(159,125,255,0.35)]"
-              >
+              <p className="text-sm text-gray-700">
+                5:00 PM
+              </p>
 
-                <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/20 to-transparent -translate-x-full 
-group-hover:translate-x-full transition duration-1000"></span>
-
-                <span className="relative z-10">
-                  Invitación Web
-                </span>
-
-              </a>
-
-              <a
-                href="#luxury"
-                className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
-duration-500"
-              >
-                Luxury Session
-              </a>
-
-              <a
-                href="https://luisalbertovg9.pixieset.com/"
-                target="_blank"
-                className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
-duration-500"
-              >
-                Galería
-              </a>
-
-            </div>
-
-          </div>
-
-          <div className="relative">
-
-            <div className="absolute inset-0 bg-[#b497ff]/25 blur-[160px] 
-rounded-full"></div>
-
-            <div className="group relative rounded-[4rem] overflow-hidden 
-border border-white/60 bg-white/50 backdrop-blur-2xl 
-shadow-[0_40px_120px_rgba(140,110,220,0.15)]">
-
-              <img
-                
-src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1800&auto=format&fit=crop&sat=-100"
-                className="w-full h-[900px] object-cover 
-group-hover:scale-[1.08] transition duration-[4000ms]"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t 
-from-[#120f18]/60 via-transparent to-transparent"></div>
-
-              <div className="absolute bottom-0 left-0 p-12 md:p-16">
-
-                <p className="uppercase tracking-[0.5em] text-white/80 
-text-sm mb-6">
-                  Luxury Event Experience
-                </p>
-
-                <h3 className="text-5xl md:text-7xl text-white font-black 
-leading-none tracking-[-0.08em]">
-
-                  Luxury
-                  <br />
-
-                  Session
-
-                </h3>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* SERVICES */}
-
-      <section
-        id="services"
-        className="px-8 md:px-20 py-56"
-      >
-
-        <div className="max-w-5xl mb-28">
-
-          <p className="uppercase tracking-[0.5em] text-[#6f5f8e] mb-6 
-text-sm">
-            Servicios
-          </p>
-
-          <h2 className="text-5xl md:text-7xl font-black leading-[0.92] 
-tracking-[-0.08em]">
-
-            Producción visual
-            <br />
-
-            para experiencias modernas.
-
-          </h2>
-
-        </div>
-
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
-
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="group relative rounded-[4rem] overflow-hidden 
-border border-white/60 min-h-[620px] bg-white/50 backdrop-blur-2xl 
-hover:-translate-y-4 hover:shadow-[0_40px_120px_rgba(140,110,220,0.15)] 
-transition duration-700"
-            >
-
-              <img
-                src={service.image}
-                className="absolute inset-0 w-full h-full object-cover 
-group-hover:scale-[1.08] transition duration-[3500ms]"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t 
-from-[#120f18]/80 via-black/10 to-transparent"></div>
-
-              <div className="relative z-10 p-10 flex flex-col justify-end 
-h-full">
-
-                <h3 className="text-3xl text-white font-black mb-8 
-tracking-[-0.06em]">
-                  {service.title}
-                </h3>
-
-                <ul className="space-y-4 text-white/80 text-lg 
-leading-relaxed">
-
-                  {service.items.map((item) => (
-                    <li key={item}>
-                      {item}
-                    </li>
-                  ))}
-
-                </ul>
-
-              </div>
-
-            </div>
-          ))}
-
-        </div>
-
-      </section>
-
-      {/* GALLERY */}
-
-      <section
-        id="gallery"
-        className="relative px-8 md:px-20 py-56 overflow-hidden"
-      >
-
-        <div className="absolute inset-0 
-bg-[radial-gradient(circle_at_center,rgba(180,151,255,0.18),transparent_60%)]"></div>
-
-        <div className="relative z-10 max-w-5xl">
-
-          <p className="uppercase tracking-[0.5em] text-[#6f5f8e] mb-6 
-text-sm">
-            Online Gallery
-          </p>
-
-          <h2 className="text-5xl md:text-7xl xl:text-8xl font-black 
-leading-[0.92] tracking-[-0.08em]">
-
-            ¿Estuviste
-            <br />
-
-            en un evento?
-
-          </h2>
-
-          <p className="text-[#5d4f77] text-2xl leading-[1.6] max-w-3xl 
-mt-14 font-light">
-
-            Encuentra tus fotografías, galerías premium y recuerdos 
-digitales
-            de eventos sociales, conciertos, coberturas y experiencias 
-luxury.
-
-          </p>
-
-          <div className="flex flex-wrap gap-5 mt-16">
+            </a>
 
             <a
-              href="https://luisalbertovg9.pixieset.com/"
+              href="https://maps.app.goo.gl/bti7LF96Bd9bhAzZ9"
               target="_blank"
-              className="group relative overflow-hidden bg-[#9f7dff] 
-text-white px-10 py-5 rounded-[999px] font-semibold hover:scale-105 
-transition duration-500 shadow-[0_0_60px_rgba(159,125,255,0.35)]"
+              className="group p-10 rounded-3xl bg-white/70 backdrop-blur 
+border border-white/40 hover:scale-[1.02] animate-[pulse_9s_infinite] 
+transition duration-500 shadow-2xl"
             >
 
-              <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/20 to-transparent -translate-x-full 
-group-hover:translate-x-full transition duration-1000"></span>
+              <div className="text-4xl mb-4">
+                🍾
+              </div>
+
+              <h3 className="text-2xl mb-2">
+                Recepción
+              </h3>
+
+              <p className="text-lg">
+                Jardín Anrubio
+              </p>
+
+              <p className="text-sm text-gray-700 mt-4">
+                20 Diciembre 2026
+              </p>
+
+              <p className="text-sm text-gray-700">
+                6:00 PM
+              </p>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* RSVP */}
+      <section
+        ref={rsvpRef}
+        className="relative py-40 text-center text-white overflow-hidden"
+      >
+
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{
+            backgroundImage:
+              
+"url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1600&auto=format&fit=crop')"
+          }}
+        />
+
+        <div className="absolute inset-0 bg-black/55" />
+
+        <div className="relative z-10">
+
+          <h2 className="text-5xl mb-8">
+            Confirma tu asistencia
+          </h2>
+
+          <a
+            
+href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
+            className="group relative overflow-hidden px-10 py-4 
+rounded-full bg-white/10 border border-white/30 backdrop-blur 
+hover:scale-105 animate-[pulse_7s_infinite] transition inline-block"
+          >
+
+            <span className="relative z-10">
+              Confirmar
+            </span>
+
+          </a>
+
+          <div className="mt-8">
+
+            <button
+              onClick={addToCalendar}
+              className="group relative overflow-hidden px-8 py-3 
+rounded-full bg-black/20 border border-white/20 backdrop-blur 
+hover:scale-105 animate-[pulse_8s_infinite] transition inline-block"
+            >
 
               <span className="relative z-10">
-                Buscar Fotos
+                📅 Agregar a mi agenda
               </span>
 
-            </a>
+            </button>
 
           </div>
 
@@ -479,131 +751,18 @@ group-hover:translate-x-full transition duration-1000"></span>
 
       </section>
 
-      {/* SOCIAL */}
+      {/* FOOTER */}
+      <footer className="py-10 text-center bg-[#e7dccd]">
 
-      <section
-        id="social"
-        className="px-8 md:px-20 py-56"
-      >
+        <a
+          href="https://luisalberto.vg"
+          target="_blank"
+          className="hover:opacity-70 transition"
+        >
+          Diseñada por LuisAlbertoVG
+        </a>
 
-        <div className="max-w-5xl mb-28">
-
-          <p className="uppercase tracking-[0.5em] text-[#6f5f8e] mb-6 
-text-sm">
-            Redes Sociales
-          </p>
-
-          <h2 className="text-5xl md:text-7xl font-black leading-[0.92] 
-tracking-[-0.08em]">
-
-            Cobertura regional,
-            <br />
-
-            cultura y storytelling positivo.
-
-          </h2>
-
-        </div>
-
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-
-          {socials.map((social) => (
-            <a
-              key={social.title}
-              href={social.link}
-              target="_blank"
-              className="group relative overflow-hidden rounded-[4rem] 
-border border-white/60 bg-white/50 backdrop-blur-2xl p-8 
-hover:-translate-y-4 hover:shadow-[0_40px_120px_rgba(140,110,220,0.15)] 
-transition duration-700"
-            >
-
-              <div className="relative z-10">
-
-                <h3 className="text-2xl font-black mb-5 
-tracking-[-0.06em]">
-                  {social.title}
-                </h3>
-
-                <p className="text-[#5d4f77] leading-relaxed">
-                  {social.text}
-                </p>
-
-              </div>
-
-            </a>
-          ))}
-
-        </div>
-
-      </section>
-
-      {/* CONTACT */}
-
-      <section
-        id="contact"
-        className="relative px-8 md:px-20 py-56 text-center 
-overflow-hidden"
-      >
-
-        <div className="absolute inset-0 
-bg-[radial-gradient(circle_at_center,rgba(180,151,255,0.15),transparent_60%)]"></div>
-
-        <div className="relative z-10 max-w-5xl mx-auto">
-
-          <h2 className="text-5xl md:text-7xl xl:text-8xl font-black 
-leading-[0.92] tracking-[-0.08em]">
-
-            ¿Tienes una
-            <br />
-
-            historia que contar?
-
-          </h2>
-
-          <p className="text-[#5d4f77] text-xl md:text-2xl max-w-3xl 
-mx-auto mt-12 leading-relaxed font-light">
-
-            Producción audiovisual, livestreaming, fotografía y 
-experiencias
-            visuales premium para proyectos que buscan destacar.
-
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-5 mt-16">
-
-            <a
-              href="https://wa.me/527351210954"
-              target="_blank"
-              className="group relative overflow-hidden bg-[#9f7dff] 
-text-white px-10 py-5 rounded-[999px] font-semibold hover:scale-105 
-transition duration-500 shadow-[0_0_50px_rgba(159,125,255,0.35)]"
-            >
-
-              <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/30 to-transparent -translate-x-full 
-group-hover:translate-x-full transition duration-1000"></span>
-
-              <span className="relative z-10">
-                Iniciar Proyecto
-              </span>
-
-            </a>
-
-            <a
-              href="/LuisAlbertoVG.vcf"
-              className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
-duration-500"
-            >
-              Guardar Contacto
-            </a>
-
-          </div>
-
-        </div>
-
-      </section>
+      </footer>
 
     </main>
   )

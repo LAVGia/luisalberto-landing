@@ -4,21 +4,17 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="bg-[#141210] text-[#F5F2ED] h-screen 
-overflow-y-scroll snap-y snap-mandatory scroll-smooth overflow-x-hidden">
+    <main className="bg-[#141210] text-[#F5F2ED] h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth overflow-x-hidden">
 
       {/* HERO CINEMATIC */}
 
-      <section className="relative h-screen snap-start overflow-hidden 
-flex items-center justify-center bg-[#141210]">
+      <section className="relative h-screen snap-start overflow-hidden flex items-center justify-center bg-[#141210]">
 
         {/* BACKGROUND LIGHT */}
 
-        <div className="absolute left-[-10%] top-0 w-[40%] h-full 
-bg-[#C6A77D]/[0.08] blur-[180px]" />
+        <div className="absolute left-[-10%] top-0 w-[40%] h-full bg-[#C6A77D]/[0.08] blur-[180px]" />
 
-        <div className="absolute right-[-10%] top-0 w-[40%] h-full 
-bg-[#8E6F4E]/[0.08] blur-[180px]" />
+        <div className="absolute right-[-10%] top-0 w-[40%] h-full bg-[#8E6F4E]/[0.08] blur-[180px]" />
 
         {/* BLURRED VIDEO BACKGROUND */}
 
@@ -27,19 +23,16 @@ bg-[#8E6F4E]/[0.08] blur-[180px]" />
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover 
-opacity-20 blur-3xl scale-110"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 blur-3xl scale-110"
         >
           <source src="/videos/hero-video.mp4" type="video/mp4" />
         </video>
 
         {/* MAIN VIDEO */}
 
-        <div className="relative z-10 h-full w-full flex items-center 
-justify-center px-8">
+        <div className="relative z-10 h-full w-full flex items-center justify-center px-8">
 
-          <div className="relative h-full flex items-center 
-justify-center">
+          <div className="relative h-full flex items-center justify-center">
 
             <video
               autoPlay
@@ -53,8 +46,7 @@ justify-center">
 
             {/* OVERLAY */}
 
-            <div className="absolute inset-0 bg-gradient-to-b 
-from-[#141210]/40 via-transparent to-[#141210]/70" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#141210]/40 via-transparent to-[#141210]/70" />
 
             <div className="absolute inset-0 bg-black/20" />
 
@@ -64,11 +56,9 @@ from-[#141210]/40 via-transparent to-[#141210]/70" />
 
         {/* TOP TEXT */}
 
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 z-20 
-text-center">
+        <div className="absolute top-16 left-1/2 -translate-x-1/2 z-20 text-center">
 
-          <p className="uppercase tracking-[0.45em] text-[#D2CCC4] 
-text-[11px] md:text-sm">
+          <p className="uppercase tracking-[0.45em] text-[#D2CCC4] text-[11px] md:text-sm">
 
             Productor Audiovisual
 
@@ -78,11 +68,9 @@ text-[11px] md:text-sm">
 
         {/* BOTTOM TITLE */}
 
-        <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-20 
-text-center px-6 w-full">
+        <div className="absolute bottom-36 left-1/2 -translate-x-1/2 z-20 text-center px-6 w-full">
 
-          <h1 className="text-[2.9rem] md:text-[6rem] xl:text-[8rem] 
-font-black leading-[0.9] tracking-[-0.08em] whitespace-nowrap">
+          <h1 className="text-[2.3rem] md:text-[5.5rem] xl:text-[7rem] font-black leading-[0.9] tracking-[-0.08em] whitespace-nowrap">
 
             Luis Alberto
             <span className="text-[#C6A77D] ml-3">
@@ -97,13 +85,10 @@ font-black leading-[0.9] tracking-[-0.08em] whitespace-nowrap">
 
         <a
           href="#services"
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 
-flex flex-col items-center text-[#A8A29E] hover:text-[#C6A77D] 
-transition-all duration-700 group"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center text-[#A8A29E] hover:text-[#C6A77D] transition-all duration-700 group"
         >
 
-          <span className="text-3xl group-hover:translate-y-1 
-transition-transform duration-700">
+          <span className="text-3xl group-hover:translate-y-1 transition-transform duration-700">
             ↓
           </span>
 
@@ -115,230 +100,179 @@ transition-transform duration-700">
 
       </section>
 
-      {/* SERVICES */}
-
-            {/* VISUAL INDEX */}
+      {/* VISUAL INDEX */}
 
       <section
         id="services"
-        className="min-h-screen snap-start px-8 md:px-20 py-24 bg-[#141210] relative overflow-hidden"
+        className="min-h-screen snap-start flex items-center px-8 md:px-20 bg-[#141210] relative overflow-hidden"
       >
 
         {/* ATMOSPHERE */}
 
-        <div className="absolute top-[10%] right-[-10%] w-[500px] h-[500px] bg-[#C6A77D]/[0.04] blur-[180px]" />
+        <div className="absolute top-[10%] right-[-10%] w-[420px] h-[420px] bg-[#C6A77D]/[0.04] blur-[160px]" />
 
-        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#8E6F4E]/[0.04] blur-[180px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[420px] h-[420px] bg-[#8E6F4E]/[0.04] blur-[160px]" />
 
-        {/* HEADER */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto grid xl:grid-cols-2 gap-20 items-center">
 
-        <div className="relative z-10 max-w-5xl mb-24">
+          {/* LEFT */}
 
-          <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-sm mb-8">
+          <div>
 
-            Narrativa Visual
+            <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-sm mb-8">
 
-          </p>
+              Narrativa Visual
 
-          <h2 className="text-5xl md:text-7xl font-black leading-[0.9] tracking-[-0.08em]">
+            </p>
 
-            Cada proyecto
-            <br />
-            tiene una
-            <br />
-            atmósfera distinta.
+            <h2 className="text-5xl md:text-7xl font-black leading-[0.9] tracking-[-0.08em]">
 
-          </h2>
+              Cada proyecto
+              <br />
+              tiene una
+              <br />
+              atmósfera distinta.
 
-          <p className="text-[#A8A29E] text-lg md:text-xl max-w-3xl mt-12 leading-[1.9] font-light">
+            </h2>
 
-            La imagen correcta puede convertir un momento en memoria.
+            <p className="text-[#A8A29E] text-lg md:text-xl max-w-2xl mt-12 leading-[1.9] font-light">
 
-          </p>
+              La imagen correcta puede convertir un momento en memoria.
 
-        </div>
+            </p>
 
-        {/* EDITORIAL GRID */}
+          </div>
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-6 auto-rows-[280px]">
+          {/* RIGHT */}
 
-          {/* HISTORIAS */}
+          <div className="flex flex-col gap-5">
 
-          <a
-            href="#"
-            className="group xl:col-span-5 relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-md"
-          >
+            {/* ITEM */}
 
-            <img
-              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop"
-              className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-[1.03] transition-transform duration-[4000ms]"
-            />
+            <a
+              href="#"
+              className="group border border-white/10 bg-[#1B1816]/50 backdrop-blur-md rounded-[2rem] px-8 py-7 hover:border-[#C6A77D]/40 transition-all duration-700"
+            >
 
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-[#141210]" />
+              <h3 className="text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
 
-            <div className="relative z-10 h-full flex flex-col justify-end p-10">
+                Portafolio
 
-              <p className="uppercase tracking-[0.3em] text-[#D2CCC4]/70 text-xs mb-4">
-                Archivo Visual
-              </p>
-
-              <h3 className="text-4xl font-black tracking-[-0.05em]">
-                Historias
               </h3>
 
-              <p className="text-[#D2CCC4] mt-6 leading-[1.8] max-w-md">
-                Cine, retrato, documental y narrativa visual.
+              <p className="text-[#A8A29E] mt-3 leading-[1.8]">
+
+                Narrativa visual, documental y retrato.
+
               </p>
 
-            </div>
+            </a>
 
-          </a>
+            {/* ITEM */}
 
-          {/* EXPERIENCIAS */}
+            <a
+              href="/invitacion"
+              className="group border border-white/10 bg-[#1B1816]/50 backdrop-blur-md rounded-[2rem] px-8 py-7 hover:border-[#C6A77D]/40 transition-all duration-700"
+            >
 
-          <a
-            href="/invitacion"
-            className="group xl:col-span-7 relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-md"
-          >
+              <h3 className="text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
 
-            <img
-              src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop"
-              className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-[1.03] transition-transform duration-[4000ms]"
-            />
+                Invitaciones Luxury
 
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-[#141210]" />
-
-            <div className="relative z-10 h-full flex flex-col justify-end p-10">
-
-              <p className="uppercase tracking-[0.3em] text-[#D2CCC4]/70 text-xs mb-4">
-                Luxury Experience
-              </p>
-
-              <h3 className="text-4xl font-black tracking-[-0.05em]">
-                Experiencias
-                <br />
-                Digitales
               </h3>
 
-              <p className="text-[#D2CCC4] mt-6 leading-[1.8] max-w-xl">
-                Invitaciones web cinematográficas y experiencias visuales diseñadas para permanecer.
+              <p className="text-[#A8A29E] mt-3 leading-[1.8]">
+
+                Experiencias digitales cinematográficas para momentos irrepetibles.
+
               </p>
 
-            </div>
+            </a>
 
-          </a>
+            {/* ITEM */}
 
-          {/* LIVE */}
+            <a
+              href="#"
+              className="group border border-white/10 bg-[#1B1816]/50 backdrop-blur-md rounded-[2rem] px-8 py-7 hover:border-[#C6A77D]/40 transition-all duration-700"
+            >
 
-          <a
-            href="#"
-            className="group xl:col-span-4 relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-md"
-          >
+              <h3 className="text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
 
-            <img
-              src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1600&auto=format&fit=crop"
-              className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-[1.03] transition-transform duration-[4000ms]"
-            />
+                Livestream
 
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-[#141210]" />
-
-            <div className="relative z-10 h-full flex flex-col justify-end p-10">
-
-              <h3 className="text-3xl font-black tracking-[-0.05em]">
-                Cobertura
-                <br />
-                en Vivo
               </h3>
 
-              <p className="text-[#D2CCC4] mt-6 leading-[1.8]">
-                Producción multicámara y transmisión profesional para eventos e instituciones.
+              <p className="text-[#A8A29E] mt-3 leading-[1.8]">
+
+                Cobertura multicámara y producción en tiempo real.
+
               </p>
 
-            </div>
+            </a>
 
-          </a>
+            {/* ITEM */}
 
-          {/* GALERIAS */}
+            <a
+              href="https://luisalbertovg9.pixieset.com/"
+              target="_blank"
+              className="group border border-white/10 bg-[#1B1816]/50 backdrop-blur-md rounded-[2rem] px-8 py-7 hover:border-[#C6A77D]/40 transition-all duration-700"
+            >
 
-          <a
-            href="https://luisalbertovg9.pixieset.com/"
-            target="_blank"
-            className="group xl:col-span-4 relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-md"
-          >
+              <h3 className="text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
 
-            <img
-              src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop"
-              className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-[1.03] transition-transform duration-[4000ms]"
-            />
+                Encuentra tu Foto
 
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-[#141210]" />
-
-            <div className="relative z-10 h-full flex flex-col justify-end p-10">
-
-              <h3 className="text-3xl font-black tracking-[-0.05em]">
-                Encuentra
-                <br />
-                tu historia
               </h3>
 
-              <p className="text-[#D2CCC4] mt-6 leading-[1.8]">
-                Accede a galerías actualizadas y revive momentos capturados durante cada evento.
+              <p className="text-[#A8A29E] mt-3 leading-[1.8]">
+
+                Galerías actualizadas para bodas y eventos.
+
               </p>
 
-            </div>
+            </a>
 
-          </a>
+            {/* ITEM */}
 
-          {/* SOCIAL */}
+            <a
+              href="#"
+              className="group border border-white/10 bg-[#1B1816]/50 backdrop-blur-md rounded-[2rem] px-8 py-7 hover:border-[#C6A77D]/40 transition-all duration-700"
+            >
 
-          <a
-            href="#"
-            className="group xl:col-span-4 relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-md"
-          >
+              <h3 className="text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
 
-            <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop"
-              className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-[1.03] transition-transform duration-[4000ms]"
-            />
+                Redes Sociales
 
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-[#141210]" />
-
-            <div className="relative z-10 h-full flex flex-col justify-end p-10">
-
-              <h3 className="text-3xl font-black tracking-[-0.05em]">
-                Detrás de
-                <br />
-                la narrativa
               </h3>
 
-              <p className="text-[#D2CCC4] mt-6 leading-[1.8]">
-                Coberturas, procesos visuales y momentos compartidos en tiempo real.
+              <p className="text-[#A8A29E] mt-3 leading-[1.8]">
+
+                Coberturas, procesos visuales y narrativa diaria.
+
               </p>
 
-            </div>
+            </a>
 
-          </a>
+          </div>
 
         </div>
 
       </section>
+
       {/* GALLERY */}
 
       <section
         id="gallery"
-        className="h-screen snap-start flex items-center px-8 md:px-20 
-bg-[#141210]"
+        className="h-screen snap-start flex items-center px-8 md:px-20 bg-[#141210]"
       >
 
         <div className="max-w-5xl">
 
-          <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-sm 
-mb-8">
+          <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-sm mb-8">
             Encuentra tu historia
           </p>
 
-          <h2 className="text-5xl md:text-7xl font-black leading-[0.9] 
-tracking-[-0.08em]">
+          <h2 className="text-5xl md:text-7xl font-black leading-[0.9] tracking-[-0.08em]">
 
             Tal vez esta
             <br />
@@ -346,11 +280,9 @@ tracking-[-0.08em]">
 
           </h2>
 
-          <p className="text-[#A8A29E] text-lg md:text-xl max-w-3xl mt-12 
-leading-[1.9] font-light">
+          <p className="text-[#A8A29E] text-lg md:text-xl max-w-3xl mt-12 leading-[1.9] font-light">
 
-            Galerías actualizadas en tiempo real para acceder a tus 
-fotografías después de cada evento.
+            Galerías actualizadas en tiempo real para acceder a tus fotografías después de cada evento.
 
           </p>
 
@@ -359,10 +291,7 @@ fotografías después de cada evento.
             <a
               href="https://luisalbertovg9.pixieset.com/"
               target="_blank"
-              className="inline-flex border border-white/10 
-bg-[#1B1816]/70 backdrop-blur-md px-8 py-4 rounded-full text-sm 
-tracking-[0.18em] uppercase hover:border-[#C6A77D]/50 hover:text-[#C6A77D] 
-transition-all duration-700"
+              className="inline-flex border border-white/10 bg-[#1B1816]/70 backdrop-blur-md px-8 py-4 rounded-full text-sm tracking-[0.18em] uppercase hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
             >
               Buscar Fotografías
             </a>

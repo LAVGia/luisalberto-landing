@@ -1,39 +1,6 @@
-export const metadata = {
+kexport const metadata = {
   title: "LuisAlbertoVG",
 }
-
-const portfolioItems = [
-  {
-    title: "Bodas",
-    image:
-      
-"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "XV Años",
-    image:
-      
-"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "Retrato",
-    image:
-      
-"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "Documental",
-    image:
-      
-"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "Livestream",
-    image:
-      
-"https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1600&auto=format&fit=crop",
-  },
-]
 
 const services = [
   {
@@ -182,21 +149,21 @@ group-hover:translate-x-full transition duration-1000"></span>
             </a>
 
             <a
+              href="#services"
+              className="bg-white/60 backdrop-blur-2xl border 
+border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
+duration-500"
+            >
+              Servicios
+            </a>
+
+            <a
               href="#gallery"
               className="bg-white/60 backdrop-blur-2xl border 
 border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
 duration-500"
             >
-              Buscar Fotos
-            </a>
-
-            <a
-              href="#portfolio"
-              className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
-duration-500"
-            >
-              Portafolio
+              Tu Foto
             </a>
 
             <a
@@ -237,10 +204,7 @@ text-sm">
             <h2 className="text-5xl md:text-7xl xl:text-8xl font-black 
 leading-[0.92] tracking-[-0.08em]">
 
-              Diseñado como
-              <br />
-
-              una experiencia
+              Una experiencia
               <br />
 
               visual premium
@@ -304,28 +268,28 @@ from-transparent via-white/20 to-transparent -translate-x-full
 group-hover:translate-x-full transition duration-1000"></span>
 
                 <span className="relative z-10">
-                  Ver Experience
+                  Invitación Web
                 </span>
 
               </a>
 
               <a
-                href="https://wa.me/527351210954"
+                href="#luxury"
+                className="bg-white/60 backdrop-blur-2xl border 
+border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
+duration-500"
+              >
+                Luxury Session
+              </a>
+
+              <a
+                href="https://luisalbertovg9.pixieset.com/"
                 target="_blank"
                 className="bg-white/60 backdrop-blur-2xl border 
 border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
 duration-500"
               >
-                WhatsApp
-              </a>
-
-              <a
-                href="/LuisAlbertoVG.vcf"
-                className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
-duration-500"
-              >
-                Guardar Contacto
+                Galería
               </a>
 
             </div>
@@ -361,10 +325,10 @@ text-sm mb-6">
                 <h3 className="text-5xl md:text-7xl text-white font-black 
 leading-none tracking-[-0.08em]">
 
-                  Visual
+                  Luxury
                   <br />
 
-                  Storytelling
+                  Session
 
                 </h3>
 
@@ -442,68 +406,6 @@ leading-relaxed">
                   ))}
 
                 </ul>
-
-              </div>
-
-            </div>
-          ))}
-
-        </div>
-
-      </section>
-
-      {/* PORTFOLIO */}
-
-      <section
-        id="portfolio"
-        className="px-8 md:px-20 py-56"
-      >
-
-        <div className="max-w-5xl mb-28">
-
-          <p className="uppercase tracking-[0.5em] text-[#6f5f8e] mb-6 
-text-sm">
-            Portafolio
-          </p>
-
-          <h2 className="text-5xl md:text-7xl font-black leading-[0.92] 
-tracking-[-0.08em]">
-
-            Historias reales.
-            <br />
-
-            Narrativa visual.
-
-          </h2>
-
-        </div>
-
-        <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-6">
-
-          {portfolioItems.map((item) => (
-            <div
-              key={item.title}
-              className="group relative rounded-[4rem] overflow-hidden 
-h-[560px] border border-white/60 hover:-translate-y-4 
-hover:shadow-[0_40px_120px_rgba(140,110,220,0.15)] transition 
-duration-700"
-            >
-
-              <img
-                src={item.image}
-                className="absolute inset-0 w-full h-full object-cover 
-group-hover:scale-[1.08] transition duration-[3500ms]"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t 
-from-[#120f18]/80 via-transparent to-transparent"></div>
-
-              <div className="absolute bottom-0 left-0 p-8 z-10">
-
-                <h3 className="text-3xl text-white font-black 
-tracking-[-0.06em]">
-                  {item.title}
-                </h3>
 
               </div>
 

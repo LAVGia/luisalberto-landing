@@ -11,7 +11,6 @@ declare global {
 export default function Invitacion() {
 
   const heroRef = useRef<HTMLDivElement>(null)
-  const historyRef = useRef<HTMLDivElement>(null)
   const detailsRef = useRef<HTMLDivElement>(null)
   const rsvpRef = useRef<HTMLDivElement>(null)
 
@@ -21,6 +20,7 @@ export default function Invitacion() {
   const [musicPlaying, setMusicPlaying] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
   const [mounted, setMounted] = useState(false)
+  const [showTop, setShowTop] = useState(false)
 
   const gallery = [
     
@@ -33,7 +33,6 @@ export default function Invitacion() {
 "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop"
   ]
 
-  // CARRUSEL
   useEffect(() => {
 
     const interval = setInterval(() => {
@@ -41,6 +40,18 @@ export default function Invitacion() {
     }, 4000)
 
     return () => clearInterval(interval)
+
+  }, [])
+
+  useEffect(() => {
+
+    const handleScroll = () => {
+      setShowTop(window.scrollY > 600)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => window.removeEventListener("scroll", handleScroll)
 
   }, [])
 
@@ -86,7 +97,7 @@ export default function Invitacion() {
 
   }, [])
 
-  // PLAY / PAUSE MUSIC
+  // MUSIC
   const toggleMusic = () => {
 
     if (!audioRef.current) return
@@ -104,10 +115,63 @@ export default function Invitacion() {
     }
   }
 
+  // AUDIO FADE
+  const fadeAudio = (target: number) => {
+
+    if (!audioRef.current) return
+
+    const audio = audioRef.current
+
+    const interval = setInterval(() => {
+
+      if (audio.volume > target) {
+
+        audio.volume = Math.max(audio.volume - 0.05, target)
+
+      } else {
+
+        clearInterval(interval)
+
+        if (target === 0) {
+          audio.pause()
+          setMusicPlaying(false)
+        }
+      }
+
+    }, 60)
+  }
+
+  const restoreAudio = () => {
+
+    if (!audioRef.current) return
+
+    const audio = audioRef.current
+
+    audio.volume = 0
+
+    audio.play()
+    setMusicPlaying(true)
+
+    const interval = setInterval(() => {
+
+      if (audio.volume < 1) {
+
+        audio.volume = Math.min(audio.volume + 0.05, 1)
+
+      } else {
+
+        clearInterval(interval)
+
+      }
+
+    }, 60)
+  }
+
   // VIMEO API
   useEffect(() => {
 
     const script = document.createElement("script")
+
     script.src = "https://player.vimeo.com/api/player.js"
     script.async = true
 
@@ -120,12 +184,15 @@ export default function Invitacion() {
       const player = new window.Vimeo.Player(iframeRef.current)
 
       player.on("play", () => {
+        fadeAudio(0)
+      })
 
-        if (audioRef.current) {
-          audioRef.current.pause()
-          setMusicPlaying(false)
-        }
+      player.on("pause", () => {
+        restoreAudio()
+      })
 
+      player.on("ended", () => {
+        restoreAudio()
       })
 
     }
@@ -142,15 +209,55 @@ export default function Invitacion() {
         src="/audio/music.mp3"
       />
 
+      {/* FLOAT BUTTONS */}
+      {showTop && (
+
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+
+          <button
+            onClick={toggleMusic}
+            className="w-14 h-14 rounded-full bg-black/70 text-white 
+backdrop-blur border border-white/20 hover:scale-110 transition"
+          >
+            {musicPlaying ? "♫" : "▶"}
+          </button>
+
+          <button
+            onClick={() => window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            })}
+            className="w-14 h-14 rounded-full bg-white/80 backdrop-blur 
+border hover:scale-110 transition"
+          >
+            ↑
+          </button>
+
+        </div>
+
+      )}
+
       {/* HERO VIDEO */}
-      <section className="relative h-screen">
+      <section className="relative h-screen overflow-hidden">
+
+        {/* PARTICLES */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+
+          <div className="absolute top-20 left-20 w-64 h-64 bg-white 
+rounded-full blur-3xl animate-pulse" />
+
+          <div className="absolute bottom-20 right-20 w-72 h-72 
+bg-[#d4af37] rounded-full blur-3xl animate-pulse" />
+
+        </div>
 
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover 
+scale-105"
         >
           <source src="/videos/intro.mp4" type="video/mp4" />
         </video>
@@ -164,26 +271,48 @@ justify-center text-center text-white px-6">
             Enlace Matrimonial
           </p>
 
-          <h1 className="text-5xl md:text-8xl font-light">
+          <h1 className="text-5xl md:text-8xl font-light mb-4 
+drop-shadow-2xl">
             Isabella <span className="text-[#d4af37]">&</span> Daniel
           </h1>
 
-          <div className="flex gap-4 mt-10 flex-wrap justify-center">
+          <div className="w-40 h-[1px] bg-gradient-to-r from-transparent 
+via-white to-transparent mb-10" />
+
+          <div className="flex gap-4 mt-6 flex-wrap justify-center">
 
             <button
               onClick={() => scrollTo(heroRef)}
-              className="px-10 py-4 rounded-full bg-white/10 border 
-border-white/30 backdrop-blur hover:scale-105 transition"
+              className="group relative overflow-hidden px-10 py-4 
+rounded-full bg-white/10 border border-white/30 backdrop-blur 
+hover:scale-105 transition"
             >
-              Abrir Invitación
+
+              <span className="relative z-10">
+                Abrir Invitación
+              </span>
+
+              <div className="absolute inset-0 -translate-x-full 
+group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
+from-transparent via-white/30 to-transparent" />
+
             </button>
 
             <button
               onClick={toggleMusic}
-              className="px-8 py-4 rounded-full bg-black/20 border 
-border-white/20 backdrop-blur hover:scale-105 transition"
+              className="group relative overflow-hidden px-8 py-4 
+rounded-full bg-black/20 border border-white/20 backdrop-blur 
+hover:scale-105 transition"
             >
-              {musicPlaying ? "❚❚ Pausar Música" : "▶ Música"}
+
+              <span className="relative z-10">
+                {musicPlaying ? "❚❚ Pausar Música" : "▶ Música"}
+              </span>
+
+              <div className="absolute inset-0 -translate-x-full 
+group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
+from-transparent via-white/20 to-transparent" />
+
             </button>
 
           </div>
@@ -219,23 +348,41 @@ text-white"
             Acompáñanos a celebrar el inicio de nuestra nueva historia.
           </p>
 
-          {/* BOTONES */}
+          {/* BUTTONS */}
           <div className="flex justify-center gap-4 flex-wrap mb-8">
 
             <button
               onClick={() => scrollTo(detailsRef)}
-              className="px-8 py-4 rounded-full bg-white/10 border 
-border-white/30 backdrop-blur hover:scale-105 transition"
+              className="group relative overflow-hidden px-8 py-4 
+rounded-full bg-white/10 border border-white/30 backdrop-blur 
+hover:scale-105 transition"
             >
-              Detalles
+
+              <span className="relative z-10">
+                Detalles
+              </span>
+
+              <div className="absolute inset-0 -translate-x-full 
+group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
+from-transparent via-white/30 to-transparent" />
+
             </button>
 
             <button
               onClick={() => scrollTo(rsvpRef)}
-              className="px-8 py-4 rounded-full bg-white/10 border 
-border-white/30 backdrop-blur hover:scale-105 transition"
+              className="group relative overflow-hidden px-8 py-4 
+rounded-full bg-white/10 border border-white/30 backdrop-blur 
+hover:scale-105 transition"
             >
-              RSVP
+
+              <span className="relative z-10">
+                RSVP
+              </span>
+
+              <div className="absolute inset-0 -translate-x-full 
+group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
+from-transparent via-white/30 to-transparent" />
+
             </button>
 
           </div>
@@ -245,10 +392,12 @@ border-white/30 backdrop-blur hover:scale-105 transition"
 
             <div className="inline-flex gap-3 px-5 py-3 rounded-2xl 
 bg-black/25 border border-white/20 backdrop-blur text-white text-sm 
-flex-wrap justify-center">
+flex-wrap justify-center shadow-2xl">
 
               <div className="text-center">
-                <div className="text-lg font-light">{timeLeft.days}</div>
+                <div className="text-lg font-light">
+                  {timeLeft.days}
+                </div>
                 <div className="text-[10px] uppercase tracking-[0.2em]">
                   Días
                 </div>
@@ -257,7 +406,9 @@ flex-wrap justify-center">
               <div className="opacity-40">|</div>
 
               <div className="text-center">
-                <div className="text-lg font-light">{timeLeft.hours}</div>
+                <div className="text-lg font-light">
+                  {timeLeft.hours}
+                </div>
                 <div className="text-[10px] uppercase tracking-[0.2em]">
                   Horas
                 </div>
@@ -266,8 +417,9 @@ flex-wrap justify-center">
               <div className="opacity-40">|</div>
 
               <div className="text-center">
-                <div className="text-lg 
-font-light">{timeLeft.minutes}</div>
+                <div className="text-lg font-light">
+                  {timeLeft.minutes}
+                </div>
                 <div className="text-[10px] uppercase tracking-[0.2em]">
                   Min
                 </div>
@@ -276,8 +428,9 @@ font-light">{timeLeft.minutes}</div>
               <div className="opacity-40">|</div>
 
               <div className="text-center">
-                <div className="text-lg 
-font-light">{timeLeft.seconds}</div>
+                <div className="text-lg font-light">
+                  {timeLeft.seconds}
+                </div>
                 <div className="text-[10px] uppercase tracking-[0.2em]">
                   Seg
                 </div>
@@ -291,10 +444,8 @@ font-light">{timeLeft.seconds}</div>
       </section>
 
       {/* NUESTRA HISTORIA */}
-      <section
-        ref={historyRef}
-        className="py-28 bg-[#f3ece2]"
-      >
+      <section className="py-28 bg-gradient-to-b from-[#f3ece2] 
+to-[#efe5d8]">
 
         <div className="max-w-5xl mx-auto px-6 text-center mb-14">
 
@@ -307,7 +458,8 @@ font-light">{timeLeft.seconds}</div>
         {/* VIMEO */}
         <div className="max-w-5xl mx-auto px-6 mb-12">
 
-          <div className="rounded-3xl overflow-hidden shadow-2xl">
+          <div className="rounded-3xl overflow-hidden shadow-2xl 
+hover:scale-[1.01] transition duration-700">
 
             <iframe
               ref={iframeRef}
@@ -321,13 +473,14 @@ font-light">{timeLeft.seconds}</div>
 
         </div>
 
-        {/* CARRUSEL */}
+        {/* CAROUSEL */}
         <div className="max-w-5xl mx-auto px-6">
 
           <div className="relative h-[450px] rounded-3xl overflow-hidden 
-shadow-2xl">
+shadow-2xl hover:scale-[1.01] transition duration-700">
 
             {gallery.map((img, i) => (
+
               <div
                 key={i}
                 className="absolute inset-0 transition-opacity 
@@ -339,14 +492,16 @@ duration-1000"
                   opacity: i === activeIndex ? 1 : 0
                 }}
               />
+
             ))}
 
           </div>
 
         </div>
+
       </section>
 
-      {/* DETALLES */}
+      {/* DETAILS */}
       <section
         ref={detailsRef}
         className="relative py-28 px-6 bg-[#efe6db] overflow-hidden"
@@ -376,11 +531,13 @@ duration-1000"
             <a
               href="https://maps.app.goo.gl/pU5zycxGosdKi9MJA"
               target="_blank"
-              className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
-hover:scale-[1.02] transition"
+              className="group p-10 rounded-3xl bg-white/70 backdrop-blur 
+border hover:scale-[1.02] transition duration-500 shadow-xl"
             >
 
-              <div className="text-4xl mb-4">⛪</div>
+              <div className="text-4xl mb-4">
+                ⛪
+              </div>
 
               <h3 className="text-2xl mb-2">
                 Ceremonia
@@ -403,11 +560,13 @@ hover:scale-[1.02] transition"
             <a
               href="https://maps.app.goo.gl/bti7LF96Bd9bhAzZ9"
               target="_blank"
-              className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
-hover:scale-[1.02] transition"
+              className="group p-10 rounded-3xl bg-white/70 backdrop-blur 
+border hover:scale-[1.02] transition duration-500 shadow-xl"
             >
 
-              <div className="text-4xl mb-4">🍾</div>
+              <div className="text-4xl mb-4">
+                🍾
+              </div>
 
               <h3 className="text-2xl mb-2">
                 Recepción
@@ -435,11 +594,11 @@ hover:scale-[1.02] transition"
       {/* RSVP */}
       <section
         ref={rsvpRef}
-        className="relative py-40 text-center text-white"
+        className="relative py-40 text-center text-white overflow-hidden"
       >
 
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center scale-105"
           style={{
             backgroundImage:
               
@@ -458,10 +617,19 @@ hover:scale-[1.02] transition"
           <a
             
 href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
-            className="px-10 py-4 rounded-full bg-white/10 border 
-border-white/30 backdrop-blur hover:scale-105 transition inline-block"
+            className="group relative overflow-hidden px-10 py-4 
+rounded-full bg-white/10 border border-white/30 backdrop-blur 
+hover:scale-105 transition inline-block"
           >
-            Confirmar
+
+            <span className="relative z-10">
+              Confirmar
+            </span>
+
+            <div className="absolute inset-0 -translate-x-full 
+group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
+from-transparent via-white/30 to-transparent" />
+
           </a>
 
         </div>

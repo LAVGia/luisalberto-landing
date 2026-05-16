@@ -4,11 +4,27 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="bg-[#0F0F10] text-[#F5F2ED] overflow-x-hidden 
-min-h-screen">
+    <main className="bg-[#141210] text-[#F5F2ED] h-screen 
+overflow-y-scroll snap-y snap-mandatory scroll-smooth overflow-x-hidden">
 
-      <section className="min-h-screen flex items-center px-8 md:px-20 
-py-32">
+      {/* BACKGROUND */}
+
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+
+        <div className="absolute inset-0 bg-[#141210]" />
+
+        <div className="absolute top-[-15%] right-[-10%] w-[700px] 
+h-[700px] bg-[#C6A77D]/[0.08] rounded-full blur-[160px]" />
+
+        <div className="absolute bottom-[-15%] left-[-10%] w-[600px] 
+h-[600px] bg-[#8E6F4E]/[0.08] rounded-full blur-[160px]" />
+
+      </div>
+
+      {/* HERO */}
+
+      <section className="h-screen snap-start flex items-center px-8 
+md:px-20 relative overflow-hidden">
 
         <div className="max-w-6xl">
 
@@ -48,18 +64,20 @@ estética cinematográfica y emocional.
 
             <a
               href="#services"
-              className="border border-white/10 bg-[#171719]/70 px-8 py-4 
-rounded-full text-sm tracking-[0.18em] uppercase hover:border-[#C6A77D]/50 
-hover:text-[#C6A77D] transition-all duration-500"
+              className="border border-white/10 bg-[#1B1816]/70 
+backdrop-blur-md px-8 py-4 rounded-full text-sm tracking-[0.18em] 
+uppercase hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all 
+duration-700"
             >
               Narrativa Visual
             </a>
 
             <a
               href="#gallery"
-              className="border border-white/10 px-8 py-4 rounded-full 
-text-sm tracking-[0.18em] uppercase hover:border-[#C6A77D]/50 
-hover:text-[#C6A77D] transition-all duration-500"
+              className="border border-white/10 bg-[#1B1816]/50 
+backdrop-blur-md px-8 py-4 rounded-full text-sm tracking-[0.18em] 
+uppercase hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all 
+duration-700"
             >
               Tu Foto
             </a>
@@ -70,44 +88,109 @@ hover:text-[#C6A77D] transition-all duration-500"
 
       </section>
 
+      {/* SERVICES */}
+
       <section
         id="services"
-        className="px-8 md:px-20 py-40"
+        className="h-screen snap-start flex items-center px-8 md:px-20 
+relative overflow-hidden"
       >
 
-        <div className="max-w-4xl mb-24">
+        <div className="absolute top-[10%] right-[5%] w-[340px] h-[340px] 
+rounded-full bg-[#C6A77D]/[0.05] blur-[140px]" />
 
-          <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-sm 
-mb-8">
-            Narrativa Visual
-          </p>
+        <div className="max-w-6xl w-full">
 
-          <h2 className="text-5xl md:text-7xl font-black leading-[0.9] 
+          <div className="max-w-4xl mb-20">
+
+            <p className="uppercase tracking-[0.45em] text-[#A8A29E] 
+text-sm mb-8">
+              Narrativa Visual
+            </p>
+
+            <h2 className="text-5xl md:text-7xl font-black leading-[0.9] 
 tracking-[-0.08em]">
 
-            Cada proyecto
-            <br />
-            tiene una
-            <br />
-            atmósfera distinta.
+              Cada proyecto
+              <br />
+              tiene una
+              <br />
+              atmósfera distinta.
 
-          </h2>
+            </h2>
 
-          <p className="text-[#A8A29E] text-lg md:text-xl max-w-3xl mt-12 
-leading-[1.9] font-light">
+            <p className="text-[#A8A29E] text-lg md:text-xl max-w-3xl 
+mt-12 leading-[1.9] font-light">
 
-            La imagen correcta puede convertir un momento en memoria.
+              La imagen correcta puede convertir un momento en memoria.
 
-          </p>
+            </p>
+
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+            <div className="border border-white/10 bg-[#1B1816]/70 
+backdrop-blur-md rounded-[2rem] p-8 hover:border-[#C6A77D]/30 
+transition-all duration-700">
+
+              <h3 className="text-2xl font-black mb-6">
+                Bodas Cinemáticas
+              </h3>
+
+              <p className="text-[#A8A29E] leading-[1.8]">
+                Historias íntimas contadas con emoción y sensibilidad 
+documental.
+              </p>
+
+            </div>
+
+            <div className="border border-white/10 bg-[#1B1816]/70 
+backdrop-blur-md rounded-[2rem] p-8 hover:border-[#C6A77D]/30 
+transition-all duration-700">
+
+              <h3 className="text-2xl font-black mb-6">
+                Retrato Editorial
+              </h3>
+
+              <p className="text-[#A8A29E] leading-[1.8]">
+                Imagen personal con estética cinematográfica y dirección 
+visual cuidada.
+              </p>
+
+            </div>
+
+            <div className="border border-white/10 bg-[#1B1816]/70 
+backdrop-blur-md rounded-[2rem] p-8 hover:border-[#C6A77D]/30 
+transition-all duration-700">
+
+              <h3 className="text-2xl font-black mb-6">
+                Documental Humano
+              </h3>
+
+              <p className="text-[#A8A29E] leading-[1.8]">
+                Momentos reales observados desde una narrativa visual 
+auténtica.
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
       </section>
 
+      {/* GALLERY */}
+
       <section
         id="gallery"
-        className="px-8 md:px-20 py-44"
+        className="h-screen snap-start flex items-center px-8 md:px-20 
+relative overflow-hidden"
       >
+
+        <div className="absolute bottom-[0%] left-[0%] w-[400px] h-[400px] 
+rounded-full bg-[#8E6F4E]/[0.05] blur-[160px]" />
 
         <div className="max-w-5xl">
 
@@ -121,9 +204,7 @@ tracking-[-0.08em]">
 
             Tal vez esta
             <br />
-            imagen también
-            <br />
-            sea tuya.
+            imagen sea tuya.
 
           </h2>
 
@@ -141,9 +222,9 @@ fotografías después de cada evento.
               href="https://luisalbertovg9.pixieset.com/"
               target="_blank"
               className="inline-flex border border-white/10 
-bg-[#171719]/70 px-8 py-4 rounded-full text-sm tracking-[0.18em] uppercase 
-hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all 
-duration-500"
+bg-[#1B1816]/70 backdrop-blur-md px-8 py-4 rounded-full text-sm 
+tracking-[0.18em] uppercase hover:border-[#C6A77D]/50 hover:text-[#C6A77D] 
+transition-all duration-700"
             >
               Buscar Fotografías
             </a>
@@ -154,7 +235,13 @@ duration-500"
 
       </section>
 
-      <section className="px-8 md:px-20 py-52 text-center">
+      {/* CONTACT */}
+
+      <section className="h-screen snap-start flex items-center 
+justify-center px-8 md:px-20 text-center relative overflow-hidden">
+
+        <div className="absolute top-[20%] left-[15%] w-[320px] h-[320px] 
+rounded-full bg-[#C6A77D]/[0.05] blur-[140px]" />
 
         <div className="max-w-5xl mx-auto">
 
@@ -180,9 +267,10 @@ personas con identidad propia.
             <a
               href="https://wa.me/527351210954"
               target="_blank"
-              className="border border-white/10 bg-[#171719]/70 px-8 py-4 
-rounded-full text-sm tracking-[0.18em] uppercase hover:border-[#C6A77D]/50 
-hover:text-[#C6A77D] transition-all duration-500"
+              className="border border-white/10 bg-[#1B1816]/70 
+backdrop-blur-md px-8 py-4 rounded-full text-sm tracking-[0.18em] 
+uppercase hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all 
+duration-700"
             >
               Iniciar Proyecto
             </a>
@@ -192,7 +280,7 @@ hover:text-[#C6A77D] transition-all duration-500"
           <p className="text-[#6B6762] text-sm tracking-[0.25em] uppercase 
 mt-20">
 
-            Diseñado para permanecer en el tiempo.
+            Diseñado para perdurar.
 
           </p>
 

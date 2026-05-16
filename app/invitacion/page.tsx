@@ -9,6 +9,8 @@ export default function Invitacion() {
   const detailsRef = useRef<HTMLDivElement>(null)
   const rsvpRef = useRef<HTMLDivElement>(null)
 
+  const audioRef = useRef<HTMLAudioElement>(null)
+
   const [activeIndex, setActiveIndex] = useState(0)
 
   const gallery = [
@@ -61,8 +63,20 @@ export default function Invitacion() {
     return () => clearInterval(timer)
   }, [])
 
+  const playMusic = () => {
+    audioRef.current?.play()
+  }
+
   return (
     <main className="bg-[#f6f1ea] text-[#1a1a1a] overflow-hidden">
+
+      {/* AUDIO */}
+      <audio
+        ref={audioRef}
+        loop
+        
+src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=wedding-background-piano-110624.mp3"
+      />
 
       {/* HERO VIDEO */}
       <section className="relative h-screen">
@@ -90,13 +104,26 @@ justify-center text-center text-white px-6">
             Isabella <span className="text-[#d4af37]">&</span> Daniel
           </h1>
 
-          <button
-            onClick={() => scrollTo(heroRef)}
-            className="mt-12 px-10 py-4 rounded-full bg-white/10 border 
-border-white/30 backdrop-blur hover:scale-105 transition duration-500"
-          >
-            Abrir Invitación
-          </button>
+          <div className="flex gap-4 mt-10 flex-wrap justify-center">
+
+            <button
+              onClick={() => scrollTo(heroRef)}
+              className="px-10 py-4 rounded-full bg-white/10 border 
+border-white/30 backdrop-blur hover:scale-105 transition"
+            >
+              Abrir Invitación
+            </button>
+
+            {/* PLAY MÚSICA */}
+            <button
+              onClick={playMusic}
+              className="px-8 py-4 rounded-full bg-black/20 border 
+border-white/20 backdrop-blur hover:scale-105 transition"
+            >
+              ♪ Música
+            </button>
+
+          </div>
 
         </div>
       </section>
@@ -133,14 +160,6 @@ text-white"
           <div className="flex justify-center gap-4 flex-wrap mb-8">
 
             <button
-              onClick={() => scrollTo(historyRef)}
-              className="px-8 py-4 rounded-full bg-white/10 border 
-border-white/30 backdrop-blur hover:scale-105 transition"
-            >
-              Nuestra Historia
-            </button>
-
-            <button
               onClick={() => scrollTo(detailsRef)}
               className="px-8 py-4 rounded-full bg-white/10 border 
 border-white/30 backdrop-blur hover:scale-105 transition"
@@ -158,42 +177,41 @@ border-white/30 backdrop-blur hover:scale-105 transition"
 
           </div>
 
-          {/* COUNTDOWN PREMIUM */}
-          <div className="inline-flex gap-6 px-8 py-4 rounded-2xl 
-bg-black/25 border border-white/20 backdrop-blur text-white">
+          {/* COUNTDOWN REDUCIDO */}
+          <div className="inline-flex gap-3 px-5 py-3 rounded-2xl 
+bg-black/25 border border-white/20 backdrop-blur text-white text-sm 
+flex-wrap justify-center">
 
             <div className="text-center">
-              <div className="text-3xl font-light">{timeLeft.days}</div>
-              <div className="text-xs uppercase tracking-[0.3em] mt-1">
+              <div className="text-lg font-light">{timeLeft.days}</div>
+              <div className="text-[10px] uppercase tracking-[0.2em]">
                 Días
               </div>
             </div>
 
-            <div className="opacity-40 text-2xl">|</div>
+            <div className="opacity-40">|</div>
 
             <div className="text-center">
-              <div className="text-3xl font-light">{timeLeft.hours}</div>
-              <div className="text-xs uppercase tracking-[0.3em] mt-1">
+              <div className="text-lg font-light">{timeLeft.hours}</div>
+              <div className="text-[10px] uppercase tracking-[0.2em]">
                 Horas
               </div>
             </div>
 
-            <div className="opacity-40 text-2xl">|</div>
+            <div className="opacity-40">|</div>
 
             <div className="text-center">
-              <div className="text-3xl 
-font-light">{timeLeft.minutes}</div>
-              <div className="text-xs uppercase tracking-[0.3em] mt-1">
+              <div className="text-lg font-light">{timeLeft.minutes}</div>
+              <div className="text-[10px] uppercase tracking-[0.2em]">
                 Min
               </div>
             </div>
 
-            <div className="opacity-40 text-2xl">|</div>
+            <div className="opacity-40">|</div>
 
             <div className="text-center">
-              <div className="text-3xl 
-font-light">{timeLeft.seconds}</div>
-              <div className="text-xs uppercase tracking-[0.3em] mt-1">
+              <div className="text-lg font-light">{timeLeft.seconds}</div>
+              <div className="text-[10px] uppercase tracking-[0.2em]">
                 Seg
               </div>
             </div>
@@ -206,21 +224,14 @@ font-light">{timeLeft.seconds}</div>
       {/* NUESTRA HISTORIA */}
       <section
         ref={historyRef}
-        className="py-28 bg-[#f3ece2] relative"
+        className="py-28 bg-[#f3ece2]"
       >
-
-        <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b 
-from-black/10 to-transparent" />
 
         <div className="max-w-5xl mx-auto px-6 text-center mb-14">
 
-          <h2 className="text-5xl font-light mb-4">
+          <h2 className="text-5xl font-light">
             Nuestra Historia
           </h2>
-
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Cada historia de amor merece ser recordada para siempre.
-          </p>
 
         </div>
 
@@ -228,11 +239,14 @@ from-black/10 to-transparent" />
         <div className="max-w-5xl mx-auto px-6 mb-12">
 
           <div className="rounded-3xl overflow-hidden shadow-2xl">
+
             <iframe
               src="https://player.vimeo.com/video/1192713156"
               className="w-full aspect-video"
               allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
             />
+
           </div>
 
         </div>
@@ -262,13 +276,13 @@ duration-1000"
         </div>
       </section>
 
-      {/* DETALLES DEL EVENTO */}
+      {/* DETALLES */}
       <section
         ref={detailsRef}
         className="relative py-28 px-6 bg-[#efe6db] overflow-hidden"
       >
 
-        {/* TEXTURA VELO */}
+        {/* TEXTURA */}
         <div
           className="absolute inset-0 opacity-20"
           style={{
@@ -282,13 +296,9 @@ duration-1000"
 
           <div className="text-center mb-16">
 
-            <h2 className="text-5xl font-light mb-4">
+            <h2 className="text-5xl font-light">
               Detalles del Evento
             </h2>
-
-            <p className="text-gray-600">
-              Ceremonia y recepción
-            </p>
 
           </div>
 

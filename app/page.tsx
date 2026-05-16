@@ -136,21 +136,6 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-4">
 
             <a
-              href="#"
-              className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-7 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
-            >
-
-              <span className="tracking-[0.08em]">
-                Portafolio
-              </span>
-
-              <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
-                →
-              </span>
-
-            </a>
-
-            <a
               href="/invitacion"
               className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-7 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
             >
@@ -171,7 +156,22 @@ export default function Home() {
             >
 
               <span className="tracking-[0.08em]">
-                Livestream
+                Bodas y XV años
+              </span>
+
+              <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
+                →
+              </span>
+
+            </a>
+
+            <a
+              href="#"
+              className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-7 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
+            >
+
+              <span className="tracking-[0.08em]">
+                Documentales y eventos
               </span>
 
               <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
@@ -187,7 +187,7 @@ export default function Home() {
             >
 
               <span className="tracking-[0.08em]">
-                Encuentra tu Foto
+                Encuentra tu foto
               </span>
 
               <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">

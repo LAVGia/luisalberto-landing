@@ -21,6 +21,7 @@ export default function Invitacion() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [mounted, setMounted] = useState(false)
   const [showTop, setShowTop] = useState(false)
+  const [lightbox, setLightbox] = useState<string | null>(null)
 
   const gallery = [
     
@@ -37,7 +38,7 @@ export default function Invitacion() {
 
     const interval = setInterval(() => {
       setActiveIndex((p) => (p + 1) % gallery.length)
-    }, 4000)
+    }, 4500)
 
     return () => clearInterval(interval)
 
@@ -147,6 +148,9 @@ END:VCALENDAR
       audioRef.current.play()
       setMusicPlaying(true)
 
+      if (navigator.vibrate) {
+        navigator.vibrate(15)
+      }
     }
   }
 
@@ -237,6 +241,24 @@ END:VCALENDAR
   return (
     <main className="bg-[#f6f1ea] text-[#1a1a1a] overflow-hidden">
 
+      {/* LIGHTBOX */}
+      {lightbox && (
+
+        <div
+          className="fixed inset-0 z-[999] bg-black/95 flex items-center 
+justify-center p-6"
+          onClick={() => setLightbox(null)}
+        >
+
+          <img
+            src={lightbox}
+            className="max-w-full max-h-full rounded-3xl shadow-2xl"
+          />
+
+        </div>
+
+      )}
+
       {/* AUDIO */}
       <audio
         ref={audioRef}
@@ -275,7 +297,6 @@ border hover:scale-110 transition"
       {/* HERO VIDEO */}
       <section className="relative h-screen overflow-hidden">
 
-        {/* PARTICLES */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
 
           <div className="absolute top-20 left-20 w-64 h-64 bg-white 
@@ -283,6 +304,9 @@ rounded-full blur-3xl animate-pulse" />
 
           <div className="absolute bottom-20 right-20 w-72 h-72 
 bg-[#d4af37] rounded-full blur-3xl animate-pulse" />
+
+          <div className="absolute top-1/2 left-1/2 w-96 h-96 
+bg-[#d4af37]/20 rounded-full blur-3xl animate-pulse" />
 
         </div>
 
@@ -297,12 +321,12 @@ scale-105"
           <source src="/videos/intro.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/55" />
 
         <div className="relative z-10 h-full flex flex-col items-center 
 justify-center text-center text-white px-6">
 
-          <p className="tracking-[0.4em] uppercase text-white/70 mb-6">
+          <p className="tracking-[0.5em] uppercase text-white/70 mb-6">
             Enlace Matrimonial
           </p>
 
@@ -363,7 +387,7 @@ text-white"
       >
 
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center scale-105"
           style={{
             backgroundImage:
               
@@ -371,7 +395,8 @@ text-white"
           }}
         />
 
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-black/45 backdrop-blur-[2px]" 
+/>
 
         <div className="relative z-10 w-full pb-16 px-6 text-center">
 
@@ -391,15 +416,9 @@ text-white"
 rounded-full bg-white/10 border border-white/30 backdrop-blur 
 hover:scale-105 transition"
             >
-
               <span className="relative z-10">
                 Detalles
               </span>
-
-              <div className="absolute inset-0 -translate-x-full 
-group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
-from-transparent via-white/30 to-transparent" />
-
             </button>
 
             <button
@@ -408,15 +427,9 @@ from-transparent via-white/30 to-transparent" />
 rounded-full bg-white/10 border border-white/30 backdrop-blur 
 hover:scale-105 transition"
             >
-
               <span className="relative z-10">
                 RSVP
               </span>
-
-              <div className="absolute inset-0 -translate-x-full 
-group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
-from-transparent via-white/30 to-transparent" />
-
             </button>
 
           </div>
@@ -482,9 +495,12 @@ to-[#efe5d8]">
 
         <div className="max-w-5xl mx-auto px-6 text-center mb-14">
 
-          <h2 className="text-5xl font-light">
+          <h2 className="text-5xl font-light mb-4">
             Nuestra Historia
           </h2>
+
+          <div className="w-32 h-[1px] mx-auto bg-gradient-to-r 
+from-transparent via-[#d4af37] to-transparent" />
 
         </div>
 
@@ -506,25 +522,32 @@ hover:scale-[1.01] transition duration-700">
 
         </div>
 
-        {/* CAROUSEL */}
+        {/* CARRUSEL */}
         <div className="max-w-5xl mx-auto px-6">
 
-          <div className="relative h-[450px] rounded-3xl overflow-hidden 
-shadow-2xl hover:scale-[1.01] transition duration-700">
+          <div className="grid md:grid-cols-2 gap-6">
 
             {gallery.map((img, i) => (
 
               <div
                 key={i}
-                className="absolute inset-0 transition-opacity 
-duration-1000"
-                style={{
-                  backgroundImage: `url(${img})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  opacity: i === activeIndex ? 1 : 0
-                }}
-              />
+                onClick={() => setLightbox(img)}
+                className="relative h-[300px] rounded-3xl overflow-hidden 
+shadow-2xl cursor-pointer group"
+              >
+
+                <div
+                  className="absolute inset-0 bg-cover bg-center 
+transition duration-700 group-hover:scale-110"
+                  style={{
+                    backgroundImage: `url(${img})`
+                  }}
+                />
+
+                <div className="absolute inset-0 bg-black/20 
+group-hover:bg-black/10 transition" />
+
+              </div>
 
             ))}
 
@@ -553,9 +576,12 @@ duration-1000"
 
           <div className="text-center mb-16">
 
-            <h2 className="text-5xl font-light">
+            <h2 className="text-5xl font-light mb-4">
               Detalles del Evento
             </h2>
+
+            <div className="w-32 h-[1px] mx-auto bg-gradient-to-r 
+from-transparent via-[#d4af37] to-transparent" />
 
           </div>
 
@@ -659,13 +685,8 @@ hover:scale-105 transition inline-block"
               Confirmar
             </span>
 
-            <div className="absolute inset-0 -translate-x-full 
-group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
-from-transparent via-white/30 to-transparent" />
-
           </a>
 
-          {/* CALENDAR BUTTON */}
           <div className="mt-8">
 
             <button
@@ -679,15 +700,12 @@ hover:scale-105 transition inline-block"
                 📅 Agregar a mi agenda
               </span>
 
-              <div className="absolute inset-0 -translate-x-full 
-group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
-from-transparent via-white/20 to-transparent" />
-
             </button>
 
           </div>
 
         </div>
+
       </section>
 
       {/* FOOTER */}

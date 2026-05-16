@@ -357,10 +357,6 @@ hover:scale-105 animate-[pulse_4s_infinite] transition"
                 Abrir Invitación
               </span>
 
-              <div className="absolute inset-0 -translate-x-full 
-group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
-from-transparent via-white/30 to-transparent" />
-
             </button>
 
             <button
@@ -589,9 +585,24 @@ cursor-pointer"
       {/* DETAILS */}
       <section
         ref={detailsRef}
-        className="relative py-28 px-6 bg-[#efe6db] overflow-hidden"
+        className="relative py-32 px-6 overflow-hidden"
       >
 
+        {/* FOTO DE FONDO */}
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{
+            backgroundImage:
+              
+"url('https://images.unsplash.com/photo-1525258946800-98cfd641d0de?q=80&w=1600&auto=format&fit=crop')"
+          }}
+        />
+
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-[#efe6db]/88 
+backdrop-blur-[2px]" />
+
+        {/* TEXTURA */}
         <div
           className="absolute inset-0 opacity-20"
           style={{
@@ -620,8 +631,8 @@ from-transparent via-[#d4af37] to-transparent" />
               href="https://maps.app.goo.gl/pU5zycxGosdKi9MJA"
               target="_blank"
               className="group p-10 rounded-3xl bg-white/70 backdrop-blur 
-border hover:scale-[1.02] animate-[pulse_8s_infinite] transition 
-duration-500 shadow-xl"
+border border-white/40 hover:scale-[1.02] animate-[pulse_8s_infinite] 
+transition duration-500 shadow-2xl"
             >
 
               <div className="text-4xl mb-4">
@@ -636,11 +647,11 @@ duration-500 shadow-xl"
                 Santuario de Tepalcingo
               </p>
 
-              <p className="text-sm text-gray-600 mt-4">
+              <p className="text-sm text-gray-700 mt-4">
                 20 Diciembre 2026
               </p>
 
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-700">
                 5:00 PM
               </p>
 
@@ -650,8 +661,8 @@ duration-500 shadow-xl"
               href="https://maps.app.goo.gl/bti7LF96Bd9bhAzZ9"
               target="_blank"
               className="group p-10 rounded-3xl bg-white/70 backdrop-blur 
-border hover:scale-[1.02] animate-[pulse_9s_infinite] transition 
-duration-500 shadow-xl"
+border border-white/40 hover:scale-[1.02] animate-[pulse_9s_infinite] 
+transition duration-500 shadow-2xl"
             >
 
               <div className="text-4xl mb-4">
@@ -666,11 +677,11 @@ duration-500 shadow-xl"
                 Jardín Anrubio
               </p>
 
-              <p className="text-sm text-gray-600 mt-4">
+              <p className="text-sm text-gray-700 mt-4">
                 20 Diciembre 2026
               </p>
 
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-700">
                 6:00 PM
               </p>
 

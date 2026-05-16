@@ -13,7 +13,7 @@ const services = [
     ],
     image:
       
-"https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1600&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop",
   },
   {
     title: "Fotografía",
@@ -25,7 +25,7 @@ const services = [
     ],
     image:
       
-"https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop",
   },
   {
     title: "Live Streaming",
@@ -37,7 +37,7 @@ const services = [
     ],
     image:
       
-"https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1600&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1200&auto=format&fit=crop",
   },
   {
     title: "Cobertura Digital",
@@ -49,7 +49,7 @@ const services = [
     ],
     image:
       
-"https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1600&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1200&auto=format&fit=crop",
   },
 ]
 
@@ -67,7 +67,7 @@ const socials = [
   {
     title: "Noticias Tepalcingo",
     link: "https://www.facebook.com/Tepalcingo",
-    text: "Noticias positivas, culturales y sociales de Tepalcingo.",
+    text: "Noticias culturales y sociales de Tepalcingo.",
   },
   {
     title: "TikTok",
@@ -78,89 +78,83 @@ const socials = [
 
 export default function Home() {
   return (
-    <main className="bg-[#f3eefc] text-[#1a1324] overflow-x-hidden 
-selection:bg-[#b497ff] selection:text-black">
+    <main className="bg-[#f5f1fb] text-[#1a1324] overflow-x-hidden">
 
-      {/* ATMOSPHERE */}
+      {/* BACKGROUND */}
 
-      <div className="fixed inset-0 -z-10 overflow-hidden">
+      <div className="fixed inset-0 -z-10">
 
-        <div className="absolute top-[-10%] left-[0%] w-[1400px] 
-h-[1400px] bg-[#cdb8ff]/40 blur-[260px] rounded-full"></div>
+        <div className="absolute top-0 left-0 w-full h-full 
+bg-gradient-to-b from-[#f5f1fb] via-[#efe7fb] to-[#f8f5ff]" />
 
-        <div className="absolute bottom-[-20%] right-[-10%] w-[1200px] 
-h-[1200px] bg-[#e8dcff]/50 blur-[260px] rounded-full"></div>
+        <div className="absolute top-[-10%] right-[-10%] w-[500px] 
+h-[500px] bg-[#cdb8ff]/30 rounded-full blur-[120px]" />
 
-        <div className="absolute top-[40%] left-[55%] w-[700px] h-[700px] 
-bg-white/40 blur-[200px] rounded-full"></div>
+        <div className="absolute bottom-[-10%] left-[-10%] w-[400px] 
+h-[400px] bg-[#e4d7ff]/40 rounded-full blur-[100px]" />
 
       </div>
 
       {/* HERO */}
 
-      <section className="relative min-h-screen flex items-center px-8 
-md:px-20 overflow-hidden">
+      <section className="min-h-screen flex items-center px-8 md:px-20 
+relative">
 
-        <div className="max-w-7xl relative z-10">
+        <div className="max-w-6xl">
 
-          <p className="uppercase tracking-[0.6em] text-[#6f5f8e] mb-8 
-text-sm">
+          <p className="uppercase tracking-[0.5em] text-[#6f5f8e] text-sm 
+mb-8">
             Productor Audiovisual
           </p>
 
-          <h1 className="text-7xl md:text-[9rem] xl:text-[12rem] 
-font-black leading-[0.82] tracking-[-0.08em]">
+          <h1 className="text-6xl md:text-[8rem] xl:text-[10rem] 
+font-black leading-[0.85] tracking-[-0.08em]">
 
             Luis Alberto
             <br />
 
-            <span className="text-[#9f7dff] 
-drop-shadow-[0_0_40px_rgba(159,125,255,0.35)]">
+            <span className="text-[#9f7dff]">
               VG
             </span>
 
           </h1>
 
-          <p className="text-[#5d4f77] text-2xl md:text-3xl max-w-4xl 
-mt-14 leading-[1.6] font-light">
-            Producción audiovisual, livestreaming, fotografía y narrativa 
-visual para eventos, marcas e historias reales.
+          <p className="text-[#5d4f77] text-xl md:text-2xl max-w-3xl mt-12 
+leading-relaxed font-light">
+            Producción audiovisual, fotografía, livestreaming y 
+storytelling visual para eventos, marcas e historias reales.
           </p>
 
-          <div className="flex flex-wrap gap-5 mt-16">
+          <div className="flex flex-wrap gap-4 mt-14">
 
             <a
               href="#luxury"
-              className="bg-[#9f7dff] text-white px-10 py-5 
-rounded-[999px] font-semibold hover:scale-105 transition duration-500 
-shadow-[0_0_50px_rgba(159,125,255,0.35)]"
+              className="bg-[#9f7dff] text-white px-8 py-4 rounded-full 
+font-medium hover:opacity-90 transition"
             >
               Luxury Experience
             </a>
 
             <a
               href="#services"
-              className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
-duration-500"
+              className="bg-white/70 border border-white px-8 py-4 
+rounded-full hover:bg-white transition"
             >
               Servicios
             </a>
 
             <a
               href="#gallery"
-              className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
-duration-500"
+              className="bg-white/70 border border-white px-8 py-4 
+rounded-full hover:bg-white transition"
             >
               Tu Foto
             </a>
 
             <a
               href="#social"
-              className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px] hover:bg-white transition 
-duration-500"
+              className="bg-white/70 border border-white px-8 py-4 
+rounded-full hover:bg-white transition"
             >
               Redes Sociales
             </a>
@@ -175,20 +169,20 @@ duration-500"
 
       <section
         id="luxury"
-        className="relative px-8 md:px-20 py-56 overflow-hidden"
+        className="px-8 md:px-20 py-40"
       >
 
-        <div className="grid xl:grid-cols-2 gap-28 items-center">
+        <div className="grid xl:grid-cols-2 gap-16 items-center">
 
           <div>
 
-            <p className="uppercase tracking-[0.5em] text-[#6f5f8e] mb-6 
-text-sm">
+            <p className="uppercase tracking-[0.5em] text-[#6f5f8e] 
+text-sm mb-6">
               Luxury Event Experience
             </p>
 
-            <h2 className="text-5xl md:text-7xl xl:text-8xl font-black 
-leading-[0.92] tracking-[-0.08em]">
+            <h2 className="text-5xl md:text-7xl font-black leading-[0.92] 
+tracking-[-0.08em]">
 
               Una experiencia
               <br />
@@ -200,8 +194,8 @@ leading-[0.92] tracking-[-0.08em]">
 
             </h2>
 
-            <div className="mt-14 space-y-5 text-[#5d4f77] text-lg 
-md:text-xl leading-relaxed font-light">
+            <div className="mt-12 space-y-4 text-[#5d4f77] text-lg 
+leading-relaxed font-light">
 
               <p>• Producción visual previa a tu evento</p>
 
@@ -211,40 +205,48 @@ md:text-xl leading-relaxed font-light">
 
               <p>• Historia visual con fotos y video cinematográfico</p>
 
-              <p>• Sesión fotográfica luxury para tus invitados</p>
+              <p>• Sesión luxury para tus invitados</p>
 
               <p>• Galería online en tiempo real</p>
 
-              <p>• Contenido digital shareable al momento</p>
+              <p>• Contenido shareable al momento</p>
 
-              <p>• Impresiones fotográficas premium</p>
+              <p>• Impresiones premium</p>
 
             </div>
 
-            <div className="flex flex-wrap gap-5 mt-16">
+            <div className="mt-14 border-l border-[#cdb8ff] pl-6">
+
+              <h3 className="text-3xl md:text-5xl font-black leading-tight 
+tracking-[-0.06em]">
+
+                Tu evento termina.
+                <br />
+
+                <span className="text-[#9f7dff]">
+                  Tus recuerdos ya están listos.
+                </span>
+
+              </h3>
+
+            </div>
+
+            <div className="flex flex-wrap gap-4 mt-14">
 
               <a
                 href="https://luisalberto.vg/invitacion"
                 target="_blank"
-                className="bg-[#9f7dff] text-white px-10 py-5 
-rounded-[999px] font-semibold hover:scale-105 transition duration-500"
+                className="bg-[#9f7dff] text-white px-8 py-4 rounded-full 
+font-medium hover:opacity-90 transition"
               >
                 Invitación Web
               </a>
 
               <a
-                href="#luxury"
-                className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px]"
-              >
-                Luxury Session
-              </a>
-
-              <a
                 href="https://luisalbertovg9.pixieset.com/"
                 target="_blank"
-                className="bg-white/60 backdrop-blur-2xl border 
-border-white/60 px-10 py-5 rounded-[999px]"
+                className="bg-white/70 border border-white px-8 py-4 
+rounded-full hover:bg-white transition"
               >
                 Galería
               </a>
@@ -255,32 +257,14 @@ border-white/60 px-10 py-5 rounded-[999px]"
 
           <div className="relative">
 
-            <div className="group relative rounded-[4rem] overflow-hidden 
-border border-white/60 bg-white/50 backdrop-blur-2xl 
-shadow-[0_40px_120px_rgba(140,110,220,0.15)]">
+            <div className="rounded-[3rem] overflow-hidden border 
+border-white bg-white/40 shadow-xl">
 
               <img
                 
-src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1800&auto=format&fit=crop&sat=-100"
-                className="w-full h-[900px] object-cover"
+src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1400&auto=format&fit=crop&sat=-100"
+                className="w-full h-[700px] object-cover"
               />
-
-              <div className="absolute inset-0 bg-gradient-to-t 
-from-[#120f18]/60 via-transparent to-transparent"></div>
-
-              <div className="absolute bottom-0 left-0 p-12 md:p-16">
-
-                <h3 className="text-5xl md:text-7xl text-white font-black 
-leading-none tracking-[-0.08em]">
-
-                  Luxury
-                  <br />
-
-                  Session
-
-                </h3>
-
-              </div>
 
             </div>
 
@@ -294,13 +278,13 @@ leading-none tracking-[-0.08em]">
 
       <section
         id="services"
-        className="px-8 md:px-20 py-56"
+        className="px-8 md:px-20 py-40"
       >
 
-        <div className="max-w-5xl mb-28">
-// TEST
-          <p className="uppercase tracking-[0.5em] text-[#6f5f8e] mb-6 
-text-sm">
+        <div className="max-w-5xl mb-20">
+
+          <p className="uppercase tracking-[0.5em] text-[#6f5f8e] text-sm 
+mb-6">
             Servicios
           </p>
 
@@ -316,13 +300,13 @@ tracking-[-0.08em]">
 
         </div>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
 
           {services.map((service) => (
             <div
               key={service.title}
-              className="group relative rounded-[4rem] overflow-hidden 
-border border-white/60 min-h-[620px] bg-white/50 backdrop-blur-2xl"
+              className="relative rounded-[3rem] overflow-hidden 
+min-h-[520px] border border-white bg-white/30"
             >
 
               <img
@@ -330,18 +314,17 @@ border border-white/60 min-h-[620px] bg-white/50 backdrop-blur-2xl"
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t 
-from-[#120f18]/80 via-black/10 to-transparent"></div>
+              <div className="absolute inset-0 bg-black/40" />
 
-              <div className="relative z-10 p-10 flex flex-col justify-end 
+              <div className="relative z-10 p-8 flex flex-col justify-end 
 h-full">
 
-                <h3 className="text-3xl text-white font-black mb-8">
+                <h3 className="text-3xl text-white font-black mb-6 
+tracking-[-0.05em]">
                   {service.title}
                 </h3>
 
-                <ul className="space-y-4 text-white/80 text-lg 
-leading-relaxed">
+                <ul className="space-y-3 text-white/80">
 
                   {service.items.map((item) => (
                     <li key={item}>
@@ -364,18 +347,18 @@ leading-relaxed">
 
       <section
         id="gallery"
-        className="relative px-8 md:px-20 py-56 overflow-hidden"
+        className="px-8 md:px-20 py-40"
       >
 
-        <div className="relative z-10 max-w-5xl">
+        <div className="max-w-5xl">
 
-          <p className="uppercase tracking-[0.5em] text-[#6f5f8e] mb-6 
-text-sm">
+          <p className="uppercase tracking-[0.5em] text-[#6f5f8e] text-sm 
+mb-6">
             Online Gallery
           </p>
 
-          <h2 className="text-5xl md:text-7xl xl:text-8xl font-black 
-leading-[0.92] tracking-[-0.08em]">
+          <h2 className="text-5xl md:text-7xl font-black leading-[0.92] 
+tracking-[-0.08em]">
 
             ¿Estuviste
             <br />
@@ -384,21 +367,21 @@ leading-[0.92] tracking-[-0.08em]">
 
           </h2>
 
-          <p className="text-[#5d4f77] text-2xl leading-[1.6] max-w-3xl 
-mt-14 font-light">
+          <p className="text-[#5d4f77] text-xl md:text-2xl max-w-3xl mt-12 
+leading-relaxed font-light">
 
             Encuentra tus fotografías y galerías premium de eventos 
-sociales y coberturas especiales.
+sociales, conciertos y experiencias luxury.
 
           </p>
 
-          <div className="flex flex-wrap gap-5 mt-16">
+          <div className="mt-14">
 
             <a
               href="https://luisalbertovg9.pixieset.com/"
               target="_blank"
-              className="bg-[#9f7dff] text-white px-10 py-5 
-rounded-[999px] font-semibold"
+              className="inline-block bg-[#9f7dff] text-white px-8 py-4 
+rounded-full font-medium hover:opacity-90 transition"
             >
               Buscar Fotos
             </a>
@@ -413,13 +396,13 @@ rounded-[999px] font-semibold"
 
       <section
         id="social"
-        className="px-8 md:px-20 py-56"
+        className="px-8 md:px-20 py-40"
       >
 
-        <div className="max-w-5xl mb-28">
+        <div className="max-w-5xl mb-20">
 
-          <p className="uppercase tracking-[0.5em] text-[#6f5f8e] mb-6 
-text-sm">
+          <p className="uppercase tracking-[0.5em] text-[#6f5f8e] text-sm 
+mb-6">
             Redes Sociales
           </p>
 
@@ -442,11 +425,11 @@ tracking-[-0.08em]">
               key={social.title}
               href={social.link}
               target="_blank"
-              className="rounded-[4rem] border border-white/60 bg-white/50 
-backdrop-blur-2xl p-8"
+              className="rounded-[3rem] bg-white/60 border border-white 
+p-8 hover:bg-white transition"
             >
 
-              <h3 className="text-2xl font-black mb-5">
+              <h3 className="text-2xl font-black mb-4 tracking-[-0.05em]">
                 {social.title}
               </h3>
 
@@ -456,6 +439,55 @@ backdrop-blur-2xl p-8"
 
             </a>
           ))}
+
+        </div>
+
+      </section>
+
+      {/* CONTACT */}
+
+      <section className="px-8 md:px-20 py-40 text-center">
+
+        <div className="max-w-5xl mx-auto">
+
+          <h2 className="text-5xl md:text-7xl font-black leading-[0.92] 
+tracking-[-0.08em]">
+
+            ¿Tienes una
+            <br />
+
+            historia que contar?
+
+          </h2>
+
+          <p className="text-[#5d4f77] text-xl md:text-2xl max-w-3xl 
+mx-auto mt-12 leading-relaxed font-light">
+
+            Producción audiovisual, livestreaming, fotografía y 
+experiencias visuales premium.
+
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-4 mt-14">
+
+            <a
+              href="https://wa.me/527351210954"
+              target="_blank"
+              className="bg-[#9f7dff] text-white px-8 py-4 rounded-full 
+font-medium hover:opacity-90 transition"
+            >
+              Iniciar Proyecto
+            </a>
+
+            <a
+              href="/LuisAlbertoVG.vcf"
+              className="bg-white/70 border border-white px-8 py-4 
+rounded-full hover:bg-white transition"
+            >
+              Guardar Contacto
+            </a>
+
+          </div>
 
         </div>
 

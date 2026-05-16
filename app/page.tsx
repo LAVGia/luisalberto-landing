@@ -113,87 +113,102 @@ export default function Home() {
 
         <div className="absolute bottom-[-10%] left-[-10%] w-[420px] h-[420px] bg-[#8E6F4E]/[0.04] blur-[160px]" />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto grid xl:grid-cols-2 gap-16 items-center">
+        <div className="relative z-10 w-full max-w-7xl mx-auto">
 
-          {/* LEFT */}
+          <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-sm mb-8">
 
-          <div>
+            Narrativa Visual
 
-            <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-sm mb-8">
+          </p>
 
-              Narrativa Visual
+          <h2 className="text-5xl md:text-7xl font-black leading-[0.9] tracking-[-0.08em] max-w-4xl mb-20">
 
-            </p>
+            No todas las
+            <br />
+            historias se
+            <br />
+            cuentan igual.
 
-            <h2 className="text-5xl md:text-7xl font-black leading-[0.9] tracking-[-0.08em]">
+          </h2>
 
-              Cada proyecto
-              <br />
-              tiene una
-              <br />
-              atmósfera distinta.
+          {/* BUTTONS */}
 
-            </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-4">
 
-            <p className="text-[#A8A29E] text-lg md:text-xl max-w-2xl mt-12 leading-[1.9] font-light">
+            <a
+              href="#"
+              className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-7 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
+            >
 
-              La imagen correcta puede convertir un momento en memoria.
+              <span className="tracking-[0.08em]">
+                Portafolio
+              </span>
 
-            </p>
+              <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
+                →
+              </span>
 
-          </div>
-
-          {/* RIGHT */}
-
-          <div className="flex flex-col gap-4">
+            </a>
 
             <a
               href="/invitacion"
-              className="inline-flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-5 rounded-full text-base tracking-[0.08em] hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
+              className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-7 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
             >
-              Invitaciones Luxury
-              <span>→</span>
+
+              <span className="tracking-[0.08em]">
+                Invitaciones Luxury
+              </span>
+
+              <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
+                →
+              </span>
+
+            </a>
+
+            <a
+              href="#"
+              className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-7 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
+            >
+
+              <span className="tracking-[0.08em]">
+                Livestream
+              </span>
+
+              <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
+                →
+              </span>
+
             </a>
 
             <a
               href="https://luisalbertovg9.pixieset.com/"
               target="_blank"
-              className="inline-flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-5 rounded-full text-base tracking-[0.08em] hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
+              className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-7 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
             >
-              Tu Foto
-              <span>→</span>
+
+              <span className="tracking-[0.08em]">
+                Encuentra tu Foto
+              </span>
+
+              <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
+                →
+              </span>
+
             </a>
 
             <a
               href="#"
-              className="inline-flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-5 rounded-full text-base tracking-[0.08em] hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
+              className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-7 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
             >
-              Eventos Sociales
-              <span>→</span>
-            </a>
 
-            <a
-              href="#"
-              className="inline-flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-5 rounded-full text-base tracking-[0.08em] hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
-            >
-              Redes Sociales
-              <span>→</span>
-            </a>
+              <span className="tracking-[0.08em]">
+                Redes Sociales
+              </span>
 
-            <a
-              href="#"
-              className="inline-flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-5 rounded-full text-base tracking-[0.08em] hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
-            >
-              Livestream
-              <span>→</span>
-            </a>
+              <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
+                →
+              </span>
 
-            <a
-              href="#"
-              className="inline-flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-5 rounded-full text-base tracking-[0.08em] hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
-            >
-              Portafolio
-              <span>→</span>
             </a>
 
           </div>
@@ -222,12 +237,6 @@ export default function Home() {
             imagen sea tuya.
 
           </h2>
-
-          <p className="text-[#A8A29E] text-lg md:text-xl max-w-3xl mt-12 leading-[1.9] font-light">
-
-            Galerías actualizadas en tiempo real para acceder a tus fotografías después de cada evento.
-
-          </p>
 
           <div className="mt-16">
 

@@ -19,9 +19,7 @@ export default function Invitacion() {
   const iframeRef = useRef<HTMLIFrameElement>(null)
 
   const [musicPlaying, setMusicPlaying] = useState(false)
-
   const [activeIndex, setActiveIndex] = useState(0)
-
   const [mounted, setMounted] = useState(false)
 
   const gallery = [
@@ -121,7 +119,6 @@ export default function Invitacion() {
 
       const player = new window.Vimeo.Player(iframeRef.current)
 
-      // PAUSAR MÚSICA CUANDO INICIA VIDEO
       player.on("play", () => {
 
         if (audioRef.current) {
@@ -324,7 +321,164 @@ font-light">{timeLeft.seconds}</div>
 
         </div>
 
+        {/* CARRUSEL */}
+        <div className="max-w-5xl mx-auto px-6">
+
+          <div className="relative h-[450px] rounded-3xl overflow-hidden 
+shadow-2xl">
+
+            {gallery.map((img, i) => (
+              <div
+                key={i}
+                className="absolute inset-0 transition-opacity 
+duration-1000"
+                style={{
+                  backgroundImage: `url(${img})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  opacity: i === activeIndex ? 1 : 0
+                }}
+              />
+            ))}
+
+          </div>
+
+        </div>
       </section>
+
+      {/* DETALLES */}
+      <section
+        ref={detailsRef}
+        className="relative py-28 px-6 bg-[#efe6db] overflow-hidden"
+      >
+
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage:
+              
+"url('https://www.transparenttextures.com/patterns/white-diamond.png')"
+          }}
+        />
+
+        <div className="relative z-10">
+
+          <div className="text-center mb-16">
+
+            <h2 className="text-5xl font-light">
+              Detalles del Evento
+            </h2>
+
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+
+            <a
+              href="https://maps.app.goo.gl/pU5zycxGosdKi9MJA"
+              target="_blank"
+              className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
+hover:scale-[1.02] transition"
+            >
+
+              <div className="text-4xl mb-4">⛪</div>
+
+              <h3 className="text-2xl mb-2">
+                Ceremonia
+              </h3>
+
+              <p className="text-lg">
+                Santuario de Tepalcingo
+              </p>
+
+              <p className="text-sm text-gray-600 mt-4">
+                20 Diciembre 2026
+              </p>
+
+              <p className="text-sm text-gray-600">
+                5:00 PM
+              </p>
+
+            </a>
+
+            <a
+              href="https://maps.app.goo.gl/bti7LF96Bd9bhAzZ9"
+              target="_blank"
+              className="p-10 rounded-3xl bg-white/70 backdrop-blur border 
+hover:scale-[1.02] transition"
+            >
+
+              <div className="text-4xl mb-4">🍾</div>
+
+              <h3 className="text-2xl mb-2">
+                Recepción
+              </h3>
+
+              <p className="text-lg">
+                Jardín Anrubio
+              </p>
+
+              <p className="text-sm text-gray-600 mt-4">
+                20 Diciembre 2026
+              </p>
+
+              <p className="text-sm text-gray-600">
+                6:00 PM
+              </p>
+
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* RSVP */}
+      <section
+        ref={rsvpRef}
+        className="relative py-40 text-center text-white"
+      >
+
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              
+"url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1600&auto=format&fit=crop')"
+          }}
+        />
+
+        <div className="absolute inset-0 bg-black/55" />
+
+        <div className="relative z-10">
+
+          <h2 className="text-5xl mb-8">
+            Confirma tu asistencia
+          </h2>
+
+          <a
+            
+href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
+            className="px-10 py-4 rounded-full bg-white/10 border 
+border-white/30 backdrop-blur hover:scale-105 transition inline-block"
+          >
+            Confirmar
+          </a>
+
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="py-10 text-center bg-[#e7dccd]">
+
+        <a
+          href="https://luisalberto.vg"
+          target="_blank"
+          className="hover:opacity-70 transition"
+        >
+          Diseñada por LuisAlbertoVG
+        </a>
+
+      </footer>
 
     </main>
   )

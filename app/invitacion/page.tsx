@@ -61,6 +61,54 @@ export default function Invitacion() {
     })
   }
 
+  // CALENDAR
+  const addToCalendar = () => {
+
+    const isiPhone = /iPhone|iPad|Macintosh/i.test(navigator.userAgent)
+
+    const isAndroid = /Android/i.test(navigator.userAgent)
+
+    const startDate = "20261220T170000"
+    const endDate = "20261220T230000"
+
+    const title = encodeURIComponent("Boda Isabella y Daniel")
+
+    const details = encodeURIComponent(
+      "Nos encantaría compartir este momento contigo."
+    )
+
+    const location = encodeURIComponent(
+      "Santuario de Tepalcingo"
+    )
+
+    // APPLE
+    if (isiPhone) {
+
+      window.location.href =
+        
+`webcal://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`
+
+      return
+    }
+
+    // ANDROID
+    if (isAndroid) {
+
+      window.location.href =
+        
+`intent://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}#Intent;scheme=https;package=com.google.android.calendar;end`
+
+      return
+    }
+
+    // DESKTOP
+    window.open(
+      
+`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`,
+      "_blank"
+    )
+  }
+
   // COUNTDOWN
   const weddingDate = new Date("2026-12-20T17:00:00").getTime()
 
@@ -348,7 +396,6 @@ text-white"
             Acompáñanos a celebrar el inicio de nuestra nueva historia.
           </p>
 
-          {/* BUTTONS */}
           <div className="flex justify-center gap-4 flex-wrap mb-8">
 
             <button
@@ -387,7 +434,6 @@ from-transparent via-white/30 to-transparent" />
 
           </div>
 
-          {/* COUNTDOWN */}
           {mounted && (
 
             <div className="inline-flex gap-3 px-5 py-3 rounded-2xl 
@@ -635,10 +681,8 @@ from-transparent via-white/30 to-transparent" />
           {/* CALENDAR BUTTON */}
           <div className="mt-8">
 
-            <a
-              
-href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Isabella+y+Daniel&dates=20261220T230000Z/20261221T050000Z&details=Nos+encantaría+compartir+este+momento+contigo.&location=Santuario+de+Tepalcingo"
-              target="_blank"
+            <button
+              onClick={addToCalendar}
               className="group relative overflow-hidden px-8 py-3 
 rounded-full bg-black/20 border border-white/20 backdrop-blur 
 hover:scale-105 transition inline-block"
@@ -652,7 +696,7 @@ hover:scale-105 transition inline-block"
 group-hover:translate-x-full transition duration-1000 bg-gradient-to-r 
 from-transparent via-white/20 to-transparent" />
 
-            </a>
+            </button>
 
           </div>
 

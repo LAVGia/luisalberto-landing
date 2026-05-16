@@ -64,49 +64,36 @@ export default function Invitacion() {
   // CALENDAR
   const addToCalendar = () => {
 
-    const isiPhone = /iPhone|iPad|Macintosh/i.test(navigator.userAgent)
+    const event = `
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+DTSTART:20261220T230000Z
+DTEND:20261221T050000Z
+SUMMARY:Boda Isabella y Daniel
+DESCRIPTION:Nos encantará compartir este momento contigo.
+LOCATION:Santuario de Tepalcingo
+END:VEVENT
+END:VCALENDAR
+`
 
-    const isAndroid = /Android/i.test(navigator.userAgent)
-
-    const startDate = "20261220T170000"
-    const endDate = "20261220T230000"
-
-    const title = encodeURIComponent("Boda Isabella y Daniel")
-
-    const details = encodeURIComponent(
-      "Nos encantaría compartir este momento contigo."
+    const blob = new Blob(
+      [event],
+      { type: "text/calendar;charset=utf-8" }
     )
 
-    const location = encodeURIComponent(
-      "Santuario de Tepalcingo"
-    )
+    const url = window.URL.createObjectURL(blob)
 
-    // APPLE
-    if (isiPhone) {
+    const link = document.createElement("a")
 
-      window.location.href =
-        
-`webcal://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`
+    link.href = url
+    link.setAttribute("download", "boda-isabella-daniel.ics")
 
-      return
-    }
+    document.body.appendChild(link)
 
-    // ANDROID
-    if (isAndroid) {
+    link.click()
 
-      window.location.href =
-        
-`intent://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}#Intent;scheme=https;package=com.google.android.calendar;end`
-
-      return
-    }
-
-    // DESKTOP
-    window.open(
-      
-`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`,
-      "_blank"
-    )
+    document.body.removeChild(link)
   }
 
   // COUNTDOWN

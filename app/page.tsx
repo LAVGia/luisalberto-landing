@@ -7,120 +7,109 @@ const portfolioItems = [
     title: "Bodas",
     image:
       
-"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop",
   },
   {
     title: "XV Años",
     image:
       
-"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop",
   },
   {
     title: "Retrato",
     image:
       
-"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1600&auto=format&fit=crop",
   },
   {
     title: "Documental",
     image:
       
-"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop",
   },
   {
     title: "Livestream",
     image:
       
-"https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1600&auto=format&fit=crop",
   },
 ]
 
 export default function Home() {
   return (
-    <main className="bg-black text-white overflow-hidden">
+    <main className="bg-[#0b0b0f] text-[#f5f5f7] overflow-hidden">
 
       {/* BACKGROUND */}
 
-      <div className="fixed inset-0 -z-10">
+      <div className="fixed inset-0 -z-10 overflow-hidden">
 
-        <div className="absolute top-0 left-1/3 w-[700px] h-[700px] 
+        <div className="absolute top-[-10%] left-[15%] w-[900px] h-[900px] 
 bg-[#8f7bb8]/20 blur-[180px] rounded-full"></div>
 
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] 
-bg-cyan-500/10 blur-[180px] rounded-full"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[800px] 
+h-[800px] bg-[#b497ff]/10 blur-[200px] rounded-full"></div>
 
       </div>
 
       {/* HERO */}
 
-      <section className="h-screen flex items-center px-8 md:px-20 
-border-b border-white/10">
+      <section className="min-h-screen flex items-center px-8 md:px-20 
+border-b border-white/5 relative overflow-hidden">
 
-        <div className="max-w-6xl">
+        <div className="absolute inset-0 
+bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_50%)]"></div>
 
-          <p className="uppercase tracking-[0.3em] text-zinc-500 mb-6">
+        <div className="max-w-7xl relative z-10">
+
+          <p className="uppercase tracking-[0.5em] text-zinc-500 mb-8 
+text-sm">
             Productor Audiovisual
           </p>
 
-          <h1 className="text-6xl md:text-8xl xl:text-[9rem] font-black 
-leading-none relative overflow-hidden w-fit">
+          <h1 className="text-6xl md:text-8xl xl:text-[10rem] font-black 
+leading-[0.9] tracking-[-0.04em]">
 
-            <span className="relative z-10">
-              Luis Alberto <span className="text-[#8f7bb8]">VG</span>
+            Luis Alberto
+            <br />
+
+            <span className="text-[#b497ff]">
+              VG
             </span>
-
-            <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/10 to-transparent animate-pulse 
-opacity-20"></span>
 
           </h1>
 
-          <p className="text-zinc-400 text-xl max-w-3xl mt-10 
+          <p className="text-zinc-400 text-xl md:text-2xl max-w-3xl mt-12 
 leading-relaxed">
             Producción audiovisual, livestreaming, fotografía y narrativa
             visual para eventos, marcas e historias reales.
           </p>
 
-          <div className="flex flex-wrap gap-5 mt-12">
+          <div className="flex flex-wrap gap-5 mt-14">
 
             <a
               href="#luxury"
-              className="bg-white text-black px-8 py-4 rounded-full 
-font-bold hover:scale-105 transition"
+              className="bg-white text-black px-9 py-5 rounded-full 
+font-semibold hover:scale-105 transition duration-500"
             >
               Luxury Experience
             </a>
 
             <a
-              href="#services"
-              className="border border-white/20 px-8 py-4 rounded-full 
-hover:bg-white hover:text-black transition"
-            >
-              Servicios
-            </a>
-
-            <a
               href="#portfolio"
-              className="border border-white/20 px-8 py-4 rounded-full 
-hover:bg-white hover:text-black transition"
+              className="border border-white/10 bg-white/5 
+backdrop-blur-xl px-9 py-5 rounded-full hover:bg-white hover:text-black 
+transition duration-500"
             >
               Portafolio
             </a>
 
             <a
               href="#social"
-              className="border border-white/20 px-8 py-4 rounded-full 
-hover:bg-white hover:text-black transition"
+              className="border border-white/10 bg-white/5 
+backdrop-blur-xl px-9 py-5 rounded-full hover:bg-white hover:text-black 
+transition duration-500"
             >
               Redes Sociales
-            </a>
-
-            <a
-              href="#contact"
-              className="border border-white/20 px-8 py-4 rounded-full 
-hover:bg-white hover:text-black transition"
-            >
-              Contacto
             </a>
 
           </div>
@@ -129,23 +118,24 @@ hover:bg-white hover:text-black transition"
 
       </section>
 
-      {/* LUXURY EXPERIENCE */}
+      {/* LUXURY */}
 
       <section
         id="luxury"
-        className="px-8 md:px-20 py-40 border-b border-white/10"
+        className="relative px-8 md:px-20 py-44 border-b border-white/5"
       >
 
-        <div className="grid xl:grid-cols-2 gap-20 items-center">
+        <div className="grid xl:grid-cols-2 gap-24 items-center">
 
           <div>
 
-            <p className="uppercase tracking-[0.3em] text-zinc-500 mb-6 
+            <p className="uppercase tracking-[0.4em] text-zinc-500 mb-6 
 text-sm">
               Luxury Event Experience
             </p>
 
-            <h2 className="text-5xl md:text-7xl font-black leading-tight">
+            <h2 className="text-5xl md:text-7xl xl:text-8xl font-black 
+leading-[0.95] tracking-[-0.04em]">
 
               Diseñado como
               <br />
@@ -160,7 +150,8 @@ text-sm">
 
             </h2>
 
-            <div className="mt-12 space-y-5 text-zinc-300 text-lg">
+            <div className="mt-14 space-y-5 text-zinc-300 text-lg 
+md:text-xl leading-relaxed">
 
               <p>• Producción visual previa a tu evento</p>
 
@@ -182,15 +173,15 @@ text-sm">
 
             </div>
 
-            <div className="mt-16">
+            <div className="mt-16 border-l border-[#8f7bb8]/50 pl-8">
 
-              <h3 className="text-3xl md:text-4xl font-black 
+              <h3 className="text-3xl md:text-5xl font-black 
 leading-tight">
 
                 Tu evento termina.
                 <br />
 
-                <span className="text-[#8f7bb8]">
+                <span className="text-[#b497ff]">
                   Tus recuerdos ya están listos.
                 </span>
 
@@ -198,23 +189,25 @@ leading-tight">
 
             </div>
 
-            <div className="flex flex-wrap gap-5 mt-14">
+            <div className="flex flex-wrap gap-5 mt-16">
 
               <a
                 href="https://luisalberto.vg/invitacion"
                 target="_blank"
-                className="bg-[#8f7bb8] text-white px-8 py-4 rounded-full 
-font-bold hover:scale-105 transition"
+                className="bg-[#8f7bb8] text-white px-9 py-5 rounded-full 
+font-semibold hover:scale-105 transition duration-500"
               >
                 Ver Experience
               </a>
 
               <a
-                href="#contact"
-                className="border border-white/20 px-8 py-4 rounded-full 
-hover:bg-white hover:text-black transition"
+                href="https://wa.me/527351210954"
+                target="_blank"
+                className="border border-white/10 bg-white/5 
+backdrop-blur-xl px-9 py-5 rounded-full hover:bg-white hover:text-black 
+transition duration-500"
               >
-                Solicitar Información
+                WhatsApp
               </a>
 
             </div>
@@ -226,27 +219,33 @@ hover:bg-white hover:text-black transition"
             <div className="absolute inset-0 bg-[#8f7bb8]/20 blur-[120px] 
 rounded-full"></div>
 
-            <div className="relative overflow-hidden rounded-[3rem] border 
-border-white/10 bg-white/5 backdrop-blur-xl">
+            <div className="relative rounded-[3rem] overflow-hidden border 
+border-white/10 bg-white/5 backdrop-blur-2xl">
 
               <img
                 
-src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop"
-                className="w-full h-[750px] object-cover opacity-80"
+src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1800&auto=format&fit=crop"
+                className="w-full h-[850px] object-cover"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black 
-via-black/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t 
+from-[#0b0b0f] via-black/10 to-transparent"></div>
 
-              <div className="absolute bottom-0 left-0 p-10">
+              <div className="absolute bottom-0 left-0 p-10 md:p-14">
 
-                <p className="uppercase tracking-[0.3em] text-zinc-400 
-text-sm mb-4">
+                <p className="uppercase tracking-[0.4em] text-zinc-400 
+text-sm mb-5">
                   Luxury Event Experience
                 </p>
 
-                <h3 className="text-4xl font-black">
-                  Visual Storytelling
+                <h3 className="text-4xl md:text-6xl font-black 
+leading-none">
+
+                  Visual
+                  <br />
+
+                  Storytelling
+
                 </h3>
 
               </div>
@@ -263,12 +262,27 @@ text-sm mb-4">
 
       <section
         id="services"
-        className="px-8 md:px-20 py-40 border-b border-white/10"
+        className="px-8 md:px-20 py-44 border-b border-white/5"
       >
 
-        <h2 className="text-5xl md:text-7xl font-black mb-24">
-          Servicios
-        </h2>
+        <div className="max-w-5xl mb-24">
+
+          <p className="uppercase tracking-[0.4em] text-zinc-500 mb-6 
+text-sm">
+            Servicios
+          </p>
+
+          <h2 className="text-5xl md:text-7xl font-black leading-[0.95] 
+tracking-[-0.04em]">
+
+            Producción visual
+            <br />
+
+            para experiencias modernas.
+
+          </h2>
+
+        </div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
 
@@ -283,7 +297,7 @@ text-sm mb-4">
               ],
               image:
                 
-"https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1600&auto=format&fit=crop",
             },
             {
               title: "Fotografía",
@@ -295,7 +309,7 @@ text-sm mb-4">
               ],
               image:
                 
-"https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop",
             },
             {
               title: "Live Streaming",
@@ -307,7 +321,7 @@ text-sm mb-4">
               ],
               image:
                 
-"https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1200&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1600&auto=format&fit=crop",
             },
             {
               title: "Cobertura Digital",
@@ -319,36 +333,40 @@ text-sm mb-4">
               ],
               image:
                 
-"https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1200&auto=format&fit=crop",
+"https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1600&auto=format&fit=crop",
             },
           ].map((service) => (
             <div
               key={service.title}
-              className="rounded-[2rem] overflow-hidden relative 
-min-h-[500px] group border border-white/10"
+              className="group relative rounded-[2.5rem] overflow-hidden 
+border border-white/10 min-h-[580px] bg-white/5 backdrop-blur-2xl 
+hover:-translate-y-2 transition duration-700"
             >
 
               <img
                 src={service.image}
                 className="absolute inset-0 w-full h-full object-cover 
-group-hover:scale-110 transition duration-700"
+group-hover:scale-110 transition duration-[3000ms]"
               />
 
-              <div className="absolute inset-0 bg-black/75"></div>
+              <div className="absolute inset-0 bg-gradient-to-t 
+from-[#0b0b0f] via-black/40 to-black/10"></div>
 
-              <div className="relative z-10 p-10 flex flex-col h-full 
-justify-end">
+              <div className="relative z-10 p-10 flex flex-col justify-end 
+h-full">
 
                 <h3 className="text-3xl font-black mb-8">
                   {service.title}
                 </h3>
 
-                <ul className="space-y-4 text-zinc-300">
+                <ul className="space-y-4 text-zinc-300 text-lg">
+
                   {service.items.map((item) => (
                     <li key={item}>
                       {item}
                     </li>
                   ))}
+
                 </ul>
 
               </div>
@@ -364,26 +382,46 @@ justify-end">
 
       <section
         id="portfolio"
-        className="px-8 md:px-20 py-40 border-b border-white/10"
+        className="px-8 md:px-20 py-44 border-b border-white/5"
       >
 
-        <h2 className="text-5xl md:text-7xl font-black mb-24">
-          Portafolio
-        </h2>
+        <div className="max-w-5xl mb-24">
+
+          <p className="uppercase tracking-[0.4em] text-zinc-500 mb-6 
+text-sm">
+            Portafolio
+          </p>
+
+          <h2 className="text-5xl md:text-7xl font-black leading-[0.95] 
+tracking-[-0.04em]">
+
+            Historias reales.
+            <br />
+
+            Narrativa visual.
+
+          </h2>
+
+        </div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-6">
 
           {portfolioItems.map((item) => (
             <div
               key={item.title}
-              className="rounded-[2rem] h-[420px] bg-cover bg-center 
-relative overflow-hidden hover:scale-[1.02] transition duration-500"
-              style={{
-                backgroundImage: `url(${item.image})`,
-              }}
+              className="group relative rounded-[2rem] overflow-hidden 
+h-[520px] border border-white/10 hover:-translate-y-2 transition 
+duration-700"
             >
 
-              <div className="absolute inset-0 bg-black/50"></div>
+              <img
+                src={item.image}
+                className="absolute inset-0 w-full h-full object-cover 
+group-hover:scale-110 transition duration-[3000ms]"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t 
+from-[#0b0b0f] via-black/10 to-transparent"></div>
 
               <div className="absolute bottom-0 left-0 p-8 z-10">
 
@@ -400,61 +438,31 @@ relative overflow-hidden hover:scale-[1.02] transition duration-500"
 
       </section>
 
-      {/* GALLERY */}
-
-      <section
-        className="px-8 md:px-20 py-40 border-b border-white/10 
-text-center"
-      >
-
-        <p className="uppercase tracking-[0.3em] text-zinc-500 text-sm 
-mb-6">
-          Online Gallery
-        </p>
-
-        <h2 className="text-5xl md:text-7xl font-black leading-tight">
-          ¿Estuviste
-          <br />
-          en un evento?
-        </h2>
-
-        <p className="text-zinc-400 text-xl leading-relaxed max-w-3xl 
-mx-auto mt-10">
-          Encuentra tus fotografías, contenido digital y recuerdos premium
-          actualizados en tiempo real.
-        </p>
-
-        <a
-          href="https://luisalbertovg9.pixieset.com/quinceandrea/"
-          target="_blank"
-          className="group relative inline-flex items-center 
-justify-center overflow-hidden rounded-full px-10 py-5 font-bold 
-text-white mt-14 border border-white/20 bg-white/5 backdrop-blur-sm 
-hover:scale-105 transition"
-        >
-
-          <span className="absolute inset-0 bg-gradient-to-r 
-from-transparent via-white/20 to-transparent -translate-x-full 
-group-hover:translate-x-full transition duration-1000"></span>
-
-          <span className="relative z-10">
-            Entrar a la Galería
-          </span>
-
-        </a>
-
-      </section>
-
       {/* SOCIAL */}
 
       <section
         id="social"
-        className="px-8 md:px-20 py-40 border-b border-white/10"
+        className="px-8 md:px-20 py-44 border-b border-white/5"
       >
 
-        <h2 className="text-5xl md:text-7xl font-black mb-24">
-          Redes Sociales
-        </h2>
+        <div className="max-w-5xl mb-24">
+
+          <p className="uppercase tracking-[0.4em] text-zinc-500 mb-6 
+text-sm">
+            Redes Sociales
+          </p>
+
+          <h2 className="text-5xl md:text-7xl font-black leading-[0.95] 
+tracking-[-0.04em]">
+
+            Cobertura digital,
+            <br />
+
+            eventos masivos y storytelling.
+
+          </h2>
+
+        </div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-6">
 
@@ -489,18 +497,22 @@ group-hover:translate-x-full transition duration-1000"></span>
               key={social.title}
               href={social.link}
               target="_blank"
-              className="bg-white/5 backdrop-blur-xl border 
-border-white/10 rounded-[2rem] p-8 hover:scale-105 transition 
-duration-300"
+              className="group relative overflow-hidden rounded-[2rem] 
+border border-white/10 bg-white/5 backdrop-blur-2xl p-8 
+hover:-translate-y-2 transition duration-700"
             >
 
-              <h3 className="text-2xl font-black mb-5">
-                {social.title}
-              </h3>
+              <div className="relative z-10">
 
-              <p className="text-zinc-400">
-                {social.text}
-              </p>
+                <h3 className="text-2xl font-black mb-5">
+                  {social.title}
+                </h3>
+
+                <p className="text-zinc-400 leading-relaxed">
+                  {social.text}
+                </p>
+
+              </div>
 
             </a>
           ))}
@@ -513,32 +525,48 @@ duration-300"
 
       <section
         id="contact"
-        className="px-8 md:px-20 py-40 text-center"
+        className="relative px-8 md:px-20 py-52 text-center 
+overflow-hidden"
       >
 
-        <h2 className="text-5xl md:text-7xl font-black leading-tight">
-          ¿Tienes una
-          <br />
-          historia que contar?
-        </h2>
+        <div className="absolute inset-0 
+bg-[radial-gradient(circle_at_center,rgba(180,151,255,0.12),transparent_60%)]"></div>
 
-        <p className="text-zinc-400 text-xl max-w-3xl mx-auto mt-10 
-leading-relaxed">
-          Producción audiovisual, livestreaming, fotografía y experiencias
-          visuales premium para proyectos que buscan destacar.
-        </p>
+        <div className="relative z-10 max-w-5xl mx-auto">
 
-        <a
-          href="https://wa.me/527351210954"
-          target="_blank"
-          className="inline-flex items-center gap-4 bg-white text-black 
-px-10 py-5 rounded-full font-bold mt-14 hover:scale-105 transition 
-duration-300"
-        >
+          <h2 className="text-5xl md:text-7xl xl:text-8xl font-black 
+leading-[0.95] tracking-[-0.04em]">
 
-          Iniciar Proyecto
+            ¿Tienes una
+            <br />
 
-        </a>
+            historia que contar?
+
+          </h2>
+
+          <p className="text-zinc-400 text-xl md:text-2xl max-w-3xl 
+mx-auto mt-12 leading-relaxed">
+
+            Producción audiovisual, livestreaming, fotografía y 
+experiencias
+            visuales premium para proyectos que buscan destacar.
+
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-5 mt-16">
+
+            <a
+              href="https://wa.me/527351210954"
+              target="_blank"
+              className="bg-white text-black px-10 py-5 rounded-full 
+font-semibold hover:scale-105 transition duration-500"
+            >
+              Iniciar Proyecto
+            </a>
+
+          </div>
+
+        </div>
 
       </section>
 

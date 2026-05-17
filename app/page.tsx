@@ -227,14 +227,14 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setSelectedImage("/images/editorial.png")}
-              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-5 md:p-8 hover:border-[#C6A77D]/30 transition-all duration-700"
+              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
             >
 
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+              <h3 className="text-lg md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Sesión Editorial
               </h3>
 
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.7] mt-5">
+              <p className="text-[#A8A29E] text-xs md:text-base leading-[1.6] mt-4">
                 Fotos elegantes y cinematográficas antes del gran día.
               </p>
 
@@ -243,14 +243,14 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setSelectedImage("/images/invitacion.png")}
-              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-5 md:p-8 hover:border-[#C6A77D]/30 transition-all duration-700"
+              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
             >
 
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+              <h3 className="text-lg md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Invitación Web
               </h3>
 
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.7] mt-5">
+              <p className="text-[#A8A29E] text-xs md:text-base leading-[1.6] mt-4">
                 Una experiencia digital personalizada para compartir su historia.
               </p>
 
@@ -259,14 +259,14 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setSelectedImage("/images/retrato.png")}
-              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-5 md:p-8 hover:border-[#C6A77D]/30 transition-all duration-700"
+              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
             >
 
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+              <h3 className="text-lg md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Retrato en Vivo
               </h3>
 
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.7] mt-5">
+              <p className="text-[#A8A29E] text-xs md:text-base leading-[1.6] mt-4">
                 Retratos profesionales creados durante la celebración.
               </p>
 
@@ -275,14 +275,14 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setSelectedImage("/images/galeria.png")}
-              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-5 md:p-8 hover:border-[#C6A77D]/30 transition-all duration-700"
+              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
             >
 
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+              <h3 className="text-lg md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Galería Instantánea
               </h3>
 
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.7] mt-5">
+              <p className="text-[#A8A29E] text-xs md:text-base leading-[1.6] mt-4">
                 Fotografías disponibles para compartir prácticamente al momento.
               </p>
 
@@ -293,7 +293,7 @@ export default function Home() {
           <div className="mt-10 flex justify-center">
 
             <a
-              href="/invitacion"
+              href="https://luisalberto.vg/invitacion"
               className="group inline-flex items-center gap-4 text-[#C6A77D] hover:text-[#E2C49B] transition-all duration-700 uppercase tracking-[0.28em] text-xs md:text-sm"
             >
 

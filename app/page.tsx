@@ -74,7 +74,7 @@ export default function Home() {
 
       <section
         id="luxury"
-        className="h-screen snap-start flex items-center px-8 md:px-20 bg-[#141210] relative overflow-hidden"
+        className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210] relative overflow-hidden"
       >
 
         <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#C6A77D]/[0.05] blur-[220px]" />
@@ -85,11 +85,11 @@ export default function Home() {
 
           <div className="max-w-4xl">
 
-            <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-sm mb-8">
+            <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-xs mb-6">
               Luxury Experience
             </p>
 
-            <h2 className="text-4xl md:text-6xl xl:text-7xl font-black leading-[0.92] tracking-[-0.08em]">
+            <h2 className="text-3xl md:text-6xl xl:text-7xl font-black leading-[0.95] tracking-[-0.08em]">
 
               Una experiencia
               <br />
@@ -99,7 +99,7 @@ export default function Home() {
 
             </h2>
 
-            <p className="text-[#A8A29E] text-lg md:text-xl max-w-3xl mt-10 leading-[1.9] font-light">
+            <p className="text-[#A8A29E] text-sm md:text-xl max-w-3xl mt-8 leading-[1.8] font-light">
 
               Más que una invitación digital, una propuesta visual que conecta fotografía, narrativa y momentos compartidos en tiempo real.
 
@@ -107,7 +107,7 @@ export default function Home() {
 
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mt-16">
+          <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 md:gap-5 mt-10">
 
             {/* CARD 1 */}
 
@@ -116,16 +116,16 @@ export default function Home() {
               onClick={() =>
                 setSelectedImage("/images/editorial.png")
               }
-              className="group text-left rounded-[2rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-8 hover:border-[#C6A77D]/30 transition-all duration-700"
+              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
             >
 
-              <h3 className="text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+              <h3 className="text-sm md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Sesión Editorial
               </h3>
 
-              <p className="text-[#D2CCC4] mt-6 leading-[1.9] text-sm">
+              <p className="text-[#D2CCC4] mt-3 md:mt-5 leading-[1.7] text-[11px] md:text-sm">
 
-                Una sesión previa pensada para crear imágenes naturales, elegantes y cinematográficas antes del gran día.
+                Una sesión previa pensada para crear imágenes naturales y cinematográficas.
 
               </p>
 
@@ -138,16 +138,16 @@ export default function Home() {
               onClick={() =>
                 setSelectedImage("/images/invitacion.png")
               }
-              className="group text-left rounded-[2rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-8 hover:border-[#C6A77D]/30 transition-all duration-700"
+              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
             >
 
-              <h3 className="text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+              <h3 className="text-sm md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Invitación Web
               </h3>
 
-              <p className="text-[#D2CCC4] mt-6 leading-[1.9] text-sm">
+              <p className="text-[#D2CCC4] mt-3 md:mt-5 leading-[1.7] text-[11px] md:text-sm">
 
-                Sus fotografías se convierten en una experiencia digital personalizada para compartir su boda de una manera única.
+                Una experiencia digital personalizada para compartir su boda.
 
               </p>
 
@@ -160,16 +160,16 @@ export default function Home() {
               onClick={() =>
                 setSelectedImage("/images/retrato.png")
               }
-              className="group text-left rounded-[2rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-8 hover:border-[#C6A77D]/30 transition-all duration-700"
+              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
             >
 
-              <h3 className="text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+              <h3 className="text-sm md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Retrato en Vivo
               </h3>
 
-              <p className="text-[#D2CCC4] mt-6 leading-[1.9] text-sm">
+              <p className="text-[#D2CCC4] mt-3 md:mt-5 leading-[1.7] text-[11px] md:text-sm">
 
-                Durante la celebración, realizamos retratos editoriales con iluminación profesional y dirección visual cinematográfica.
+                Retratos editoriales con iluminación y dirección cinematográfica.
 
               </p>
 
@@ -182,16 +182,16 @@ export default function Home() {
               onClick={() =>
                 setSelectedImage("/images/galeria.png")
               }
-              className="group text-left rounded-[2rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-8 hover:border-[#C6A77D]/30 transition-all duration-700"
+              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
             >
 
-              <h3 className="text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+              <h3 className="text-sm md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Galería Instantánea
               </h3>
 
-              <p className="text-[#D2CCC4] mt-6 leading-[1.9] text-sm">
+              <p className="text-[#D2CCC4] mt-3 md:mt-5 leading-[1.7] text-[11px] md:text-sm">
 
-                Tus invitados pueden acceder y compartir fotografías del evento prácticamente al momento.
+                Tus invitados pueden acceder a las fotografías prácticamente al momento.
 
               </p>
 
@@ -207,19 +207,19 @@ export default function Home() {
 
       {selectedImage && (
 
-        <div className="fixed inset-0 z-[999] bg-black/90 backdrop-blur-xl flex items-center justify-center p-6">
+        <div className="fixed inset-0 z-[999] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-8">
 
           <button
             type="button"
             onClick={() => setSelectedImage(null)}
-            className="absolute top-8 right-8 text-white/70 hover:text-[#C6A77D] text-4xl transition-colors duration-500"
+            className="fixed top-5 right-5 md:top-8 md:right-8 z-[1000] w-14 h-14 rounded-full bg-black/60 backdrop-blur-xl border border-white/10 text-white/80 hover:text-[#C6A77D] text-3xl flex items-center justify-center transition-all duration-500"
           >
             ×
           </button>
 
           <img
             src={selectedImage}
-            className="h-full max-h-[95vh] w-auto rounded-[2rem] object-contain"
+            className="h-auto max-h-[92vh] w-auto max-w-[92vw] rounded-[1.5rem] object-contain"
           />
 
         </div>

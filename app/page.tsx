@@ -9,6 +9,8 @@ export default function Home() {
   return (
     <main className="bg-[#141210] text-[#F5F2ED] h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth overflow-x-hidden">
 
+      {/* HERO */}
+
       <section className="relative h-screen snap-start overflow-hidden flex items-center justify-center bg-[#141210]">
 
         <div className="absolute left-[-10%] top-0 w-[40%] h-full bg-[#C6A77D]/[0.08] blur-[180px]" />
@@ -66,7 +68,24 @@ export default function Home() {
 
         </div>
 
+        <a
+          href="#services"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center text-[#A8A29E] hover:text-[#C6A77D] transition-all duration-700 group"
+        >
+
+          <span className="text-3xl group-hover:translate-y-1 transition-transform duration-700">
+            ↓
+          </span>
+
+          <span className="uppercase tracking-[0.35em] text-xs mt-3">
+            Explorar
+          </span>
+
+        </a>
+
       </section>
+
+      {/* VISUAL INDEX */}
 
       <section
         id="services"
@@ -176,6 +195,8 @@ export default function Home() {
 
       </section>
 
+      {/* LUXURY EXPERIENCE */}
+
       <section
         id="luxury"
         className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210] relative overflow-hidden"
@@ -206,14 +227,14 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setSelectedImage("/images/editorial.png")}
-              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
+              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-5 md:p-8 hover:border-[#C6A77D]/30 transition-all duration-700"
             >
 
-              <h3 className="text-sm md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Sesión Editorial
               </h3>
 
-              <p className="text-[#A8A29E] text-[11px] md:text-sm leading-[1.7] mt-3">
+              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.7] mt-5">
                 Fotos elegantes y cinematográficas antes del gran día.
               </p>
 
@@ -222,30 +243,39 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setSelectedImage("/images/invitacion.png")}
-              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
+              className="group text-left rounded-[1.5rem] border-2 border-[#C6A77D]/30 bg-[#2A2118]/70 backdrop-blur-xl p-5 md:p-8 hover:border-[#C6A77D]/60 transition-all duration-700 shadow-[0_0_40px_rgba(198,167,125,0.08)]"
             >
 
-              <h3 className="text-sm md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em] text-[#C6A77D]">
                 Invitación Web
               </h3>
 
-              <p className="text-[#A8A29E] text-[11px] md:text-sm leading-[1.7] mt-3">
+              <p className="text-[#D8C8B1] text-sm md:text-lg leading-[1.7] mt-5">
                 Una experiencia digital personalizada para compartir su historia.
               </p>
+
+              <div className="mt-8 inline-flex items-center gap-3 text-[#C6A77D] text-xs md:text-sm uppercase tracking-[0.25em]">
+
+                Conoce la invitación
+                <span>
+                  →
+                </span>
+
+              </div>
 
             </button>
 
             <button
               type="button"
               onClick={() => setSelectedImage("/images/retrato.png")}
-              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
+              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-5 md:p-8 hover:border-[#C6A77D]/30 transition-all duration-700"
             >
 
-              <h3 className="text-sm md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Retrato en Vivo
               </h3>
 
-              <p className="text-[#A8A29E] text-[11px] md:text-sm leading-[1.7] mt-3">
+              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.7] mt-5">
                 Retratos profesionales creados durante la celebración.
               </p>
 
@@ -254,14 +284,14 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setSelectedImage("/images/galeria.png")}
-              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
+              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-5 md:p-8 hover:border-[#C6A77D]/30 transition-all duration-700"
             >
 
-              <h3 className="text-sm md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Galería Instantánea
               </h3>
 
-              <p className="text-[#A8A29E] text-[11px] md:text-sm leading-[1.7] mt-3">
+              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.7] mt-5">
                 Fotografías disponibles para compartir prácticamente al momento.
               </p>
 

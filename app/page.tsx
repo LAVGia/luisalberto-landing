@@ -130,7 +130,7 @@ export default function Home() {
             </a>
 
             <a
-              href="#"
+              href="#weddings"
               className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-6 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
             >
 
@@ -304,6 +304,147 @@ export default function Home() {
               </span>
 
             </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* BODAS Y XV */}
+
+      <section
+        id="weddings"
+        className="min-h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210] relative overflow-hidden"
+      >
+
+        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#C6A77D]/[0.05] blur-[220px]" />
+
+        <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-[#8E6F4E]/[0.05] blur-[220px]" />
+
+        <div className="relative z-10 w-full max-w-6xl mx-auto py-24 md:py-32">
+
+          <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-xs mb-8">
+            Bodas y XV Años
+          </p>
+
+          <h2 className="text-4xl md:text-7xl font-black leading-[0.92] tracking-[-0.08em] max-w-5xl">
+
+            Hay momentos
+            <br />
+            que solo ocurren
+            <br />
+            una vez.
+
+          </h2>
+
+          <p className="text-[#A8A29E] text-sm md:text-xl leading-[1.9] max-w-3xl mt-10 font-light">
+
+            Fotografía y narrativa visual para historias que merecen permanecer más allá del instante.
+
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-x-20 gap-y-12 mt-20">
+
+            <div>
+
+              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
+                Fotografía
+              </h3>
+
+              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
+                Imágenes naturales, elegantes y llenas de emoción.
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
+                Video
+              </h3>
+
+              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
+                Películas cinematográficas que cuentan tu historia.
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
+                Entrega Digital
+              </h3>
+
+              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
+                Galerías privadas para descargar y compartir tus recuerdos.
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
+                Entrega Impresa
+              </h3>
+
+              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
+                Álbumes y fotografías diseñadas para permanecer en el tiempo.
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
+                Sesión Previa
+              </h3>
+
+              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
+                Una experiencia en locación para crear imágenes auténticas y cinematográficas.
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
+                Cobertura Completa
+              </h3>
+
+              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
+                Capturamos cada momento sin límite de fotografías ni duración del evento.
+              </p>
+
+            </div>
+
+          </div>
+
+          <div className="mt-24 text-center">
+
+            <p className="uppercase tracking-[0.35em] text-[#8E8A84] text-[11px] md:text-xs">
+              Narrativa Visual · Emoción Real · Recuerdos que Permanecen
+            </p>
+
+            <p className="text-[#F5F2ED] text-xl md:text-3xl font-black tracking-[-0.04em] mt-6">
+              La forma de recordar también importa.
+            </p>
+
+            <button
+              type="button"
+              onClick={() => setSelectedImage("/images/bodasyxv.png")}
+              className="group inline-flex items-center gap-4 mt-12 border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-4 rounded-full hover:border-[#C6A77D]/40 hover:text-[#C6A77D] transition-all duration-700"
+            >
+
+              <span className="uppercase tracking-[0.28em] text-xs md:text-sm">
+                Ver historia
+              </span>
+
+              <span className="group-hover:translate-x-1 transition-transform duration-700">
+                →
+              </span>
+
+            </button>
 
           </div>
 

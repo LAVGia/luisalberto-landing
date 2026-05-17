@@ -213,6 +213,10 @@ export default function Home() {
                 Sesión Editorial
               </h3>
 
+              <p className="text-[#A8A29E] text-[11px] md:text-sm leading-[1.7] mt-3">
+                Fotos elegantes y cinematográficas antes del gran día.
+              </p>
+
             </button>
 
             <button
@@ -224,6 +228,10 @@ export default function Home() {
               <h3 className="text-sm md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Invitación Web
               </h3>
+
+              <p className="text-[#A8A29E] text-[11px] md:text-sm leading-[1.7] mt-3">
+                Una experiencia digital personalizada para compartir su historia.
+              </p>
 
             </button>
 
@@ -237,6 +245,10 @@ export default function Home() {
                 Retrato en Vivo
               </h3>
 
+              <p className="text-[#A8A29E] text-[11px] md:text-sm leading-[1.7] mt-3">
+                Retratos profesionales creados durante la celebración.
+              </p>
+
             </button>
 
             <button
@@ -248,6 +260,10 @@ export default function Home() {
               <h3 className="text-sm md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
                 Galería Instantánea
               </h3>
+
+              <p className="text-[#A8A29E] text-[11px] md:text-sm leading-[1.7] mt-3">
+                Fotografías disponibles para compartir prácticamente al momento.
+              </p>
 
             </button>
 

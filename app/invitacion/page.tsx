@@ -94,7 +94,7 @@ export default function Invitacion() {
     return () => clearInterval(timer)
   }, [])
 
-  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
+  const scrollTo = (ref: any) => {
     ref.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",

@@ -15,7 +15,7 @@ export default function Invitacion() {
   const [mounted, setMounted] = useState(false)
   const [showIntro, setShowIntro] = useState(true)
   const [activeSlide, setActiveSlide] = useState(0)
-  const [lightbox, setLightbox] = useState<string | null>(null)
+  const [lightbox, setLightbox] = useState<number | null>(null)
 
   const gallery = [
     "/images/isabelladanielsesion1.png",
@@ -111,6 +111,10 @@ export default function Invitacion() {
       if (audioRef.current && musicPlaying) {
         audioRef.current.pause()
       }
+
+      if (document.fullscreenElement == null) {
+        video.requestFullscreen?.()
+      }
     }
 
     const onPause = () => {
@@ -180,16 +184,50 @@ END:VCALENDAR
     <main className="bg-[#16120d] text-[#f5f2ed] overflow-hidden">
 
       {/* LIGHTBOX */}
-      {lightbox && (
+      {lightbox !== null && (
 
-        <div
-          className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-6"
-          onClick={() => setLightbox(null)}
-        >
+        <div className="fixed inset-0 z-[9999] bg-black/95 flex flex-col items-center justify-center">
 
+          {/* CLOSE */}
+          <button
+            onClick={() => setLightbox(null)}
+            className="absolute top-6 right-6 z-20 w-12 h-12 rounded-full border border-white/15 bg-black/40 backdrop-blur-md text-white/70 hover:text-white hover:bg-white/10 transition duration-500 text-xl"
+          >
+            ✕
+          </button>
+
+          {/* PREV */}
+          <button
+            onClick={() =>
+              setLightbox(
+                lightbox === 0
+                  ? gallery.length - 1
+                  : lightbox - 1
+              )
+            }
+            className="absolute left-4 md:left-8 z-20 w-12 h-12 rounded-full border border-white/10 bg-black/40 backdrop-blur-md text-white/70 hover:text-white hover:bg-white/10 transition duration-500"
+          >
+            ←
+          </button>
+
+          {/* NEXT */}
+          <button
+            onClick={() =>
+              setLightbox(
+                lightbox === gallery.length - 1
+                  ? 0
+                  : lightbox + 1
+              )
+            }
+            className="absolute right-4 md:right-8 z-20 w-12 h-12 rounded-full border border-white/10 bg-black/40 backdrop-blur-md text-white/70 hover:text-white hover:bg-white/10 transition duration-500"
+          >
+            →
+          </button>
+
+          {/* IMAGE */}
           <img
-            src={lightbox}
-            className="max-w-full max-h-full object-contain"
+            src={gallery[lightbox]}
+            className="max-w-[95vw] max-h-[90vh] object-contain"
           />
 
         </div>
@@ -398,35 +436,37 @@ END:VCALENDAR
         {/* SLIDER */}
         <div className="max-w-5xl mx-auto px-6">
 
-          <div className="relative h-[520px] rounded-[36px] overflow-hidden">
+          <div className="relative rounded-[36px] overflow-hidden bg-black/20">
 
-            {gallery.map((img, i) => (
+            <div className="relative w-full h-[70vh] md:h-[720px]">
 
-              <div
-                key={i}
-                onClick={() => setLightbox(img)}
-                className="absolute inset-0 transition-all duration-[2200ms] ease-out cursor-pointer"
-                style={{
-                  opacity: i === activeSlide ? 1 : 0,
-                  transform:
-                    i === activeSlide
-                      ? "scale(1)"
-                      : "scale(1.04)"
-                }}
-              >
+              {gallery.map((img, i) => (
 
                 <div
-                  className="absolute inset-0 bg-cover bg-center"
+                  key={i}
+                  onClick={() => setLightbox(i)}
+                  className="absolute inset-0 transition-all duration-[2200ms] ease-out cursor-pointer"
                   style={{
-                    backgroundImage: `url(${img})`
+                    opacity: i === activeSlide ? 1 : 0,
+                    transform:
+                      i === activeSlide
+                        ? "scale(1)"
+                        : "scale(1.04)"
                   }}
-                />
+                >
 
-                <div className="absolute inset-0 bg-black/10" />
+                  <img
+                    src={img}
+                    className="absolute inset-0 w-full h-full object-contain md:object-cover"
+                  />
 
-              </div>
+                  <div className="absolute inset-0 bg-black/10" />
 
-            ))}
+                </div>
+
+              ))}
+
+            </div>
 
           </div>
 

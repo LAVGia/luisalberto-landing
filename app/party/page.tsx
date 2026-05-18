@@ -1,6 +1,52 @@
 "use client"
 
+import { useEffect, useState } from "react"
+
 export default function PartyInvite() {
+  useEffect(() => {
+    document.title = "putiglowfest"
+  }, [])
+
+  const targetDate = new Date("2026-05-23T19:00:00").getTime()
+
+  const calculateTimeLeft = () => {
+    const now = new Date().getTime()
+    const difference = targetDate - now
+
+    if (difference <= 0) {
+      return {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      }
+    }
+
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    }
+  }
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft())
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
+
+  const countdownItems = [
+    { label: "DÍAS", value: timeLeft.days },
+    { label: "HORAS", value: timeLeft.hours },
+    { label: "MIN", value: timeLeft.minutes },
+    { label: "SEG", value: timeLeft.seconds },
+  ]
+
   return (
     <>
       <style jsx global>{`
@@ -25,6 +71,12 @@ export default function PartyInvite() {
         .neon-box {
           animation: neonPulse 1.8s infinite ease-in-out;
           border: 1px solid rgba(255,255,255,0.95);
+        }
+
+        .countdown-circle {
+          animation: neonPulse 2s infinite ease-in-out;
+          border: 1px solid rgba(255,255,255,0.9);
+          backdrop-filter: blur(12px);
         }
       `}</style>
 
@@ -100,7 +152,28 @@ export default function PartyInvite() {
 
           <div className="absolute bottom-[10%] right-[10%] w-[260px] h-[260px] rounded-full bg-cyan-400/20 blur-[120px]" />
 
-          <div className="relative z-10 text-center max-w-lg">
+          <div className="relative z-10 text-center max-w-2xl">
+
+            {/* COUNTDOWN */}
+
+            <div className="flex justify-center gap-4 md:gap-6 mb-16">
+
+              {countdownItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="countdown-circle w-20 h-20 md:w-28 md:h-28 rounded-full bg-black/30 flex flex-col items-center justify-center"
+                >
+                  <span className="text-2xl md:text-4xl font-black leading-none">
+                    {String(item.value).padStart(2, "0")}
+                  </span>
+
+                  <span className="text-[10px] md:text-xs tracking-[0.2em] text-white/70 mt-2">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+
+            </div>
 
             <div className="inline-block bg-black/20 backdrop-blur-md px-8 py-4 rounded-full mb-8 neon-box">
 

@@ -9,24 +9,24 @@ export default function PartyInvite() {
         @keyframes neonPulse {
           0%, 100% {
             box-shadow:
-              0 0 5px rgba(255,255,255,0.8),
-              0 0 10px rgba(255,255,255,0.8),
-              0 0 20px rgba(255,255,255,0.8),
-              0 0 40px rgba(255,255,255,0.6);
+              0 0 5px rgba(255,255,255,0.9),
+              0 0 10px rgba(255,255,255,0.9),
+              0 0 20px rgba(255,255,255,0.9),
+              0 0 40px rgba(255,255,255,0.7);
           }
 
           50% {
             box-shadow:
               0 0 2px rgba(255,255,255,0.4),
-              0 0 5px rgba(255,255,255,0.4),
-              0 0 10px rgba(255,255,255,0.4),
-              0 0 20px rgba(255,255,255,0.2);
+              0 0 6px rgba(255,255,255,0.4),
+              0 0 12px rgba(255,255,255,0.4),
+              0 0 24px rgba(255,255,255,0.2);
           }
         }
 
         .neon-box {
           animation: neonPulse 1.8s infinite ease-in-out;
-          border: 1px solid rgba(255,255,255,0.9);
+          border: 1px solid rgba(255,255,255,0.95);
         }
       `}</style>
 
@@ -90,10 +90,11 @@ export default function PartyInvite() {
 
           <img
             src="/images/putiglowfestdetalles.png"
-            className="absolute inset-0 w-full h-full object-cover opacity-40"
+            alt="Glow Fest"
+            className="absolute inset-0 w-full h-full object-cover"
           />
 
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-black/55" />
 
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff22,transparent_60%)]" />
 
@@ -103,7 +104,7 @@ export default function PartyInvite() {
 
           <div className="relative z-10 text-center max-w-lg">
 
-            <div className="inline-block bg-white/10 backdrop-blur-md px-8 py-4 rounded-full mb-8 neon-box">
+            <div className="inline-block bg-black/30 backdrop-blur-md px-8 py-4 rounded-full mb-8 neon-box">
 
               <p className="uppercase tracking-[0.25em] text-sm text-white">
                 Mayo 23 - Jonacatepec
@@ -111,17 +112,17 @@ export default function PartyInvite() {
 
             </div>
 
-            <p className="text-white/70 text-2xl mt-4">
+            <p className="text-white text-2xl mt-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]">
               Jonacatepec, Mor.
             </p>
 
-            <div className="mt-10 inline-block bg-white/10 backdrop-blur-md px-8 py-5 rounded-[2rem] neon-box">
+            <div className="mt-10 inline-block bg-black/30 backdrop-blur-md px-8 py-5 rounded-[2rem] neon-box">
 
               <p className="uppercase tracking-[0.4em] text-xs text-white mb-2">
                 Preventa
               </p>
 
-              <h3 className="text-5xl font-black">
+              <h3 className="text-5xl font-black text-white">
                 $80
               </h3>
 

@@ -54,7 +54,7 @@ export default function Home() {
 
         </div>
 
-        <div className="absolute bottom-36 left-1/2 -translate-x-1/2 z-20 text-center px-6 w-full">
+        <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20 text-center px-6 w-full">
 
           <h1 className="text-[2.3rem] md:text-[5.5rem] xl:text-[7rem] font-black leading-[0.9] tracking-[-0.08em] whitespace-nowrap">
 
@@ -64,6 +64,10 @@ export default function Home() {
             </span>
 
           </h1>
+
+          <p className="text-[#D2CCC4] text-sm md:text-lg mt-5 tracking-[0.08em]">
+            Narrativa visual para historias que merecen permanecer.
+          </p>
 
         </div>
 
@@ -91,9 +95,6 @@ export default function Home() {
         className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210] relative overflow-hidden"
       >
 
-        <div className="absolute top-[10%] right-[-10%] w-[420px] h-[420px] bg-[#C6A77D]/[0.04] blur-[160px]" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[420px] h-[420px] bg-[#8E6F4E]/[0.04] blur-[160px]" />
-
         <div className="relative z-10 w-full max-w-7xl mx-auto">
 
           <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-sm mb-8">
@@ -110,72 +111,35 @@ export default function Home() {
 
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-7 gap-4">
 
-            <a
-              href="#luxury"
-              className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-6 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
-            >
-              <span className="tracking-[0.08em] text-sm">
-                Invitaciones Luxury
-              </span>
+            {[
+              ["#", "Portafolio"],
+              ["#luxury", "Invitaciones Luxury"],
+              ["#weddings", "Bodas y XV Años"],
+              ["#documentales", "Documentales y Eventos"],
+              ["#gallery", "Encuentra tu Foto"],
+              ["#", "Redes Sociales"],
+              ["#", "Livestream"],
+            ].map(([href, label]) => (
 
-              <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
-                →
-              </span>
-            </a>
+              <a
+                key={label}
+                href={href}
+                className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-5 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
+              >
 
-            <a
-              href="#weddings"
-              className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-6 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
-            >
-              <span className="tracking-[0.08em] text-sm">
-                Bodas y XV años
-              </span>
+                <span className="tracking-[0.04em] text-sm">
+                  {label}
+                </span>
 
-              <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
-                →
-              </span>
-            </a>
+                <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
+                  →
+                </span>
 
-            <a
-              href="#documentales"
-              className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-6 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
-            >
-              <span className="tracking-[0.08em] text-sm">
-                Documentales y eventos
-              </span>
+              </a>
 
-              <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
-                →
-              </span>
-            </a>
-
-            <a
-              href="#gallery"
-              className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-6 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
-            >
-              <span className="tracking-[0.08em] text-sm">
-                Encuentra tu foto
-              </span>
-
-              <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
-                →
-              </span>
-            </a>
-
-            <a
-              href="#"
-              className="group flex items-center justify-between border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-6 py-5 rounded-full hover:border-[#C6A77D]/50 hover:text-[#C6A77D] transition-all duration-700"
-            >
-              <span className="tracking-[0.08em] text-sm">
-                Redes Sociales
-              </span>
-
-              <span className="opacity-50 group-hover:translate-x-1 transition-transform duration-700">
-                →
-              </span>
-            </a>
+            ))}
 
           </div>
 
@@ -183,101 +147,97 @@ export default function Home() {
 
       </section>
 
-      {/* INVITACIONES */}
+      {/* LUXURY */}
 
       <section
         id="luxury"
-        className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210] relative overflow-hidden"
+        className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210]"
       >
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto">
+        <div className="w-full max-w-7xl mx-auto">
 
-          <div className="max-w-4xl">
+          <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-xs mb-6">
+            Luxury Experience
+          </p>
 
-            <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-xs mb-6">
-              Luxury Experience
+          <h2 className="text-3xl md:text-6xl xl:text-7xl font-black leading-[0.95] tracking-[-0.08em] max-w-5xl">
+
+            Una experiencia
+            <br />
+            diseñada alrededor
+            <br />
+            de tu historia.
+
+          </h2>
+
+          <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] max-w-3xl mt-8">
+            Fotografía, narrativa y experiencias digitales para vivir y compartir una boda de una manera única.
+          </p>
+
+          <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 mt-12">
+
+            {[
+              [
+                "Sesión Editorial",
+                "Imágenes naturales y cinematográficas antes del gran día.",
+                "/images/editorial.png",
+              ],
+              [
+                "Invitación Web",
+                "Una experiencia digital personalizada para compartir su historia.",
+                "/images/invitacion.png",
+              ],
+              [
+                "Retrato en Vivo",
+                "Retratos editoriales creados durante la celebración.",
+                "/images/retrato.png",
+              ],
+              [
+                "Galería Instantánea",
+                "Fotografías disponibles para compartir prácticamente al momento.",
+                "/images/galeria.png",
+              ],
+            ].map(([title, text, image]) => (
+
+              <button
+                key={title}
+                type="button"
+                onClick={() => setSelectedImage(image)}
+                className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-5 hover:border-[#C6A77D]/30 transition-all duration-700"
+              >
+
+                <h3 className="text-lg md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
+                  {title}
+                </h3>
+
+                <p className="text-[#A8A29E] text-xs md:text-sm leading-[1.7] mt-4">
+                  {text}
+                </p>
+
+              </button>
+
+            ))}
+
+          </div>
+
+          <div className="mt-14 text-center">
+
+            <p className="uppercase tracking-[0.35em] text-[#8E8A84] text-[11px] md:text-xs">
+              Experiencia Premium · Calidad Editorial · Narrativa Visual
             </p>
 
-            <h2 className="text-3xl md:text-6xl xl:text-7xl font-black leading-[0.95] tracking-[-0.08em]">
-
-              Una experiencia
-              <br />
-              diseñada alrededor
-              <br />
-              de tu historia.
-
-            </h2>
-
-          </div>
-
-          <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 md:gap-5 mt-10">
-
-            <button
-              type="button"
-              onClick={() => setSelectedImage("/images/editorial.png")}
-              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
-            >
-              <h3 className="text-lg md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
-                Sesión Editorial
-              </h3>
-
-              <p className="text-[#A8A29E] text-xs md:text-base leading-[1.6] mt-4">
-                Fotos elegantes y cinematográficas antes del gran día.
-              </p>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setSelectedImage("/images/invitacion.png")}
-              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
-            >
-              <h3 className="text-lg md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
-                Invitación Web
-              </h3>
-
-              <p className="text-[#A8A29E] text-xs md:text-base leading-[1.6] mt-4">
-                Una experiencia digital personalizada para compartir su historia.
-              </p>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setSelectedImage("/images/retrato.png")}
-              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
-            >
-              <h3 className="text-lg md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
-                Retrato en Vivo
-              </h3>
-
-              <p className="text-[#A8A29E] text-xs md:text-base leading-[1.6] mt-4">
-                Retratos profesionales creados durante la celebración.
-              </p>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setSelectedImage("/images/galeria.png")}
-              className="group text-left rounded-[1.5rem] border border-white/10 bg-[#1B1816]/50 backdrop-blur-xl p-4 md:p-6 hover:border-[#C6A77D]/30 transition-all duration-700"
-            >
-              <h3 className="text-lg md:text-2xl font-black tracking-[-0.04em] group-hover:text-[#C6A77D] transition-colors duration-700">
-                Galería Instantánea
-              </h3>
-
-              <p className="text-[#A8A29E] text-xs md:text-base leading-[1.6] mt-4">
-                Fotografías disponibles para compartir prácticamente al momento.
-              </p>
-            </button>
-
-          </div>
-
-          <div className="mt-10 flex justify-center">
+            <p className="text-[#F5F2ED] text-xl md:text-3xl font-black tracking-[-0.04em] mt-6">
+              Diseñado para permanecer en el tiempo.
+            </p>
 
             <a
               href="https://luisalberto.vg/invitacion"
-              className="group inline-flex items-center gap-4 text-[#C6A77D] hover:text-[#E2C49B] transition-all duration-700 uppercase tracking-[0.28em] text-xs md:text-sm"
+              className="group inline-flex items-center gap-4 mt-10 border border-white/10 bg-[#1B1816]/60 backdrop-blur-xl px-8 py-4 rounded-full hover:border-[#C6A77D]/40 hover:text-[#C6A77D] transition-all duration-700"
             >
 
-              Conoce la invitación
+              <span className="uppercase tracking-[0.28em] text-xs md:text-sm">
+                Explorar experiencia
+              </span>
 
               <span className="group-hover:translate-x-1 transition-transform duration-700">
                 →
@@ -291,14 +251,14 @@ export default function Home() {
 
       </section>
 
-      {/* BODAS Y XV - PARTE 1 */}
+      {/* BODAS PARTE 1 */}
 
       <section
         id="weddings"
-        className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210] relative overflow-hidden"
+        className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210]"
       >
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto">
+        <div className="w-full max-w-6xl mx-auto">
 
           <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-xs mb-8">
             Bodas y XV Años
@@ -314,46 +274,32 @@ export default function Home() {
 
           </h2>
 
-          <p className="text-[#A8A29E] text-sm md:text-xl leading-[1.9] max-w-3xl mt-10 font-light">
-
-            Fotografía y narrativa visual para historias que merecen permanecer más allá del instante.
-
+          <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] max-w-3xl mt-10">
+            Fotografía y narrativa visual para recuerdos diseñados para permanecer en el tiempo.
           </p>
 
           <div className="grid md:grid-cols-2 gap-x-20 gap-y-12 mt-20">
 
             <div>
 
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
+              <h3 className="text-xl md:text-3xl font-black">
                 Fotografía
               </h3>
 
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
-                Imágenes naturales, elegantes y llenas de emoción.
+              <p className="text-[#A8A29E] text-sm md:text-lg mt-4">
+                Imágenes naturales y llenas de emoción.
               </p>
 
             </div>
 
             <div>
 
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
+              <h3 className="text-xl md:text-3xl font-black">
                 Video
               </h3>
 
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
-                Películas cinematográficas que cuentan tu historia.
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
-                Entrega Digital
-              </h3>
-
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
-                Galerías privadas para descargar y compartir tus recuerdos.
+              <p className="text-[#A8A29E] text-sm md:text-lg mt-4">
+                Películas cinematográficas para recordar tu historia.
               </p>
 
             </div>
@@ -364,48 +310,36 @@ export default function Home() {
 
       </section>
 
-      {/* BODAS Y XV - PARTE 2 */}
+      {/* BODAS PARTE 2 */}
 
       <section
-        className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210] relative overflow-hidden"
+        className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210]"
       >
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto">
+        <div className="w-full max-w-6xl mx-auto">
 
           <div className="grid md:grid-cols-2 gap-x-20 gap-y-12">
 
             <div>
 
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
-                Entrega Impresa
+              <h3 className="text-xl md:text-3xl font-black">
+                Entrega Digital
               </h3>
 
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
-                Álbumes y fotografías diseñadas para permanecer en el tiempo.
+              <p className="text-[#A8A29E] text-sm md:text-lg mt-4">
+                Galerías privadas para compartir tus recuerdos.
               </p>
 
             </div>
 
             <div>
 
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
-                Sesión Previa
-              </h3>
-
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
-                Una experiencia en locación para crear imágenes auténticas y cinematográficas.
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
+              <h3 className="text-xl md:text-3xl font-black">
                 Cobertura Completa
               </h3>
 
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
-                Capturamos cada momento sin límite de fotografías ni duración del evento.
+              <p className="text-[#A8A29E] text-sm md:text-lg mt-4">
+                Capturamos cada momento de principio a fin.
               </p>
 
             </div>
@@ -418,7 +352,7 @@ export default function Home() {
               Narrativa Visual · Emoción Real · Recuerdos que Permanecen
             </p>
 
-            <p className="text-[#F5F2ED] text-xl md:text-3xl font-black tracking-[-0.04em] mt-6">
+            <p className="text-[#F5F2ED] text-xl md:text-3xl font-black mt-6">
               La forma de recordar también importa.
             </p>
 
@@ -444,14 +378,14 @@ export default function Home() {
 
       </section>
 
-      {/* DOCUMENTALES Y EVENTOS - PARTE 1 */}
+      {/* DOCUMENTALES PARTE 1 */}
 
       <section
         id="documentales"
-        className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210] relative overflow-hidden"
+        className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210]"
       >
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto">
+        <div className="w-full max-w-6xl mx-auto">
 
           <p className="uppercase tracking-[0.45em] text-[#A8A29E] text-xs mb-8">
             Documentales y Eventos
@@ -469,46 +403,32 @@ export default function Home() {
 
           </h2>
 
-          <p className="text-[#A8A29E] text-sm md:text-xl leading-[1.9] max-w-4xl mt-10 font-light">
-
-            Cobertura documental y narrativa visual para eventos, celebraciones y proyectos que buscan permanecer más allá del momento.
-
+          <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] max-w-4xl mt-10">
+            Documental, entrevistas y cobertura cinematográfica para eventos culturales y proyectos con identidad propia.
           </p>
 
           <div className="grid md:grid-cols-2 gap-x-20 gap-y-12 mt-20">
 
             <div>
 
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
+              <h3 className="text-xl md:text-3xl font-black">
                 Documental
               </h3>
 
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
-                Historias humanas capturadas con una mirada cinematográfica y observacional.
+              <p className="text-[#A8A29E] text-sm md:text-lg mt-4">
+                Historias humanas observadas desde una mirada cinematográfica.
               </p>
 
             </div>
 
             <div>
 
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
+              <h3 className="text-xl md:text-3xl font-black">
                 Entrevistas
               </h3>
 
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
-                Conversaciones reales contadas desde la cercanía, la identidad y la emoción.
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
-                Eventos Masivos
-              </h3>
-
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
-                Cobertura visual para ferias, festivales, desfiles y celebraciones culturales.
+              <p className="text-[#A8A29E] text-sm md:text-lg mt-4">
+                Conversaciones reales contadas con cercanía y emoción.
               </p>
 
             </div>
@@ -519,48 +439,36 @@ export default function Home() {
 
       </section>
 
-      {/* DOCUMENTALES Y EVENTOS - PARTE 2 */}
+      {/* DOCUMENTALES PARTE 2 */}
 
       <section
-        className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210] relative overflow-hidden"
+        className="h-screen snap-start flex items-center px-6 md:px-20 bg-[#141210]"
       >
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto">
+        <div className="w-full max-w-6xl mx-auto">
 
           <div className="grid md:grid-cols-2 gap-x-20 gap-y-12">
 
             <div>
 
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
-                Producción Visual
+              <h3 className="text-xl md:text-3xl font-black">
+                Eventos Masivos
               </h3>
 
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
-                Imagen, video y narrativa audiovisual para proyectos con identidad propia.
+              <p className="text-[#A8A29E] text-sm md:text-lg mt-4">
+                Cobertura para ferias, festivales y celebraciones culturales.
               </p>
 
             </div>
 
             <div>
 
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
-                Cobertura en Tiempo Real
+              <h3 className="text-xl md:text-3xl font-black">
+                Narrativa Visual
               </h3>
 
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
-                Producción dinámica para registrar la energía y el ritmo de cada evento.
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-xl md:text-3xl font-black tracking-[-0.04em]">
-                Narrativa Cinematográfica
-              </h3>
-
-              <p className="text-[#A8A29E] text-sm md:text-lg leading-[1.8] mt-4">
-                Cada cobertura busca transmitir atmósfera, emoción y presencia más allá del registro tradicional.
+              <p className="text-[#A8A29E] text-sm md:text-lg mt-4">
+                Imagen y video para proyectos con identidad propia.
               </p>
 
             </div>
@@ -573,7 +481,7 @@ export default function Home() {
               Narrativa Visual · Cultura · Memoria Documental
             </p>
 
-            <p className="text-[#F5F2ED] text-xl md:text-3xl font-black tracking-[-0.04em] mt-6">
+            <p className="text-[#F5F2ED] text-xl md:text-3xl font-black mt-6">
               Algunas historias merecen ser observadas de otra manera.
             </p>
 

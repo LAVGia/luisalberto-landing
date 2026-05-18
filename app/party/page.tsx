@@ -28,24 +28,16 @@ export default function PartyInvite() {
 
         <div className="relative z-10 w-full">
 
-          <p className="uppercase tracking-[0.5em] text-sm text-white/60 mb-5">
-            Jonacatepec • Mayo 23
-          </p>
-
           <h1 className="text-7xl md:text-9xl font-black leading-[0.82] tracking-[-0.08em]">
-            SHINE
+            MAYO
             <br />
-            NIGHT
+            23
           </h1>
-
-          <p className="text-white/70 text-xl mt-8 max-w-md leading-relaxed">
-            Luces, reflejos, glitter y energía nocturna.
-          </p>
 
           <div className="flex flex-wrap gap-4 mt-10">
 
             <a
-              href="https://maps.google.com"
+              href="https://maps.app.goo.gl/E9zAtUE5LhnTwZaA9"
               target="_blank"
               className="bg-white text-black px-7 py-4 rounded-full font-bold"
             >

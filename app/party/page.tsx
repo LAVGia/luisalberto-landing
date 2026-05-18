@@ -68,6 +68,24 @@ export default function PartyInvite() {
           }
         }
 
+        @keyframes neonGreen {
+          0%, 100% {
+            box-shadow:
+              0 0 5px rgba(34,197,94,0.9),
+              0 0 10px rgba(34,197,94,0.9),
+              0 0 20px rgba(34,197,94,0.8),
+              0 0 40px rgba(34,197,94,0.6);
+          }
+
+          50% {
+            box-shadow:
+              0 0 2px rgba(34,197,94,0.5),
+              0 0 6px rgba(34,197,94,0.5),
+              0 0 12px rgba(34,197,94,0.4),
+              0 0 24px rgba(34,197,94,0.3);
+          }
+        }
+
         .neon-box {
           animation: neonPulse 1.8s infinite ease-in-out;
           border: 1px solid rgba(255,255,255,0.95);
@@ -77,6 +95,12 @@ export default function PartyInvite() {
           animation: neonPulse 2s infinite ease-in-out;
           border: 1px solid rgba(255,255,255,0.9);
           backdrop-filter: blur(12px);
+        }
+
+        .whatsapp-neon {
+          animation: neonGreen 1.8s infinite ease-in-out;
+          border: 1px solid rgba(34,197,94,0.9);
+          color: white;
         }
       `}</style>
 
@@ -121,11 +145,10 @@ export default function PartyInvite() {
               </a>
 
               <a
-                href="https://wa.me/527351210954"
-                target="_blank"
+                href="#cover"
                 className="border border-white/20 bg-white/10 backdrop-blur-md px-7 py-4 rounded-full font-bold"
               >
-                💬 Reserva
+                🎟️ Cover
               </a>
 
             </div>
@@ -136,7 +159,10 @@ export default function PartyInvite() {
 
         {/* INFO */}
 
-        <section className="relative h-screen snap-start flex items-center justify-center px-6 overflow-hidden">
+        <section
+          id="cover"
+          className="relative h-screen snap-start flex items-center justify-center px-6 overflow-hidden"
+        >
 
           <img
             src="/images/putiglowfestdetalles.png"
@@ -199,40 +225,100 @@ export default function PartyInvite() {
 
             </div>
 
+            <div className="mt-8">
+
+              <a
+                href="https://wa.me/527351210954"
+                target="_blank"
+                className="whatsapp-neon inline-block bg-green-500/20 backdrop-blur-md px-8 py-4 rounded-full font-bold"
+              >
+                💚 WhatsApp Reserva
+              </a>
+
+            </div>
+
           </div>
 
         </section>
 
-        {/* THE MOOD */}
+        {/* PLAYLIST */}
 
-        <section className="relative h-screen snap-start overflow-hidden flex items-end px-6 pb-20">
+        <section className="h-screen snap-start px-6 flex flex-col justify-center relative overflow-hidden">
 
-          <img
-            src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1600&auto=format&fit=crop"
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff10,transparent_60%)]" />
+
+          <div className="absolute top-[20%] left-[10%] w-[260px] h-[260px] rounded-full bg-fuchsia-500/20 blur-[120px]" />
+
+          <div className="absolute bottom-[10%] right-[10%] w-[260px] h-[260px] rounded-full bg-cyan-400/20 blur-[120px]" />
+
+          <div className="relative z-10">
+
+            <p className="uppercase tracking-[0.5em] text-sm text-white/50 mb-6">
+              Playlist
+            </p>
+
+            <h2 className="text-6xl md:text-7xl font-black leading-[0.85] tracking-[-0.08em] mb-14">
+              LA VIBRA
+              <br />
+              EMPIEZA AQUÍ
+            </h2>
+
+            <div className="rounded-[2rem] overflow-hidden border border-white/10 bg-black/30 backdrop-blur-md">
+
+              <iframe
+                style={{ borderRadius: "24px" }}
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0BcQWzuB7ZO?utm_source=generator"
+                width="100%"
+                height="352"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* FINAL */}
+
+        <section className="relative h-screen snap-start overflow-hidden flex items-end px-6 pb-20 text-white">
+
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
             className="absolute inset-0 w-full h-full object-cover"
-          />
+          >
+            <source src="/videos/putiglowfestfirma.mp4" type="video/mp4" />
+          </video>
 
-          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 bg-black/40" />
 
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#ffffff33,transparent_40%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#ffffff22,transparent_40%)]" />
 
-          <div className="absolute bottom-[-10%] right-[-10%] w-[260px] h-[260px] rounded-full bg-cyan-400/20 blur-[120px]" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[260px] h-[260px] rounded-full bg-white/10 blur-[120px]" />
 
           <div className="relative z-10 max-w-lg">
 
             <p className="uppercase tracking-[0.5em] text-sm text-white/60 mb-5">
-              Dress Code
+              Invitación web diseñada por
             </p>
 
             <h2 className="text-7xl md:text-8xl font-black leading-[0.82] tracking-[-0.08em]">
-              THE
+              Luis
               <br />
-              MOOD
+              Alberto VG
             </h2>
 
-            <p className="text-white/75 text-xl mt-8 leading-relaxed">
-              Glitter, reflejos, ropa brillante, fotografía con flash y estética nightlife.
-            </p>
+            <a
+              href="https://luisalberto.vg/"
+              target="_blank"
+              className="inline-block mt-12 bg-white text-black px-10 py-5 rounded-full font-black text-lg"
+            >
+              Hagamos la tuya
+            </a>
 
           </div>
 

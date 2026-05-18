@@ -232,7 +232,7 @@ export default function PartyInvite() {
                 target="_blank"
                 className="whatsapp-neon inline-block bg-green-500/20 backdrop-blur-md px-8 py-4 rounded-full font-bold"
               >
-                💚 WhatsApp Reserva
+                💬 Reserva por WhatsApp
               </a>
 
             </div>
@@ -295,6 +295,8 @@ export default function PartyInvite() {
           </video>
 
           <div className="absolute inset-0 bg-black/40" />
+
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black" />
 
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#ffffff22,transparent_40%)]" />
 

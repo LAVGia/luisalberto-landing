@@ -1,9 +1,5 @@
 "use client"
 
-export const metadata = {
-  title: "Shine Night",
-}
-
 export default function PartyInvite() {
   return (
     <>

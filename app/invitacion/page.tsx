@@ -2,12 +2,6 @@
 
 import { useEffect, useRef, useState } from "react"
 
-declare global {
-  interface Window {
-    Vimeo: any
-  }
-}
-
 export default function Invitacion() {
 
   const heroRef = useRef<HTMLDivElement>(null)
@@ -15,7 +9,7 @@ export default function Invitacion() {
   const rsvpRef = useRef<HTMLDivElement>(null)
 
   const audioRef = useRef<HTMLAudioElement>(null)
-  const iframeRef = useRef<HTMLIFrameElement>(null)
+  const storyVideoRef = useRef<HTMLVideoElement>(null)
 
   const [musicPlaying, setMusicPlaying] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -24,10 +18,10 @@ export default function Invitacion() {
   const [lightbox, setLightbox] = useState<string | null>(null)
 
   const gallery = [
-    "https://images.unsplash.com/photo-1523438097201-512ae7d59c7a?q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1521337706264-a414f153a5db?q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop"
+    "/images/isabelladanielsesion1.png",
+    "/images/isabelladanielsesion2.png",
+    "/images/isabelladanielsesion3.png",
+    "/images/isabelladanielsesion4.png"
   ]
 
   // SLIDER
@@ -105,89 +99,47 @@ export default function Invitacion() {
     }
   }
 
-  // AUDIO FADE
-  const fadeAudio = (target: number) => {
-
-    if (!audioRef.current) return
-
-    const audio = audioRef.current
-
-    const interval = setInterval(() => {
-
-      if (audio.volume > target) {
-
-        audio.volume = Math.max(audio.volume - 0.05, target)
-
-      } else {
-
-        clearInterval(interval)
-
-        if (target === 0) {
-          audio.pause()
-          setMusicPlaying(false)
-        }
-      }
-
-    }, 80)
-  }
-
-  const restoreAudio = () => {
-
-    if (!audioRef.current) return
-
-    const audio = audioRef.current
-
-    audio.volume = 0
-
-    audio.play()
-    setMusicPlaying(true)
-
-    const interval = setInterval(() => {
-
-      if (audio.volume < 1) {
-
-        audio.volume = Math.min(audio.volume + 0.05, 1)
-
-      } else {
-
-        clearInterval(interval)
-
-      }
-
-    }, 80)
-  }
-
-  // VIMEO API
+  // VIDEO EVENTS
   useEffect(() => {
 
-    const script = document.createElement("script")
+    const video = storyVideoRef.current
 
-    script.src = "https://player.vimeo.com/api/player.js"
-    script.async = true
+    if (!video) return
 
-    document.body.appendChild(script)
+    const onPlay = () => {
 
-    script.onload = () => {
+      if (audioRef.current && musicPlaying) {
+        audioRef.current.pause()
+      }
+    }
 
-      if (!iframeRef.current) return
+    const onPause = () => {
 
-      const player = new window.Vimeo.Player(iframeRef.current)
+      if (audioRef.current && musicPlaying) {
+        audioRef.current.play()
+      }
+    }
 
-      player.on("play", () => {
-        fadeAudio(0)
-      })
+    const onEnded = () => {
 
-      player.on("pause", () => {
-        restoreAudio()
-      })
+      if (audioRef.current && musicPlaying) {
+        audioRef.current.play()
+      }
+    }
 
-      player.on("ended", () => {
-        restoreAudio()
-      })
+    video.addEventListener("play", onPlay)
+    video.addEventListener("pause", onPause)
+    video.addEventListener("ended", onEnded)
+
+    return () => {
+
+      video.removeEventListener("play", onPlay)
+      video.removeEventListener("pause", onPause)
+      video.removeEventListener("ended", onEnded)
 
     }
 
-  }, [])
+  }, [musicPlaying])
 
   // CALENDAR
   const addToCalendar = () => {
@@ -225,13 +177,13 @@ END:VCALENDAR
   }
 
   return (
-    <main className="bg-[#0f0f0f] text-[#f5f2ed] overflow-hidden">
+    <main className="bg-[#16120d] text-[#f5f2ed] overflow-hidden">
 
       {/* LIGHTBOX */}
       {lightbox && (
 
         <div
-          className="fixed inset-0 z-[999] bg-black/95 flex items-center justify-center p-6"
+          className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-6"
           onClick={() => setLightbox(null)}
         >
 
@@ -247,7 +199,7 @@ END:VCALENDAR
       {/* INTRO */}
       {showIntro && (
 
-        <section className="fixed inset-0 z-[9999] bg-[#090909] flex items-center justify-center overflow-hidden">
+        <section className="fixed inset-0 z-[99999] bg-[#0c0907] flex items-center justify-center overflow-hidden">
 
           <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]" />
 
@@ -300,8 +252,9 @@ END:VCALENDAR
           <source src="/videos/intro.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
+        <div className="absolute inset-0 bg-black/65" />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#16120d]/20 to-[#16120d]" />
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-8">
 
@@ -313,7 +266,7 @@ END:VCALENDAR
             Isabella <span className="text-[#d4af37]">&</span> Daniel
           </h1>
 
-          <div className="w-24 h-[1px] bg-white/20 mb-10" />
+          <div className="w-24 h-[1px] bg-[#d4af37]/30 mb-10" />
 
           <p className="text-white/60 text-sm tracking-[0.25em] uppercase">
             20 Diciembre 2026
@@ -323,14 +276,14 @@ END:VCALENDAR
 
             <button
               onClick={() => scrollTo(heroRef)}
-              className="px-8 py-4 rounded-full border border-white/15 bg-white/[0.03] backdrop-blur-md hover:bg-white/[0.08] transition duration-700 text-[12px] uppercase tracking-[0.25em]"
+              className="px-8 py-4 rounded-full border border-[#d4af37]/15 bg-white/[0.03] backdrop-blur-md hover:bg-white/[0.08] transition duration-700 text-[12px] uppercase tracking-[0.25em]"
             >
               Explorar
             </button>
 
             <button
               onClick={toggleMusic}
-              className="px-8 py-4 rounded-full border border-white/10 bg-black/20 backdrop-blur-md hover:bg-white/[0.05] transition duration-700 text-[12px] uppercase tracking-[0.25em]"
+              className="px-8 py-4 rounded-full border border-[#d4af37]/10 bg-black/20 backdrop-blur-md hover:bg-white/[0.05] transition duration-700 text-[12px] uppercase tracking-[0.25em]"
             >
               {musicPlaying ? "Pausar Música" : "Música"}
             </button>
@@ -355,7 +308,7 @@ END:VCALENDAR
           }}
         />
 
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative z-10 text-center px-8 pb-20">
 
@@ -371,14 +324,14 @@ END:VCALENDAR
 
             <button
               onClick={() => scrollTo(detailsRef)}
-              className="px-8 py-4 rounded-full border border-white/15 bg-white/[0.03] backdrop-blur-md hover:bg-white/[0.08] transition duration-700 text-[11px] uppercase tracking-[0.25em]"
+              className="px-8 py-4 rounded-full border border-[#d4af37]/15 bg-white/[0.03] backdrop-blur-md hover:bg-white/[0.08] transition duration-700 text-[11px] uppercase tracking-[0.25em]"
             >
               Detalles
             </button>
 
             <button
               onClick={() => scrollTo(rsvpRef)}
-              className="px-8 py-4 rounded-full border border-white/15 bg-white/[0.03] backdrop-blur-md hover:bg-white/[0.08] transition duration-700 text-[11px] uppercase tracking-[0.25em]"
+              className="px-8 py-4 rounded-full border border-[#d4af37]/15 bg-white/[0.03] backdrop-blur-md hover:bg-white/[0.08] transition duration-700 text-[11px] uppercase tracking-[0.25em]"
             >
               RSVP
             </button>
@@ -387,7 +340,7 @@ END:VCALENDAR
 
           {mounted && (
 
-            <div className="inline-flex gap-4 px-6 py-4 rounded-full border border-white/10 bg-black/25 backdrop-blur-md text-white/80 text-xs tracking-[0.2em] uppercase">
+            <div className="inline-flex gap-4 px-6 py-4 rounded-full border border-[#d4af37]/10 bg-black/25 backdrop-blur-md text-white/80 text-xs tracking-[0.2em] uppercase">
 
               <span>{timeLeft.days} D</span>
               <span className="opacity-30">/</span>
@@ -409,7 +362,7 @@ END:VCALENDAR
       </section>
 
       {/* STORY */}
-      <section className="relative py-36 bg-[#111111] overflow-hidden">
+      <section className="relative py-36 bg-[#1a1510] overflow-hidden">
 
         <div className="max-w-5xl mx-auto px-6 text-center mb-16">
 
@@ -417,22 +370,26 @@ END:VCALENDAR
             Nuestra Historia
           </p>
 
-          <div className="w-20 h-[1px] bg-white/15 mx-auto" />
+          <div className="w-20 h-[1px] bg-[#d4af37]/20 mx-auto" />
 
         </div>
 
-        {/* VIMEO */}
+        {/* VIDEO */}
         <div className="max-w-5xl mx-auto px-6 mb-20">
 
-          <div className="overflow-hidden rounded-[36px] shadow-2xl">
+          <div className="overflow-hidden rounded-[36px] shadow-2xl bg-black">
 
-            <iframe
-              ref={iframeRef}
-              src="https://player.vimeo.com/video/1192743985"
+            <video
+              ref={storyVideoRef}
+              controls
+              playsInline
               className="w-full aspect-video"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-            />
+            >
+              <source
+                src="/videos/historiaisabelladaniel.mp4"
+                type="video/mp4"
+              />
+            </video>
 
           </div>
 
@@ -465,7 +422,7 @@ END:VCALENDAR
                   }}
                 />
 
-                <div className="absolute inset-0 bg-black/15" />
+                <div className="absolute inset-0 bg-black/10" />
 
               </div>
 
@@ -510,7 +467,7 @@ END:VCALENDAR
           }}
         />
 
-        <div className="absolute inset-0 bg-[#111111]/85" />
+        <div className="absolute inset-0 bg-[#16120d]/85" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6">
 
@@ -520,7 +477,7 @@ END:VCALENDAR
               Detalles del Evento
             </p>
 
-            <div className="w-20 h-[1px] bg-white/15 mx-auto" />
+            <div className="w-20 h-[1px] bg-[#d4af37]/20 mx-auto" />
 
           </div>
 
@@ -529,7 +486,7 @@ END:VCALENDAR
             <a
               href="https://maps.app.goo.gl/pU5zycxGosdKi9MJA"
               target="_blank"
-              className="p-12 rounded-[36px] border border-white/10 bg-white/[0.03] backdrop-blur-xl hover:bg-white/[0.05] transition duration-700"
+              className="p-12 rounded-[36px] border border-[#d4af37]/10 bg-white/[0.03] backdrop-blur-xl hover:bg-white/[0.05] transition duration-700"
             >
 
               <div className="text-3xl mb-8 opacity-80">
@@ -556,7 +513,7 @@ END:VCALENDAR
             <a
               href="https://maps.app.goo.gl/bti7LF96Bd9bhAzZ9"
               target="_blank"
-              className="p-12 rounded-[36px] border border-white/10 bg-white/[0.03] backdrop-blur-xl hover:bg-white/[0.05] transition duration-700"
+              className="p-12 rounded-[36px] border border-[#d4af37]/10 bg-white/[0.03] backdrop-blur-xl hover:bg-white/[0.05] transition duration-700"
             >
 
               <div className="text-3xl mb-8 opacity-80">
@@ -616,14 +573,14 @@ END:VCALENDAR
 
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSfV3q6yrUp8BhuTixLz4c7aXIvrpEFWUkypn4sYBjp3tythSQ/viewform?usp=header"
-              className="px-10 py-4 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md hover:bg-white/[0.08] transition duration-700 text-[11px] uppercase tracking-[0.25em]"
+              className="px-10 py-4 rounded-full border border-[#d4af37]/10 bg-white/[0.04] backdrop-blur-md hover:bg-white/[0.08] transition duration-700 text-[11px] uppercase tracking-[0.25em]"
             >
               Confirmar
             </a>
 
             <button
               onClick={addToCalendar}
-              className="px-10 py-4 rounded-full border border-white/10 bg-black/20 backdrop-blur-md hover:bg-white/[0.05] transition duration-700 text-[11px] uppercase tracking-[0.25em]"
+              className="px-10 py-4 rounded-full border border-[#d4af37]/10 bg-black/20 backdrop-blur-md hover:bg-white/[0.05] transition duration-700 text-[11px] uppercase tracking-[0.25em]"
             >
               Agendar
             </button>
@@ -635,7 +592,7 @@ END:VCALENDAR
       </section>
 
       {/* FOOTER */}
-      <footer className="py-12 text-center bg-[#090909] border-t border-white/5">
+      <footer className="py-12 text-center bg-[#120f0b] border-t border-[#d4af37]/5">
 
         <a
           href="https://luisalberto.vg"

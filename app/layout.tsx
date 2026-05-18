@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description:
       "Nos encantará compartir este momento contigo.",
     url: "https://luisalberto.vg/invitacion",
-    siteName: "Isabella & Daniel",
+    siteName: "LuisAlbertoVG",
     images: [
       {
         url: "https://luisalberto.vg/og-image.jpg",

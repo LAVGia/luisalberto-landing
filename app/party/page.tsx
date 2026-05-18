@@ -88,10 +88,11 @@ export default function PartyInvite() {
 
         <section className="h-screen snap-start flex items-center justify-center px-6 relative overflow-hidden">
 
-          <img
-            src="/images/putiglowfestdetalles.png"
-            alt="Glow Fest"
-            className="absolute inset-0 w-full h-full object-cover"
+          <div
+            className="absolute inset-0 bg-center bg-cover"
+            style={{
+              backgroundImage: "url('/images/putiglowfestdetalles.png')",
+            }}
           />
 
           <div className="absolute inset-0 bg-black/55" />

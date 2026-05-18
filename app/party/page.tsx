@@ -246,13 +246,11 @@ export default function PartyInvite() {
 
             <div className="mt-8">
 
-              <a
-                href="https://wa.me/527351210954"
-                target="_blank"
-                className="whatsapp-neon inline-block bg-green-500/20 backdrop-blur-md px-8 py-4 rounded-full font-bold"
+              <button
+                className="whatsapp-neon inline-block bg-green-500/20 backdrop-blur-md px-8 py-4 rounded-full font-bold cursor-default"
               >
                 💬 Reserva por WhatsApp
-              </a>
+              </button>
 
             </div>
 

@@ -86,6 +86,24 @@ export default function PartyInvite() {
           }
         }
 
+        @keyframes neonWhite {
+          0%, 100% {
+            box-shadow:
+              0 0 5px rgba(255,255,255,0.9),
+              0 0 10px rgba(255,255,255,0.9),
+              0 0 20px rgba(255,255,255,0.8),
+              0 0 40px rgba(255,255,255,0.6);
+          }
+
+          50% {
+            box-shadow:
+              0 0 2px rgba(255,255,255,0.5),
+              0 0 6px rgba(255,255,255,0.5),
+              0 0 12px rgba(255,255,255,0.4),
+              0 0 24px rgba(255,255,255,0.3);
+          }
+        }
+
         .neon-box {
           animation: neonPulse 1.8s infinite ease-in-out;
           border: 1px solid rgba(255,255,255,0.95);
@@ -101,6 +119,11 @@ export default function PartyInvite() {
           animation: neonGreen 1.8s infinite ease-in-out;
           border: 1px solid rgba(34,197,94,0.9);
           color: white;
+        }
+
+        .button-neon {
+          animation: neonWhite 1.8s infinite ease-in-out;
+          border: 1px solid rgba(255,255,255,0.9);
         }
       `}</style>
 
@@ -139,14 +162,14 @@ export default function PartyInvite() {
               <a
                 href="https://maps.app.goo.gl/E9zAtUE5LhnTwZaA9"
                 target="_blank"
-                className="bg-white text-black px-7 py-4 rounded-full font-bold"
+                className="button-neon bg-white/10 backdrop-blur-md px-7 py-4 rounded-full font-bold"
               >
                 📍 Ubicación
               </a>
 
               <a
                 href="#cover"
-                className="border border-white/20 bg-white/10 backdrop-blur-md px-7 py-4 rounded-full font-bold"
+                className="button-neon bg-white/10 backdrop-blur-md px-7 py-4 rounded-full font-bold"
               >
                 🎟️ Cover
               </a>
@@ -208,10 +231,6 @@ export default function PartyInvite() {
               </p>
 
             </div>
-
-            <p className="text-white text-2xl mt-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]">
-              Jonacatepec, Mor.
-            </p>
 
             <div className="mt-10 inline-block bg-black/20 backdrop-blur-md px-8 py-5 rounded-[2rem] neon-box">
 
@@ -317,7 +336,7 @@ export default function PartyInvite() {
             <a
               href="https://luisalberto.vg/"
               target="_blank"
-              className="inline-block mt-12 bg-white text-black px-10 py-5 rounded-full font-black text-lg"
+              className="button-neon inline-block mt-12 bg-white/10 backdrop-blur-md px-10 py-5 rounded-full font-black text-lg"
             >
               Hagamos la tuya
             </a>
